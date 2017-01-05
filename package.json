@@ -85,11 +85,12 @@
     "electron": "./node_modules/.bin/electron"
   },
   "keywords": [
+    "whiteboard",
     "electron",
     "boilerplate",
     "react",
     "react-router",
-    "flux",
+    "redux",
     "webpack",
     "react-hot"
   ],

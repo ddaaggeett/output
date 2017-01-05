@@ -2,7 +2,7 @@
 
 ##Are you a newcomer? Visit our descriptive [WIKI](https://github.com/blooprint/blooprint.xyz/wiki)
 
-##Please become familiar with our core [Blooprint-API](https://github.com/blooprint/blooprint-api), which we're using as a submodule to this project.  The API returns images for rendering the DOM.
+##Please become familiar with our core [Blooprint-API](https://github.com/blooprint/blooprint-api), which we're using as the core engine to this project.  The API returns images for rendering the DOM.
 
 ####In the project directory, you can run:
 

@@ -1,26 +1,16 @@
-// @flow
+/*
+NOTE:
+see old_design.js for UI preferences - main UI will be keyboard control. buttons used for dev purposes
+*/
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import styles from './Counter.css'
 
 class Design extends Component {
 
-
-  constructor(props){
-    super(props)
-  }
-
-  props: {
-    changeColor: () => void,
-    addBlip: () => void,
-    color_set: color
-  }
-
   render() {
 
-    const { changeColor, addBlip, color_set } = this.props
-
-  //   console.log('COMPONENT\nprops = ',this.props)
+    const { changeColor, addBlip, design } = this.props
 
     return (
       <div>
@@ -36,8 +26,7 @@ class Design extends Component {
         <button onClick={() => changeColor('blue')}>blue</button>
         <br/>
         <br/>
-        //TODO: props undefined
-        <h1>marker color = { color_set } </h1>
+        <h1>marker color = { design.color_set } </h1>
 
       </div>
     )

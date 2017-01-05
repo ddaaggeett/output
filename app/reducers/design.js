@@ -7,9 +7,10 @@ const initialState = {
 
 }
 
-function design(state = initialState, action) {
+export default function design(state = initialState, action) {
 	switch (action.type) {
 		case 'CHANGE_COLOR':
+			console.log('inside reducer - color = ', action.new_color)
 			return {
 				...state,
 				color_set: action.new_color
@@ -19,5 +20,3 @@ function design(state = initialState, action) {
 			return state
 	}
 }
-
-export default design
