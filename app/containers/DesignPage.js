@@ -6,7 +6,10 @@ import { Link } from 'react-router'
 import Design from '../components/Design';
 import * as DesignActions from '../actions/design';
 
+console.log('DesignActions = ',DesignActions)
+
 function mapStateToProps(state) {
+	console.log('mapStateToProps = ',state)
 	return {
 		design: state.design
 	}
