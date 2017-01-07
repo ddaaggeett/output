@@ -4,8 +4,9 @@ see old_design.js for UI preferences - main UI will be keyboard control. buttons
 */
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
-// import styles from './Design.css'
 import EventListener from 'react-event-listener'
+import Help from './Help'
+import styles from './Design.css'
 
 class Design extends Component {
 
@@ -23,7 +24,7 @@ class Design extends Component {
                             } = this.props
 
         return (
-            <div>
+            <div className={styles.design} >
                 <EventListener target={document} onKeyDown={() => keyPressed(event.key)} />
                 Design Page
                 <br/>
@@ -35,68 +36,21 @@ class Design extends Component {
                 <h3>color pending = { design.color_pending } </h3>
                 <br/>
                 <br/>
-                user remark: select marker color by typing it in
+                select marker color by typing it in
+                <br/>
+                <br/>
+                toggle HELP = CTRL+H
+
+                <br/>
+                <br/>
+                { design.helpVisible ? <Help /> : null }
+
+
 
             </div>
         )
     }
 
-    handleKeyDown = (e) => {
-        
-        console.log('before = ',design.color_pending)
-        {() => keyPressed(e.key).bind(this)}
-        console.log('after  = ',design.color_pending)
-
-        // this.checkHelp(e)
-        // this.checkColor()
-    }
-
-
-    //  color_set logic
-    checkColor = () => {
-
-        // console.log('!!!color_pending = ', this.design.color_pending)
-
-        // var col = { design.color_pending }.toLowerCase()
-        // console.log('!!!color_pending = ',col)
-        // if (col.includes('red')) {
-        //     // {() => changeColor('red')}
-        //     this.setState({
-        //         color_pending: '',
-        //         color_set: 'red'
-        //     })
-        // }
-        // else if (col.includes('blue')) {
-        //     this.setState({
-        //         color_pending: '',
-        //         color_set: 'blue'
-        //     })
-        // }
-        // else if (col.includes('green')) {
-        //     this.setState({
-        //         color_pending: '',
-        //         color_set: 'green'
-        //     })
-        // }
-        // else if (col.includes('orange')) {
-        //     this.setState({
-        //         color_pending: '',
-        //         color_set: 'orange'
-        //     })
-        // }
-        // else if (col.includes('gray')) {
-        //     this.setState({
-        //         color_pending: '',
-        //         color_set: 'gray'
-        //     })
-        // }
-        // else if (col.includes('black')) {
-        //     this.setState({
-        //         color_pending: '',
-        //         color_set: 'black'
-        //     })
-        // }
-    }
 
     // //  help component toggle logic
     // checkHelp = (e) => {

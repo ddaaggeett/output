@@ -8,7 +8,7 @@ const initialState = {
 
 }
 
-export default function design(state = initialState, action:Object) {
+export default function design(state = initialState, action) {
 	switch (action.type) {
 		
 		// case 'CHANGE_COLOR': // passing
@@ -20,61 +20,87 @@ export default function design(state = initialState, action:Object) {
 
 		case 'KEY_PRESSED':
 
-			const some = state.color_pending.concat(action.key).toLowerCase()
+			const pending = state.color_pending.concat(action.key).toLowerCase()
 
-			if (some.includes('red')) {
+			if (pending.includes('controlh')) {
+
+				if(!state.helpVisible){
+					return {
+						...state,
+						helpVisible: true,
+						color_pending: ''
+
+					}
+				}
+				else{
+					return {
+						...state,
+						helpVisible: false,
+						color_pending: ''
+					}
+				}
+			}
+
+			if (pending.includes('red')) {
 				return {
 					...state,
 					color_set: 'red',
 					color_pending: ''
 				}
 			}
-			else if (some.includes('blue')) {
+			else if (pending.includes('blue')) {
 				return {
 					...state,
 					color_set: 'blue',
 					color_pending: ''
 				}
 			}
-			else if (some.includes('green')) {
+			else if (pending.includes('green')) {
 				return {
 					...state,
 					color_set: 'green',
 					color_pending: ''
 				}
 			}
-			else if (some.includes('orange')) {
+			else if (pending.includes('orange')) {
 				return {
 					...state,
 					color_set: 'orange',
 					color_pending: ''
 				}
 			}
-			else if (some.includes('black')) {
+			else if (pending.includes('black')) {
 				return {
 					...state,
 					color_set: 'black',
 					color_pending: ''
 				}
 			}
-			else if (some.includes('black')) {
+			else if (pending.includes('black')) {
 				return {
 					...state,
 					color_set: 'black',
 					color_pending: ''
 				}
 			}
-			else if (some.includes('brown')) {
+			else if (pending.includes('brown')) {
 				return {
 					...state,
 					color_set: 'brown',
 					color_pending: ''
 				}
 			}
+			else if (pending.includes('gray')) {
+				return {
+					...state,
+					color_set: 'gray',
+					color_pending: ''
+				}
+			}
 			
 			return {
 				...state,
-				color_pending: state.color_pending.concat(action.key)
+				color_pending: pending
 			}
 
 			
