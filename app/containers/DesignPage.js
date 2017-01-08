@@ -9,7 +9,6 @@ import * as DesignActions from '../actions/design';
 console.log('DesignActions = ',DesignActions)
 
 function mapStateToProps(state) {
-	console.log('mapStateToProps = ',state)
 	return {
 		design: state.design
 	}

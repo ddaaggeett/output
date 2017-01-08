@@ -4,7 +4,8 @@ const initialState = {
 
 	color_pending: '',
     color_set: 'black',
-    helpVisible: false
+    helpVisible: false,
+    titleBlockVisible: false
 
 }
 
@@ -22,14 +23,13 @@ export default function design(state = initialState, action) {
 
 			const pending = state.color_pending.concat(action.key).toLowerCase()
 
-			if (pending.includes('controlh')) {
-
+			//	toggle help visibility
+			if (pending.includes('shift?')) {
 				if(!state.helpVisible){
 					return {
 						...state,
 						helpVisible: true,
 						color_pending: ''
-
 					}
 				}
 				else{
@@ -41,6 +41,25 @@ export default function design(state = initialState, action) {
 				}
 			}
 
+			//	toggle title block visibility
+			if (pending.includes('shift>')) {
+				if(!state.titleBlockVisible){
+					return {
+						...state,
+						titleBlockVisible: true,
+						color_pending: ''
+					}
+				}
+				else{
+					return {
+						...state,
+						titleBlockVisible: false,
+						color_pending: ''
+					}
+				}
+			}
+
+			//	marker color control
 			if (pending.includes('red')) {
 				return {
 					...state,

@@ -1,5 +1,44 @@
 .help {
-	position: absolute;
-	top: 40%;
-	right: 40%;
+	position: fixed;
+	background-color: white;
+	margin: 0;
+	padding: 10px;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: 1px dashed red;
+	border-radius: 5px;
+	top: 30%;
+	left: 30%;
 }
+.comp {
+	text-align: center;
+}
+.red {
+	font-weight: bold;
+	color: red;
+}
+.green {
+	font-weight: bold;
+	color: green;
+}
+.blue {
+	font-weight: bold;
+	color: blue;
+}
+.orange {
+	font-weight: bold;
+	color: orange;
+}
+.gray {
+	font-weight: bold;
+	color: gray;
+}
+.brown {
+	font-weight: bold;
+	color: brown;
+}
+.black {
+	font-weight: bold;
+	color: black;
+}
+

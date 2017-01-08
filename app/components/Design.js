@@ -1,11 +1,8 @@
-/*
-NOTE:
-see old_design.js for UI preferences - main UI will be keyboard control. buttons used for dev purposes
-*/
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import EventListener from 'react-event-listener'
 import Help from './Help'
+import TitleBlock from './TitleBlock'
 import styles from './Design.css'
 
 class Design extends Component {
@@ -36,38 +33,17 @@ class Design extends Component {
                 <h3>color pending = { design.color_pending } </h3>
                 <br/>
                 <br/>
-                select marker color by typing it in
-                <br/>
-                <br/>
-                toggle HELP = CTRL+H
-
+                <p className={styles.offerHelp}>toggle HELP:  ?</p>
                 <br/>
                 <br/>
                 { design.helpVisible ? <Help /> : null }
+                { design.titleBlockVisible ? <TitleBlock /> : null }
 
 
 
             </div>
         )
     }
-
-
-    // //  help component toggle logic
-    // checkHelp = (e) => {
-    //     if ((e.key === 'h') || (e.key === 'H')) {
-    //         if(!this.state.helpVisible){
-    //             this.setState({
-    //                 helpVisible: true
-    //             })
-    //         }
-    //         else{
-    //             this.setState({
-    //                 helpVisible: false
-    //             })
-    //         }
-    //     }
-    // }
-
 }
 
 export default Design

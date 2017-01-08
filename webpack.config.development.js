@@ -57,6 +57,8 @@ export default validate(merge(baseConfig, {
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' },
+
+      { test: /\.(jpg|jpeg|JPEG|JPG)$/, loader: 'url-loader?limit=8192' }
     ]
   },
 

@@ -1,0 +1,10 @@
+.main {
+	position: fixed;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 3px;
+	height: 200px;
+	width: 450px;
+	bottom: 3px;
+	right: 3px;
+}
