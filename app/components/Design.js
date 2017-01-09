@@ -29,15 +29,11 @@ class Design extends Component {
                 <br/>
                 <br/>
                 
-                <h1>marker color = { design.color_set } </h1>
-                <h3>color pending = { design.color_pending } </h3>
-                <br/>
-                <br/>
                 <p className={styles.offerHelp}>toggle HELP:  ?</p>
                 <br/>
                 <br/>
                 { design.helpVisible ? <Help /> : null }
-                { design.titleBlockVisible ? <TitleBlock /> : null }
+                { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} action_pending={design.action_pending} /> : null }
 
 
 

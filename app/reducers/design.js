@@ -1,11 +1,14 @@
 // @flow
 
+// import Blooprint from '../../api/Blooprint'
+
 const initialState = {
 
 	color_pending: '',
     color_set: 'black',
     helpVisible: false,
-    titleBlockVisible: false
+    titleBlockVisible: false,
+    action_pending: 'bloop'
 
 }
 
@@ -22,6 +25,46 @@ export default function design(state = initialState, action) {
 		case 'KEY_PRESSED':
 
 			const pending = state.color_pending.concat(action.key).toLowerCase()
+
+			//	trigger action_pending
+			if (pending.includes('control ')) {
+				if((state.action_pending === 'bloop')||(state.action_pending === 'blip')||(state.action_pending === 'erase')||(state.action_pending === 'calibrate')){
+
+					// Blooprint API trigger
+
+					return {
+						...state,
+						color_pending: '',
+						action_pending: 'bloop'
+					}
+				}
+			}
+
+			//	set action_pending
+			if (pending.includes('1')) {
+				return {
+					...state,
+					action_pending: 'bloop'
+				}
+			}
+			else if (pending.includes('2')) {
+				return {
+					...state,
+					action_pending: 'blip'
+				}
+			}
+			else if (pending.includes('3')) {
+				return {
+					...state,
+					action_pending: 'erase'
+				}
+			}
+			else if (pending.includes('4')) {
+				return {
+					...state,
+					action_pending: 'calibrate'
+				}
+			}
 
 			//	toggle help visibility
 			if (pending.includes('shift?')) {

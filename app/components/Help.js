@@ -19,6 +19,9 @@ class Help extends Component {
 				<span className={styles.gray}>gray</span>{' '}
 				<span className={styles.brown}>brown</span>{' '}
 				<span className={styles.black}>black</span></p>
+				<h4>set pending action by typing a number:</h4>
+				<p>BLOOP-<span className={styles.num}>1</span> BLIP-<span className={styles.num}>2</span> ERASE-<span className={styles.num}>3</span> CALIBRATE-<span className={styles.num}>4</span></p>
+				<h4>trigger pending action: CTRL-SPACE</h4>
 				<h4>toggle title block:  ></h4>
 			</div>
 		)

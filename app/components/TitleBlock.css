@@ -8,3 +8,27 @@
 	bottom: 3px;
 	right: 3px;
 }
+.markerBox {
+	position: absolute;
+	background: black;
+	border: 0;
+	bottom: 40px;
+	height: 15px;
+	left: 0;
+	right: 0;
+}
+.actionPending {
+	position: absolute;
+	margin: 0;
+	margin-left: 10px;
+	bottom: 6px;
+	font-size: 22px;
+}
+.logo {
+	vertical-align: text-bottom;
+	height: 25px;
+	margin: 0;
+	margin-left: -10px;
+	margin-right: -10px;
+	/*bottom: au;*/
+}

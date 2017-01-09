@@ -7,7 +7,7 @@
 	padding-bottom: 0;
 	border: 1px dashed red;
 	border-radius: 5px;
-	top: 30%;
+	top: 200px;
 	left: 30%;
 }
 .comp {
@@ -40,5 +40,9 @@
 .black {
 	font-weight: bold;
 	color: black;
+}
+.num {
+	color: red;
+	font-weight: 700;
 }
 

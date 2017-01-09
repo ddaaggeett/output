@@ -5,11 +5,25 @@
   /*left: 10px;*/
   text-align: center;
 }
-
-.container h2 {
-  font-size: 5rem;
+.linkDesign {
+	position: absolute;
+	top: 250px;
+	left: 400px;
 }
-
-.container a {
-  font-size: 1.4rem;
+button {
+	font-size: 18px;
+	color: blue;
+	background-color: white;
+	border-radius: 5px;
+	width: 120px;
+}
+button:hover {
+	background-color: blue;
+	color: white;
+}
+.logo {
+	position: absolute;
+	left: 100px;
+	top: 150px;
+	height: 80px;
 }
