@@ -12,19 +12,19 @@
 
 Wait for desktop application to open.
 
-`
+```
 "devEngines": {
     "node": ">=6.x",
     "npm": ">=3.x"
 }
-`
+```
 
 ####License: **GPL-3.0** - see [**original**](https://github.com/blooprint/blooprint-api/blob/master/LICENSE)
 _________________________________________________
 
 #Development Direction
 
-This application takes advantage of **[Electron](http://electron.atom.io/)** desktop application technology for the purpose of working with the local machine's file system and communicating with the **[camera application](https://www.github.com/blooprint/blooprint-camera)** via shell commands.  **Please refer to [this boilerplate](https://github.com/chentsulin/electron-react-boilerplate) as a development sample**.
+PLEASE REFER TO THE [DEVELOPER PROGRESS WIKI](https://github.com/blooprint/blooprint.xyz/wiki/Developer-Progress) FOR DETAILS
 
 Apart from critical pieces that need to be developed in this application (ie - login/user authentication, further [API](https://github.com/blooprint/blooprint-api) development, etc...) the main functionality that needs development focus is the **Design component**.
 

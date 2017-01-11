@@ -7,10 +7,15 @@
 	padding-bottom: 0;
 	border: 1px dashed red;
 	border-radius: 5px;
-	top: 200px;
+	top: 100px;
 	left: 30%;
 }
+h4 {
+	font-style: italic;
+	font-variant: small-caps;
+}
 .comp {
+	font-variant: small-caps;
 	text-align: center;
 }
 .red {

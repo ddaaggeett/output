@@ -4,6 +4,10 @@ dist/
 blooprint.xyz.wiki/
 npm-debug.log
 /__build__/
+*.jpg	
+*.jpeg	
+*.JPG	
+*.JPEG	
 
 # Logs
 logs

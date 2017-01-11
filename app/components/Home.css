@@ -1,16 +1,14 @@
-.container {
+.home {
   position: absolute;
-  left: auto;
-  top: auto;
-  /*left: 10px;*/
   text-align: center;
+  /*border: 10px dashed blue;border: */
 }
 .linkDesign {
 	position: absolute;
 	top: 250px;
 	left: 400px;
 }
-button {
+.linkDesign button {
 	font-size: 18px;
 	color: blue;
 	background-color: white;
@@ -18,7 +16,7 @@ button {
 	width: 120px;
 }
 button:hover {
-	background-color: blue;
+	background-color: red;
 	color: white;
 }
 .logo {
@@ -26,4 +24,13 @@ button:hover {
 	left: 100px;
 	top: 150px;
 	height: 80px;
+}
+.slogan {
+	position: absolute;
+	padding: 10px;
+	/*border: 1px solid black;*/
+	width: 400px;
+	top: 380px;
+	left: 150px;
+	font-size: 30px;
 }

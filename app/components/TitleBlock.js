@@ -21,9 +21,8 @@ class TitleBlock extends Component {
             <div className={styles.main}>
                 Title Block <br/>
                 <div className={styles.markerBox} style={markerColor} />
-                <div>
                 <p className={styles.actionPending}>pending <img className={styles.logo} src='../resources/trademark_master.JPG' /> action = { action_pending }</p>
-                </div>
+                <Link className={styles.linkHome} to='/' ><button>GO HOME</button></Link>
             </div>
         )
     }

@@ -1,0 +1,7 @@
+.blip {
+	background-color: blue;
+	height: 25px;
+	width: 25px;
+	border: 5px solid black;
+	border-radius: 50%;
+}

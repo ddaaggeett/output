@@ -1,0 +1,11 @@
+.offerHelp {
+	position: absolute;
+	width: 400px;
+	top: 200px;
+	left: 350px;
+}
+.q {
+	vertical-align: -30px;
+	color: red;
+	font-size: 150px;
+}

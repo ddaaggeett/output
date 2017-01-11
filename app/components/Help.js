@@ -10,7 +10,8 @@ class Help extends Component {
     render() {
 		return (
 			<div className={styles.help}>
-				<h2 className={styles.comp}>Design Help</h2>
+				<h1 className={styles.comp}>Design Help</h1>
+				<h4>add BLIP by DOUBLE CLICKING anywhere</h4>
 				<h4>select marker color by typing:</h4>
 				<p><span className={styles.red}>red</span>{' '}
 				<span className={styles.green}>green</span>{' '}

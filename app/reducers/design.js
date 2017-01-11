@@ -8,18 +8,29 @@ const initialState = {
     color_set: 'black',
     helpVisible: false,
     titleBlockVisible: false,
-    action_pending: 'bloop'
+    action_pending: 'bloop',
+    blipWindowVisible: false,
+    blips: []
 
 }
 
 export default function design(state = initialState, action) {
 	switch (action.type) {
 		
-		// case 'CHANGE_COLOR': // passing
-		// 	return {
-		// 		...state,
-		// 		color_set: action.new_color
-		// 	}
+		//	blip actions handling
+		case 'ADD_BLIP': // passing
+			console.log('adding blip to x:',action.xPos,' y:',action.yPos)
+			return {
+				...state,
+				blipVisible: true,
+				// blipCount: state.blipCount++
+			}
+
+		case 'OPEN_BLIP':
+			return {
+				...state,
+				// blipVisible: true
+			}
 
 
 		case 'KEY_PRESSED':

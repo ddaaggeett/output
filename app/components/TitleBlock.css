@@ -32,3 +32,19 @@
 	margin-right: -10px;
 	/*bottom: au;*/
 }
+.linkHome {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.linkHome button {
+	font-size: 10px;
+	color: blue;
+	background-color: white;
+	border-radius: 5px;
+	width: 80px;
+}
+button:hover {
+	background-color: red;
+	color: white;
+}
