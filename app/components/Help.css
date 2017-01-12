@@ -5,10 +5,14 @@
 	padding: 10px;
 	padding-top: 0;
 	padding-bottom: 0;
-	border: 1px dashed red;
-	border-radius: 5px;
-	top: 100px;
+	top: 10%;
 	left: 30%;
+}
+.key {
+	font-size: 30px;
+	font-weight: 700;
+	vertical-align: -4px;
+	color: red;
 }
 h4 {
 	font-style: italic;
@@ -46,8 +50,10 @@ h4 {
 	font-weight: bold;
 	color: black;
 }
-.num {
-	color: red;
-	font-weight: 700;
+.logo {
+	vertical-align: text-bottom;
+	height: 20px;
+	margin: 0;
+	margin-left: -5px;
+	margin-right: -5px;
 }
-

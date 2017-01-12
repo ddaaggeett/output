@@ -11,8 +11,9 @@ class Help extends Component {
 		return (
 			<div className={styles.help}>
 				<h1 className={styles.comp}>Design Help</h1>
+				<h4>toggle TITLE BLOCK by PRESSING:  <span className={styles.key} >></span></h4>
 				<h4>add BLIP by DOUBLE CLICKING anywhere</h4>
-				<h4>select marker color by typing:</h4>
+				<h4>select MARKER color by TYPING:</h4>
 				<p><span className={styles.red}>red</span>{' '}
 				<span className={styles.green}>green</span>{' '}
 				<span className={styles.blue}>blue</span>{' '}
@@ -20,10 +21,9 @@ class Help extends Component {
 				<span className={styles.gray}>gray</span>{' '}
 				<span className={styles.brown}>brown</span>{' '}
 				<span className={styles.black}>black</span></p>
-				<h4>set pending action by typing a number:</h4>
-				<p>BLOOP-<span className={styles.num}>1</span> BLIP-<span className={styles.num}>2</span> ERASE-<span className={styles.num}>3</span> CALIBRATE-<span className={styles.num}>4</span></p>
-				<h4>trigger pending action: CTRL-SPACE</h4>
-				<h4>toggle title block:  ></h4>
+				<h4>set pending ACTION by PRESSING:</h4>
+				<p><span className={styles.key}>1</span>-BLOOP <span className={styles.key}>2</span>-BLIP <span className={styles.key}>3</span>-ERASE <span className={styles.key}>4</span>-CALIBRATE</p>
+				<h4>trigger <img className={styles.logo} src='http://www.blooprint.xyz/images/trademark_master.JPG' /> action: <span className={styles.key}>CTRL-SPACE</span></h4>
 			</div>
 		)
 	}

@@ -1,12 +1,12 @@
 // @flow
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
-import counter from './counter';
 import design from './design';
+import blips from './blips';
 
 const rootReducer = combineReducers({
-  counter,
   design,
+  blips,
   routing
 });
 

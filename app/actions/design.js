@@ -5,11 +5,3 @@ export function keyPressed(key){
 		key
 	}
 }
-//	triggered by double click on document
-export function addBlip(xPos,yPos) {
-	return {
-		type: 'ADD_BLIP',
-		xPos,
-		yPos
-	}
-}

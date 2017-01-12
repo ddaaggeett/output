@@ -8,7 +8,7 @@ export default class Home extends Component {
 
         return (
             <div className={styles.home}>
-                <img className={styles.logo} src='../resources/trademark_master.JPG' />
+                <img className={styles.logo} src='http://www.blooprint.xyz/images/trademark_master.JPG' />
                 <Link className={styles.linkDesign} to="/design"><button>GO DESIGN</button></Link>
                 <p className={styles.slogan} >Welcome to our development process!</p>
             </div>
