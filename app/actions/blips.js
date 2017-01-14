@@ -1,21 +1,15 @@
-export function addBlip(blipId,xPos,yPos) {
+export function addBlip(blipID,xPos,yPos) {
 	return {
 		type: 'ADD_BLIP',
-		blipId,
+		blipID,
 		xPos,
 		yPos
 	}
 }
-export function openBlip(blipId) {
-	return {
-		type: 'OPEN_BLIP',
-		blipId
-	}
-}
-export function editBlip(blipId,text) {
+export function editBlip(blipID,text) {
 	return {
 		type: 'EDIT_BLIP',
-		blipId,
+		blipID,
 		text
 	}
 }

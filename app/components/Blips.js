@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Blip from './Blip';
+import BlipButton from './BlipButton';
 
 
 class Blips extends Component {
@@ -13,13 +13,11 @@ class Blips extends Component {
 		const { blips } = this.props
 
 		return(
-
 			<div>
-				{ blips.map((blip, i) => <Blip key={i} x={blips[i].x} y={blips[i].y} />) }
+				{ blips.map((blip, i) => <BlipButton key={i} i={i} blip={blip} {...this.props} />) }
 			</div>
 		)
 	}
-
 }
 
 export default Blips

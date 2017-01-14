@@ -1,8 +1,28 @@
 .blip {
 	position: absolute;
-	background-color: blue;
-	height: 26px;
-	width: 26px;
+	width: 400px;
+	top: 20%;
+	left: 30%;
+}
+.text {
+	position: absolute;
+	resize: none;
+	font-size: 14px;
+	border: 3px solid #cccccc;
+	left: 0;
+	top: 40px;
+	width: 400px;
+	height: 250px;
+}
+.escbutton {
+	position: absolute;
 	border: 3px solid black;
-	border-radius: 50%;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 16px;
+	vertical-align: middle;
+	top: 0;
+	right: 0;
+	width: 60px;
+	height: 30px;
 }

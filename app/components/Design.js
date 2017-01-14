@@ -20,9 +20,6 @@ class Design extends Component {
 
     componentDidMount(){
 
-        this.setState({
-            helpOffered: true
-        })
         setTimeout(
             () => {
                 this.setState({
@@ -48,10 +45,10 @@ class Design extends Component {
         var m = new Date().getMinutes().toString()
         var s = new Date().getSeconds().toString()
         var mm = new Date().getMilliseconds().toString()
-        var blipId = yy.concat(MM,dd,h,m,s,mm)
+        var blipID = yy.concat(MM,dd,h,m,s,mm)
 
         return (
-            <div className={styles.design} onDoubleClick={(e) => { addBlip(blipId,e.clientX,e.clientY) }} >
+            <div className={styles.design} onDoubleClick={(e) => { addBlip(blipID,e.clientX,e.clientY) }} >
                 <EventListener target={document} onKeyDown={(e) => keyPressed(e.key)} />
                 
                 <Blips blips={blips} />

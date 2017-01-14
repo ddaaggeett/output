@@ -1,37 +1,31 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router'
+import EventListener from 'react-event-listener'
 import styles from './Blip.css'
-// import BlipEditWindow from './BlipEditWindow'
+
 
 class Blip extends Component {
 
-	constructor(props){
-        super(props)
-    }
+	render() {
 
-    handleClick(e) {
-	    e.preventDefault();
-	    console.log('blip clicked')
-	    // const { postId } = this.props.params;
-	    // const author = this.refs.author.value;
-	    // const comment = this.refs.comment.value;
-	    // this.props.addComment(postId, author, comment);
-	    // this.refs.commentForm.reset();
-	}
-	  
+		const { params, editBlip, blips } = this.props
 
-    render() {
-
-    	const { x, y } = this.props
-
-    	var blipLocation = {
-            left: x-13,
-            top: y-13
-        }
-
-		return (
-			<button className={styles.blip} style={blipLocation} onClick={this.handleClick} />
+		var index = 0
+		for(var i = 0; i < blips.length; i++) {
+	        if(blips[i].blipID === params.blipID) {
+	        	index = i
+	        }
+	    }
+		
+		return(
+			<div className={styles.blip}>
+                BLIP ID: { params.blipID }
+				<Link to={'/design'}><button className={styles.escbutton}>esc</button></Link>
+				<textarea className={styles.text} value={blips[index].text} onChange={(e) => editBlip(params.blipID, e.target.value)} />
+			</div>
 		)
 	}
+
 }
 
 export default Blip

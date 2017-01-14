@@ -1,7 +1,7 @@
 node_modules/
 *bundle.js
 dist/
-blooprint.xyz.wiki/
+blooprint.wiki/
 npm-debug.log
 /__build__/
 *.jpg	
