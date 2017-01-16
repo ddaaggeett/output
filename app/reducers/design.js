@@ -1,6 +1,4 @@
-// @flow
-
-// import Blooprint from '../../api/Blooprint'
+import capture from '../../api/capture'
 
 const initialState = {
 
@@ -8,12 +6,13 @@ const initialState = {
     color_set: 'black',
     helpVisible: false,
     titleBlockVisible: false,
-    action_pending: 'bloop'
+    action_pending: 'bloop',
+	image: ''
 }
 
 export default function design(state = initialState, action) {
 	switch (action.type) {
-		
+
 		case 'KEY_PRESSED':
 
 			const pending = state.color_pending.concat(action.key).toLowerCase()
@@ -22,12 +21,19 @@ export default function design(state = initialState, action) {
 			if (pending.includes('control ')) {
 				if((state.action_pending === 'bloop')||(state.action_pending === 'blip')||(state.action_pending === 'erase')||(state.action_pending === 'calibrate')){
 
-					// Blooprint API trigger
+					///////////////////////////////////////////////
+					///////////////////////////////////////////////
+					// camera capture trigger
+					console.log('triggering camera @ ',action.stamp)
+					capture(action.stamp)
+					///////////////////////////////////////////////
+					///////////////////////////////////////////////
 
 					return {
 						...state,
 						color_pending: '',
-						action_pending: 'bloop'
+						action_pending: 'bloop',
+						image: '../api/camera/' + action.stamp + '.jpg'
 					}
 				}
 			}
@@ -151,13 +157,13 @@ export default function design(state = initialState, action) {
 					color_pending: ''
 				}
 			}
-			
+
 			return {
 				...state,
 				color_pending: pending
 			}
 
-			
+
 		default:
 			return state
 	}

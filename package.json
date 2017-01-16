@@ -1,11 +1,11 @@
 {
-  "name": "blooprint.xyz",
+  "name": "blooprint",
   "version": "0.0.1",
   "description": "whiteboard internet platform",
   "twitter": "https://twitter.com/blooprint_xyz",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blooprint/blooprint.xyz.git"
+    "url": "git+https://github.com/blooprint/blooprint.git"
   },
   "author": {
     "name": "Dave Daggett",
@@ -15,7 +15,7 @@
   },
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/blooprint/blooprint.xyz/issues"
+    "url": "https://github.com/blooprint/blooprint/issues"
   },
   "private": true,
   "main": "main.js",
@@ -94,7 +94,7 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/blooprint/blooprint.xyz#readme",
+  "homepage": "https://github.com/blooprint/blooprint#readme",
   "devDependencies": {
     "asar": "^0.12.4",
     "babel-core": "^6.21.0",
@@ -160,11 +160,13 @@
     "webpack-validator": "^2.3.0"
   },
   "dependencies": {
+    "adbkit": "^2.7.0",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-event-listener": "^0.4.0",
+    "react-native": "^0.40.0",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",

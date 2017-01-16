@@ -1,13 +1,13 @@
 node_modules/
 *bundle.js
 dist/
-blooprint.wiki/
+*.wiki/
 npm-debug.log
 /__build__/
-*.jpg	
-*.jpeg	
-*.JPG	
-*.JPEG	
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
 
 # Logs
 logs

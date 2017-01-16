@@ -1,6 +1,6 @@
 {
-  "name": "blooprint.xyz",
-  "productName": "blooprint.xyz",
+  "name": "blooprint",
+  "productName": "blooprint",
   "version": "0.0.1",
   "description": "whiteboard internet platform",
   "main": "./main.js",

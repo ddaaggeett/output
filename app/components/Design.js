@@ -9,7 +9,6 @@ import styles from './Design.css'
 
 class Design extends Component {
 
-
     constructor(props){
         super(props)
 
@@ -32,10 +31,10 @@ class Design extends Component {
 
     render() {
 
-        const { 
-                blips, 
+        const {
+                blips,
                 addBlip,
-                keyPressed, 
+                keyPressed,
                 design          } = this.props
 
         var yy = new Date().getFullYear().toString()
@@ -45,18 +44,25 @@ class Design extends Component {
         var m = new Date().getMinutes().toString()
         var s = new Date().getSeconds().toString()
         var mm = new Date().getMilliseconds().toString()
-        var blipID = yy.concat(MM,dd,h,m,s,mm)
+        var renderTime = yy.concat(MM,dd,h,m,s,mm)
+
+        var imgUrl = design.image
+        // var imgUrl = null
+        var backimage = {
+            backgroundImage: 'url(' + imgUrl + ')',
+            backgroundSize: '100% 100%'
+        }
 
         return (
-            <div className={styles.design} onDoubleClick={(e) => { addBlip(blipID,e.clientX,e.clientY) }} >
-                <EventListener target={document} onKeyDown={(e) => keyPressed(e.key)} />
-                
+            <div className={styles.design} style={backimage} onDoubleClick={(e) => { addBlip(renderTime,e.clientX,e.clientY) }} >
+                <EventListener target={document} onKeyDown={(e) => keyPressed(e.key, renderTime)} />
+
                 <Blips blips={blips} />
-                
+
                 { design.helpVisible ? <Help /> : null }
                 { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} action_pending={design.action_pending} /> : null }
                 { this.state.helpOffered ? <OfferHelp /> : null }
-                
+
             </div>
         )
     }
