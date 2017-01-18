@@ -13,3 +13,9 @@ export function editBlip(blipID,text) {
 		text
 	}
 }
+export function deleteBlip(index) {
+	return {
+		type: 'DELETE_BLIP',
+		index
+	}
+}

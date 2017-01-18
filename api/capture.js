@@ -1,5 +1,4 @@
 var execSync = require('child_process').execSync
-// import React from 'react'
 
 var sizeAfter = ''
 var sizeBefore = ''
@@ -14,7 +13,7 @@ export default function capture(tag) {
 }
 
 function rename(tag) {
-    console.log('pulling image...')
+    console.log('renaming image to ',tag)
     execSync('adb shell mv ./sdcard/dcim/camera/* ./sdcard/dcim/camera/'+tag+'.jpg')
 }
 

@@ -1,0 +1,50 @@
+.calibration {
+    position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+.direction {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+.done {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.ul {
+    position: absolute;
+    border: 1px solid black;
+    height: 45%;
+    width: 45%;
+    top: 0;
+    left: 0;
+}
+.ur {
+    position: absolute;
+    border: 1px solid black;
+    height: 45%;
+    width: 45%;
+    top: 0;
+    right: 0;
+}
+.ll {
+    position: absolute;
+    border: 1px solid black;
+    height: 45%;
+    width: 45%;
+    bottom: 0;
+    left: 0;
+}
+.lr {
+    position: absolute;
+    border: 1px solid black;
+    height: 45%;
+    width: 45%;
+    bottom: 0;
+    right: 0;
+}

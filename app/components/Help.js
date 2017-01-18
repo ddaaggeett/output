@@ -22,7 +22,7 @@ class Help extends Component {
 				<span className={styles.brown}>brown</span>{' '}
 				<span className={styles.black}>black</span></p>
 				<h4>set pending ACTION by PRESSING:</h4>
-				<p><span className={styles.key}>1</span>-BLOOP <span className={styles.key}>2</span>-BLIP <span className={styles.key}>3</span>-ERASE <span className={styles.key}>4</span>-CALIBRATE</p>
+				<p><span className={styles.key}>1</span>-BLOOP <span className={styles.key}>2</span>-ERASE <span className={styles.key}>3</span>-CALIBRATE</p>
 				<h4>trigger <img className={styles.logo} src='http://www.blooprint.xyz/images/trademark_master.JPG' /> action: <span className={styles.key}>CTRL-SPACE</span></h4>
 			</div>
 		)

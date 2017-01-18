@@ -6,7 +6,6 @@ import HomePage from './containers/HomePage';
 import DesignPage from './containers/DesignPage';
 import BlipPage from './containers/BlipPage';
 
-
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />

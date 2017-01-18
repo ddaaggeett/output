@@ -1,11 +1,16 @@
-
 const initialState = []
-
 
 export default function blips(state = initialState, action) {
 	switch(action.type) {
 
 		//	blip actions handling
+		case 'DELETE_BLIP':
+
+			return [
+				...state.slice(0,action.index),
+				...state.slice(action.index+1)
+			]
+
 		case 'ADD_BLIP': // passing
 
 			return [
@@ -37,6 +42,6 @@ export default function blips(state = initialState, action) {
 
 		default:
 			return state
-		
+
 	}
 }

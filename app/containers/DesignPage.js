@@ -6,18 +6,20 @@ import { Link } from 'react-router'
 import Design from '../components/Design';
 import * as DesignActions from '../actions/design';
 import * as BlipActions from '../actions/blips';
+import * as CalibrationActions from '../actions/calibration';
 
 function mapStateToProps(state) {
 	return {
 		design: state.design,
-		blips: state.blips
+		blips: state.blips,
+		calibration: state.calibration
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	//	multiple action creators - send as single object
 	//	http://stackoverflow.com/questions/35454633/redux-connect-with-multiples-actions-states
-	return bindActionCreators(Object.assign({}, DesignActions, BlipActions), dispatch)
+	return bindActionCreators(Object.assign({}, DesignActions, BlipActions, CalibrationActions), dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Design)

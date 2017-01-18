@@ -26,3 +26,15 @@
 	width: 60px;
 	height: 30px;
 }
+.delbutton {
+	position: absolute;
+	border: 3px solid black;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 16px;
+	vertical-align: middle;
+	top: 0;
+	right: 60px;
+	width: 60px;
+	height: 30px;
+}
