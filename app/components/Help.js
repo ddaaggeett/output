@@ -18,12 +18,13 @@ class Help extends Component {
 				<span className={styles.green}>green</span>{' '}
 				<span className={styles.blue}>blue</span>{' '}
 				<span className={styles.orange}>orange</span>{' '}
+				<span className={styles.purple}>purple</span>{' '}
 				<span className={styles.gray}>gray</span>{' '}
 				<span className={styles.brown}>brown</span>{' '}
 				<span className={styles.black}>black</span></p>
 				<h4>set pending ACTION by PRESSING:</h4>
 				<p><span className={styles.key}>1</span>-WRITE <span className={styles.key}>2</span>-ERASE <span className={styles.key}>3</span>-CALIBRATE</p>
-				<h4>trigger <img className={styles.logo} src='http://www.blooprint.xyz/images/trademark_master.JPG' /> action: <span className={styles.key}>CTRL-SPACE</span></h4>
+				<h4>trigger BLOOP action: <span className={styles.key}>CTRL-SPACE</span></h4>
 			</div>
 		)
 	}

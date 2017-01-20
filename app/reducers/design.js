@@ -154,6 +154,13 @@ export default function design(state = initialState, action) {
 					color_pending: ''
 				}
 			}
+			else if (pending.includes('purple')) {
+				return {
+					...state,
+					color_set: 'purple',
+					color_pending: ''
+				}
+			}
 			else if (pending.includes('black')) {
 				return {
 					...state,
