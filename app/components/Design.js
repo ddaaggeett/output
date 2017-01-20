@@ -47,8 +47,8 @@ class Design extends Component {
         TODO:
         image will need to be the compiled output image from the blooprint-api
         */
-        var imgUrl = null
-        // var imgUrl = design.image
+        // var imgUrl = null
+        var imgUrl = design.image
         var backimage = {
             backgroundImage: 'url(' + imgUrl + ')',
             backgroundSize: '100% 100%'

@@ -1,12 +1,11 @@
 import capture from '../../api/capture'
 
 const initialState = {
-
 	color_pending: '',
     color_set: 'black',
     helpVisible: false,
     titleBlockVisible: false,
-    action_pending: 'bloop',
+    action_pending: 'write',
 	isCalibrating: false,
 	blipsVisible: true,
 	image: ''
@@ -28,15 +27,15 @@ export default function design(state = initialState, action) {
 
 			//	trigger action_pending
 			if (pending.includes('control ')) {
-				if((state.action_pending === 'bloop')||(state.action_pending === 'erase')||(state.action_pending === 'calibrate')){
+				if((state.action_pending === 'write')||(state.action_pending === 'erase')||(state.action_pending === 'calibrate')){
 
 					if(state.action_pending === 'calibrate') {
 
 						///////////////////////////////////////////////
-						// // TODO:
-						// // camera capture trigger
-						// console.log('triggering camera @ ',action.stamp)
-						// capture(action.stamp)
+						// TODO:
+						// camera capture trigger
+						console.log('triggering camera @ ',action.stamp)
+						capture(action.stamp)
 						///////////////////////////////////////////////
 
 						return {
@@ -46,26 +45,26 @@ export default function design(state = initialState, action) {
 							titleBlockVisible: false,
 							helpVisible: false,
 							color_pending: '',
-							action_pending: 'bloop',
+							action_pending: 'write',
 							// TODO:	find better location for calibration image
-							image: '../api/camera/' + action.stamp + '.jpg'
+							image: '../api/sketches/' + action.stamp + '.jpg'
 						}
 					}
 
 					///////////////////////////////////////////////
-					// // TODO:
-					// // camera capture trigger
-					// console.log('triggering camera @ ',action.stamp)
-					// capture(action.stamp)
-					// // run image through API
+					// TODO:
+					// camera capture trigger
+					console.log('triggering camera @ ',action.stamp)
+					capture(action.stamp)
+					// run image through API
 					///////////////////////////////////////////////
 
 					return {
 						...state,
 						color_pending: '',
-						action_pending: 'bloop',
+						action_pending: 'write',
 						// TODO: find better location for compiled blooprint image
-						image: '../api/camera/' + action.stamp + '.jpg'
+						image: '../api/sketches/' + action.stamp + '.jpg'
 					}
 				}
 			}
@@ -74,7 +73,7 @@ export default function design(state = initialState, action) {
 			if (pending.includes('1')) {
 				return {
 					...state,
-					action_pending: 'bloop'
+					action_pending: 'write'
 				}
 			}
 			else if (pending.includes('2')) {

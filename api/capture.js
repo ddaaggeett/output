@@ -1,4 +1,4 @@
-var execSync = require('child_process').execSync
+import { execSync } from 'child_process'
 
 var sizeAfter = ''
 var sizeBefore = ''
@@ -8,7 +8,7 @@ export default function capture(tag) {
     shoot()
     checkAfter()
     rename(tag)
-    pullImage()
+    pullImage(tag)
     clearOut()
 }
 
@@ -17,9 +17,9 @@ function rename(tag) {
     execSync('adb shell mv ./sdcard/dcim/camera/* ./sdcard/dcim/camera/'+tag+'.jpg')
 }
 
-function pullImage() {
+function pullImage(tag) {
     console.log('pulling image...')
-    execSync('adb pull ./sdcard/dcim/camera/ ./api')
+    execSync('adb pull ./sdcard/dcim/camera/'+tag+'.jpg ./api/sketches')
 }
 
 function clearOut() {

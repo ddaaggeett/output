@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import styles from './Calibration.css';
+import saveUnitClicks from '../../api/saveUnitClicks'
 
 class Calibration extends Component {
 
@@ -12,7 +13,7 @@ class Calibration extends Component {
 
 		return(
 			<div className={styles.calibration} >
-                <button className={styles.done} onClick={() => this.props.leaveCalibration()} >DONE</button>
+                <button className={styles.done} onClick={() => this.handleLeave()} >DONE</button>
                 <div className={styles.direction} >
                     <h1>CALIBRATION</h1>
                     <p><strong>ON THE WHITEBOARD</strong>, click just outside<br/>each of the 4 marked corners</p>
@@ -23,6 +24,11 @@ class Calibration extends Component {
 				<div className={styles.lr} onClick={(e) => this.props.click_LR(e.clientX,e.clientY,window.innerHeight,window.innerWidth)} ></div>
 			</div>
 		)
+	}
+
+	handleLeave() {
+		saveUnitClicks(this.props.calibration)
+		this.props.leaveCalibration()
 	}
 }
 

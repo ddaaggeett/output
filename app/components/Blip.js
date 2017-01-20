@@ -27,10 +27,12 @@ class Blip extends Component {
 	    }
 
 		return(
-			<div className={styles.blip}>
-                BLIP ID: { params.blipID }
-				<Link to={'/design'}><button className={styles.escbutton}>esc</button></Link>
-				<Link to={'/design'}><button className={styles.delbutton} onClick={() => this.handleDelete(index)} >del</button></Link>
+			<div className={styles.main}>
+				<div className={styles.header}>
+	                <div className={styles.id} >BLIP ID: { params.blipID }</div>
+					<Link to={'/design'}><button className={styles.escbutton}>esc</button></Link>
+					<Link to={'/design'}><button className={styles.delbutton} onClick={() => this.handleDelete(index)} >del</button></Link>
+				</div>
 				<textarea className={styles.text} ref={(input) => { this.nameInput = input }} value={blips[index].text} onChange={(e) => editBlip(params.blipID, e.target.value)} />
 			</div>
 		)
