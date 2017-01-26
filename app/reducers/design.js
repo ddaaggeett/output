@@ -1,4 +1,6 @@
 import capture from '../../api/capture'
+import runAPI from '../../api/runAPI'
+import { execSync } from 'child_process'
 
 const initialState = {
 	color_pending: '',
@@ -8,17 +10,23 @@ const initialState = {
     action_pending: 'write',
 	isCalibrating: false,
 	blipsVisible: true,
-	image: ''
+	image: 'blank',
+	imagePath: '../api/blooprints/blank.jpg'
 }
 
 export default function design(state = initialState, action) {
 	switch (action.type) {
 
-		case 'LEAVE_CALIBRATION':
+		case 'FINISH_CALIBRATION':
+
+			runAPI(state.image,'null','calibrate','null')
+
 			return {
 				...state,
 				isCalibrating: false,
-				blipsVisible: true
+				blipsVisible: true,
+				image: 'blank',
+				imagePath: '../api/blooprints/blank.jpg'
 			}
 
 		case 'KEY_PRESSED':
@@ -27,16 +35,13 @@ export default function design(state = initialState, action) {
 
 			//	trigger action_pending
 			if (pending.includes('control ')) {
-				if((state.action_pending === 'write')||(state.action_pending === 'erase')||(state.action_pending === 'calibrate')){
 
-					if(state.action_pending === 'calibrate') {
+				switch(state.action_pending) {
 
-						///////////////////////////////////////////////
-						// TODO:
-						// camera capture trigger
+					case 'calibrate':
+
 						console.log('triggering camera @ ',action.stamp)
 						capture(action.stamp)
-						///////////////////////////////////////////////
 
 						return {
 							...state,
@@ -46,26 +51,95 @@ export default function design(state = initialState, action) {
 							helpVisible: false,
 							color_pending: '',
 							action_pending: 'write',
-							// TODO:	find better location for calibration image
-							image: '../api/sketches/' + action.stamp + '.jpg'
+							image: action.stamp,
+							imagePath: '../api/sketches/' + action.stamp + '.jpg'
 						}
-					}
 
-					///////////////////////////////////////////////
-					// TODO:
-					// camera capture trigger
-					console.log('triggering camera @ ',action.stamp)
-					capture(action.stamp)
-					// run image through API
-					///////////////////////////////////////////////
+					case 'write':
 
-					return {
-						...state,
-						color_pending: '',
-						action_pending: 'write',
-						// TODO: find better location for compiled blooprint image
-						image: '../api/sketches/' + action.stamp + '.jpg'
-					}
+						var sizeBefore = execSync('du ./api/sketches/').toString().trim()
+						console.log('sizeBefore = ',sizeBefore)
+
+						console.log('triggering camera @ ',action.stamp)
+						capture(action.stamp)
+
+						var sizeAfter = ''
+						var flag = true
+						while ( flag ) {
+							sizeAfter = execSync('du ./api/sketches/').toString().trim()
+							console.log('checking again')
+							if ( sizeBefore !== sizeAfter ) {
+								console.log('sizeAfter = ',sizeAfter)
+								flag = false
+							}
+						}
+
+						sizeBefore = execSync('du ./api/blooprints/').toString().trim()
+						console.log('sizeBefore = ',sizeBefore)
+
+						runAPI(action.stamp,state.image,'write',state.color_set)
+
+						sizeAfter = ''
+						var flag = true
+						while ( flag ) {
+							sizeAfter = execSync('du ./api/blooprints/').toString().trim()
+							console.log('checking again')
+							if ( sizeBefore !== sizeAfter ) {
+								console.log('sizeAfter = ',sizeAfter)
+								flag = false
+							}
+						}
+
+						return {
+							...state,
+							color_pending: '',
+							action_pending: 'write',
+							image: action.stamp,
+							imagePath: '../api/blooprints/' + action.stamp + '.jpg'
+						}
+
+					case 'erase':
+
+						var sizeBefore = execSync('du ./api/sketches/').toString().trim()
+						console.log('sizeBefore = ',sizeBefore)
+
+						console.log('triggering camera @ ',action.stamp)
+						capture(action.stamp)
+
+						var sizeAfter = ''
+						var flag = true
+						while ( flag ) {
+							sizeAfter = execSync('du ./api/sketches/').toString().trim()
+							console.log('checking again')
+							if ( sizeBefore !== sizeAfter ) {
+								console.log('sizeAfter = ',sizeAfter)
+								flag = false
+							}
+						}
+
+						sizeBefore = execSync('du ./api/blooprints/').toString().trim()
+						console.log('sizeBefore = ',sizeBefore)
+
+						runAPI(action.stamp,state.image,'erase','null')
+
+						sizeAfter = ''
+						var flag = true
+						while ( flag ) {
+							sizeAfter = execSync('du ./api/blooprints/').toString().trim()
+							console.log('checking again')
+							if ( sizeBefore !== sizeAfter ) {
+								console.log('sizeAfter = ',sizeAfter)
+								flag = false
+							}
+						}
+
+						return {
+							...state,
+							color_pending: '',
+							action_pending: 'write',
+							image: action.stamp,
+							imagePath: '../api/blooprints/' + action.stamp + '.jpg'
+						}
 				}
 			}
 

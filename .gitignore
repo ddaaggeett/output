@@ -8,7 +8,7 @@ npm-debug.log
 *.jpeg
 *.JPG
 *.JPEG
-api/**/*.json
+*.json
 
 # Logs
 logs

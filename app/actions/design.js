@@ -13,8 +13,8 @@ export function clickCorner(xPos,yPos) {
 		yPos
 	}
 }
-export function leaveCalibration() {
+export function finishCalibration() {
     return {
-        type: 'LEAVE_CALIBRATION'
+        type: 'FINISH_CALIBRATION'
     }
 }

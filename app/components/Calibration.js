@@ -28,7 +28,7 @@ class Calibration extends Component {
 
 	handleLeave() {
 		saveUnitClicks(this.props.calibration)
-		this.props.leaveCalibration()
+		this.props.finishCalibration()
 	}
 }
 

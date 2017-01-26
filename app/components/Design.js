@@ -47,16 +47,25 @@ class Design extends Component {
         TODO:
         image will need to be the compiled output image from the blooprint-api
         */
-        // var imgUrl = null
-        var imgUrl = design.image
+        // var imagePath = null
+        var imagePath = design.imagePath
         var backimage = {
-            backgroundImage: 'url(' + imgUrl + ')',
+            backgroundImage: 'url(' + imagePath + ')',
             backgroundSize: '100% 100%'
         }
+        // style={backimage}
 
         return (
-            <div className={styles.design} style={backimage} onDoubleClick={(e) => { addBlip(renderTime,e.clientX,e.clientY) }} >
-                <EventListener target={document} onKeyDown={(e) => keyPressed(e.key, renderTime)} />
+
+            /*
+            trying to re-render on image load
+            */
+
+            <div className={styles.design} onDoubleClick={(e) => { addBlip(renderTime,e.clientX,e.clientY) }} >
+                <img className={styles.design} src={imagePath} />
+
+
+                <EventListener target={document} onKeyDown={(e) => this.handleKey(e,renderTime)} />
                 { design.blipsVisible ? <Blips blips={blips} /> : null }
                 { design.helpVisible ? <Help /> : null }
                 { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} action_pending={design.action_pending} /> : null }
@@ -64,6 +73,10 @@ class Design extends Component {
                 { design.isCalibrating ? <Calibration {...this.props} /> : null }
             </div>
         )
+    }
+
+    handleKey(e,renderTime) {
+        this.props.keyPressed(e.key, renderTime)
     }
 }
 
