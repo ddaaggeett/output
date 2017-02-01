@@ -5,6 +5,9 @@ import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
+import { persistStore, autoRehydrate } from 'redux-persist'
+import localForage from 'localForage'
+
 import * as designActions from '../actions/design';
 import * as blipActions from '../actions/blips';
 
@@ -31,11 +34,13 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
   compose;
 /* eslint-enable no-underscore-dangle */
 const enhancer = composeEnhancers(
-  applyMiddleware(thunk, router, logger)
+    applyMiddleware(thunk, router, logger),
+    autoRehydrate()
 );
 
 export default function configureStore(initialState: Object | void) {
-  const store = createStore(rootReducer, initialState, enhancer);
+    const store = createStore(rootReducer, initialState, enhancer);
+    persistStore(store, {storage: localForage})
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>

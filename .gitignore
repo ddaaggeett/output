@@ -9,6 +9,7 @@ npm-debug.log
 *.JPG
 *.JPEG
 *.json
+*.jar
 
 # Logs
 logs
