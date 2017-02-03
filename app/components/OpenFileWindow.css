@@ -1,0 +1,53 @@
+.main {
+    position: absolute;
+    background-color: white;
+    min-width: 500px;
+    left: 30%;
+    right: 30%;
+    top: 10%;
+    height: 70%;
+    border: 3px solid gray;
+    border-radius: 5px;
+}
+.files {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 27px;
+}
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30px;
+}
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 27px;
+    font-size: 18px;
+    bottom: 0;
+    border-top: 3px solid gray;
+}
+.dir {
+    position: absolute;
+    left: 0;
+    margin-left: 5px;
+}
+.esc {
+    position: absolute;
+    right: 0;
+    margin-right: 5px;
+}
+.add {
+    position: absolute;
+    right: 0;
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    height: 35px;
+    width: 120px;
+    border: 1px solid blue;
+    border-radius: 3px;
+}

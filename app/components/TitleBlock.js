@@ -17,14 +17,38 @@ class TitleBlock extends Component {
             background: color_set
         }
 
+        var yy = new Date().getFullYear()
+        var MM = new Date().getMonth() + 1
+        var dd = new Date().getDate()
+
         return (
             <div className={styles.main}>
-                Title Block <br/>
+                <div className={styles.info}>
+                    <div className={styles.user} onClick={() => this.handleUserClick()} >designer</div>
+                    <div className={styles.titlesplit}>/</div>
+                    <div className={styles.title} onClick={() => this.handleTitleClick()} >{this.props.fileStructure.currentBlooprint}</div>
+                </div>
+                <div className={styles.date}>{MM}/{dd}/{yy}</div>
                 <div className={styles.markerBox} style={markerColor} />
-                <p className={styles.actionPending}>pending BLOOP action = { action_pending }</p>
+                <p className={styles.actionPending}>pending BLOOP action = <span className={styles.action}>{ action_pending }</span></p>
                 <Link className={styles.linkHome} to='/' ><button>GO HOME</button></Link>
             </div>
         )
+    }
+
+    /*
+    link to user account info
+    */
+    handleUserClick() {
+
+    }
+
+    /*
+    render blooprint file system to open different/new blooprint
+    */
+    handleTitleClick() {
+        this.props.closeHelp()
+        this.props.openFileWindow()
     }
 }
 

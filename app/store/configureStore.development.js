@@ -10,10 +10,14 @@ import localForage from 'localForage'
 
 import * as designActions from '../actions/design';
 import * as blipActions from '../actions/blips';
+import * as calibrationActions from '../actions/calibration';
+import * as fileActions from '../actions/fileStructure';
 
 const actionCreators = {
   ...designActions,
   ...blipActions,
+  ...calibrationActions,
+  ...fileActions,
   push,
 };
 

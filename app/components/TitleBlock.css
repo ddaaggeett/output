@@ -24,6 +24,10 @@
 	bottom: 6px;
 	font-size: 22px;
 }
+.action {
+	font-weight: bold;
+	color: blue;
+}
 .logo {
 	vertical-align: text-bottom;
 	height: 25px;
@@ -46,4 +50,36 @@
 button:hover {
 	background-color: red;
 	color: white;
+}
+.info {
+	position: absolute;
+	margin: 10px;
+	width: 75%;
+	height: 40px;
+	font-size: 25px;
+}
+.user {
+	display: inline;
+	color: blue;
+}
+.title {
+	display: inline;
+	color: blue;
+	font-weight: bold;
+	cursor: default;
+}
+.title:hover {
+	color: gray;
+}
+.titlesplit {
+	display: inline;
+	margin: 2px;
+	color: blue;
+}
+.date {
+	position: absolute;
+	margin: 3px;
+	right: 0;
+	font-size: 18px;
+	bottom: 55px;
 }

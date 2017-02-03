@@ -18,3 +18,20 @@ export function finishCalibration() {
         type: 'FINISH_CALIBRATION'
     }
 }
+export function closeHelp() {
+	return {
+		type: 'CLOSE_HELP'
+	}
+}
+export function setMarkerColor(markerColor) {
+	return {
+		type: 'SET_MARKER_COLOR',
+		markerColor
+	}
+}
+export function setBloopAction(bloopAction) {
+	return {
+		type: 'SET_BLOOP_ACTION',
+		bloopAction
+	}
+}

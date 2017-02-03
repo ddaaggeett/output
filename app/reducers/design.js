@@ -11,11 +11,30 @@ const initialState = {
 	isCalibrating: false,
 	blipsVisible: true,
 	image: 'blank',
-	imagePath: '../api/blooprints/blank.jpg'
+	imagePath: '../api/blooprints/blank.jpg',
+	currentBlooprint: 'blooprint'
 }
 
 export default function design(state = initialState, action) {
 	switch (action.type) {
+
+		case 'SET_BLOOP_ACTION':
+			return {
+				...state,
+				action_pending: action.bloopAction
+			}
+
+		case 'SET_MARKER_COLOR':
+			return {
+				...state,
+				color_set: action.markerColor
+			}
+
+		case 'CLOSE_HELP':
+			return {
+				...state,
+				helpVisible: false
+			}
 
 		case 'FINISH_CALIBRATION':
 
@@ -24,9 +43,7 @@ export default function design(state = initialState, action) {
 			return {
 				...state,
 				isCalibrating: false,
-				blipsVisible: true,
-				image: 'blank',
-				imagePath: '../api/blooprints/blank.jpg'
+				blipsVisible: true
 			}
 
 		case 'KEY_PRESSED':
@@ -143,25 +160,25 @@ export default function design(state = initialState, action) {
 				}
 			}
 
-			//	set action_pending
-			if (pending.includes('1')) {
-				return {
-					...state,
-					action_pending: 'write'
-				}
-			}
-			else if (pending.includes('2')) {
-				return {
-					...state,
-					action_pending: 'erase'
-				}
-			}
-			else if (pending.includes('3')) {
-				return {
-					...state,
-					action_pending: 'calibrate'
-				}
-			}
+			// //	set action_pending
+			// if (pending.includes('1')) {
+			// 	return {
+			// 		...state,
+			// 		action_pending: 'write'
+			// 	}
+			// }
+			// else if (pending.includes('2')) {
+			// 	return {
+			// 		...state,
+			// 		action_pending: 'erase'
+			// 	}
+			// }
+			// else if (pending.includes('3')) {
+			// 	return {
+			// 		...state,
+			// 		action_pending: 'calibrate'
+			// 	}
+			// }
 
 			//	toggle help visibility
 			if (pending.includes('shift?')) {
@@ -199,70 +216,6 @@ export default function design(state = initialState, action) {
 				}
 			}
 
-			//	marker color control
-			if (pending.includes('red')) {
-				return {
-					...state,
-					color_set: 'red',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('blue')) {
-				return {
-					...state,
-					color_set: 'blue',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('green')) {
-				return {
-					...state,
-					color_set: 'green',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('orange')) {
-				return {
-					...state,
-					color_set: 'orange',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('purple')) {
-				return {
-					...state,
-					color_set: 'purple',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('black')) {
-				return {
-					...state,
-					color_set: 'black',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('black')) {
-				return {
-					...state,
-					color_set: 'black',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('brown')) {
-				return {
-					...state,
-					color_set: 'brown',
-					color_pending: ''
-				}
-			}
-			else if (pending.includes('gray')) {
-				return {
-					...state,
-					color_set: 'gray',
-					color_pending: ''
-				}
-			}
 
 			return {
 				...state,

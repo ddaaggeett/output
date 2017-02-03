@@ -8,8 +8,9 @@ npm-debug.log
 *.jpeg
 *.JPG
 *.JPEG
-*.json
+api/calibration/*.json
 *.jar
+sandbox/
 
 # Logs
 logs
