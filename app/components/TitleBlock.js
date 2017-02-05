@@ -11,7 +11,7 @@ class TitleBlock extends Component {
 
     render() {
 
-        const { color_set, action_pending } = this.props
+        const { color_set, bloopAction } = this.props
 
         var markerColor = {
             background: color_set
@@ -30,7 +30,7 @@ class TitleBlock extends Component {
                 </div>
                 <div className={styles.date}>{MM}/{dd}/{yy}</div>
                 <div className={styles.markerBox} style={markerColor} />
-                <p className={styles.actionPending}>pending BLOOP action = <span className={styles.action}>{ action_pending }</span></p>
+                <p className={styles.actionPending}>pending BLOOP action = <span className={styles.action}>{ bloopAction }</span></p>
                 <Link className={styles.linkHome} to='/' ><button>GO HOME</button></Link>
             </div>
         )
@@ -47,7 +47,7 @@ class TitleBlock extends Component {
     render blooprint file system to open different/new blooprint
     */
     handleTitleClick() {
-        this.props.closeHelp()
+        if(this.props.design.helpVisible) this.props.closeHelp()
         this.props.openFileWindow()
     }
 }

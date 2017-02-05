@@ -6,7 +6,7 @@ import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
 import { persistStore, autoRehydrate } from 'redux-persist'
-import localForage from 'localForage'
+import localForage from 'localforage'
 
 import * as designActions from '../actions/design';
 import * as blipActions from '../actions/blips';
@@ -44,7 +44,12 @@ const enhancer = composeEnhancers(
 
 export default function configureStore(initialState: Object | void) {
     const store = createStore(rootReducer, initialState, enhancer);
+    /*
+    TODO:
+    run 1x with purge() if redux-persist needs a clearing
+    */
     persistStore(store, {storage: localForage})
+    // persistStore(store, {storage: localForage}).purge()
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>

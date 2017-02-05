@@ -1,3 +1,5 @@
+var path = require('path')
+
 const initialState = {
 
     fileWindowVisible: false,
@@ -5,12 +7,19 @@ const initialState = {
     currentBlooprintPath: '',   //  ~/directory/path/
     currentBlooprint: 'blooprint',   //  ~/directory/path/
     image: '',          //  fileName.jpg
-    display: '',        //  currentBlooprintPath.concat(image)
+    imagePath: '',        //  currentBlooprintPath.concat(image)
 
 }
 
 export default function fileStructure(state = initialState, action) {
 	switch (action.type) {
+        case 'SELECT_BLOOPRINT':
+            return {
+                ...state,
+                fileWindowVisible: false,
+                currentBlooprint: action.title,
+                currentBlooprintPath: path.join(state.blooprints,action.title),
+            }
         case 'OPEN_FILE_WINDOW':
             return {
                 ...state,
@@ -24,7 +33,7 @@ export default function fileStructure(state = initialState, action) {
         case 'OPEN_BLOOPRINT':
             return {
                 ...state,
-                display: action.name
+                imagePath: action.name
             }
         case 'CREATE_BLOOPRINT':
             return {

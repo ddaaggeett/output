@@ -62,13 +62,13 @@ class Design extends Component {
             trying to re-render on image load
             */
 
-            <div className={styles.design} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} >
-                <img className={styles.design} src={imagePath} />
+            <div className={styles.design} >
+                <img className={styles.design} src={imagePath} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} />
 
 
                 <EventListener target={document} onKeyDown={(e) => this.handleKey(e,stampTime)} />
                 { design.blipsVisible ? <Blips blips={blips} /> : null }
-                { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} action_pending={design.action_pending} {...this.props} /> : null }
+                { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} bloopAction={design.bloopAction} {...this.props} /> : null }
                 { this.state.helpOffered ? <OfferHelp /> : null }
                 { design.isCalibrating ? <Calibration {...this.props} /> : null }
 
@@ -89,6 +89,7 @@ class Design extends Component {
         //  marker color handling
         if(this.state.pending.includes('escape')) {
             this.props.closeFileWindow()
+            this.props.closeHelp()
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('red')) {
@@ -136,10 +137,21 @@ class Design extends Component {
             this.props.setBloopAction('calibrate')
             this.setState({pending: ''})
         }
-
-        //  TODO:
-        //  simplify reducer by putting logic here
-        this.props.keyPressed(e.key, stampTime)
+        //  handle toggle help
+        else if(this.state.pending.includes('shift?')) {
+            this.props.toggleHelp()
+            this.setState({pending: ''})
+        }
+        //  handle tiggle title block
+        else if(this.state.pending.includes('shift>')) {
+            this.props.toggleTitleBlock()
+            this.setState({pending: ''})
+        }
+        //  handle write/erase/calibrate trigger
+        else if(this.state.pending.includes('control ')) {
+            this.props.triggerBloop(this.props.design.bloopAction,stampTime)
+            this.setState({pending: ''})
+        }
     }
 }
 
