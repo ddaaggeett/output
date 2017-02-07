@@ -10,11 +10,7 @@ class FileList extends Component {
 	render() {
 
 		const {fileStructure} = this.props
-
-		console.log('loading files' + fileStructure.blooprints)
-
 		var dirs = this.getBlooprints(fileStructure.blooprints)
-
 		const dirnames = dirs.map((dir,i) =>
 		  	<File title={dir} key={i} fileStructure={fileStructure} {...this.props} />
 		)
@@ -26,13 +22,9 @@ class FileList extends Component {
 		)
 	}
 
-
-
 	getBlooprints (srcpath) {
 		return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
 	}
-
-
 }
 
 export default FileList

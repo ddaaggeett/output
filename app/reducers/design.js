@@ -3,7 +3,7 @@ import runAPI from '../../api/runAPI'
 import { execSync } from 'child_process'
 
 const initialState = {
-	color_set: 'black',
+	color_set: '#000000',
     helpVisible: false,
     titleBlockVisible: false,
     bloopAction: 'write',
@@ -57,7 +57,7 @@ export default function design(state = initialState, action) {
 					sizeBefore = execSync('du ./api/blooprints/').toString().trim()
 					console.log('sizeBefore = ',sizeBefore)
 
-					runAPI(action.stampTime,state.image,'write',state.color_set)
+					runAPI(action.stampTime,state.image,'write',state.color_set.substring(1))
 
 					sizeAfter = ''
 					var flag = true

@@ -19,16 +19,10 @@ export function closeFileWindow() {
 		type: 'CLOSE_FILE_WINDOW'
 	}
 }
-export function openBlooprint(name) {
-	return {
-		type: 'OPEN_BLOOPRINT',
-		name
-	}
-}
-export function createBlooprint(state,newName) {
-	const newDir = path.join(state.fileStructure.blooprints,newName)
-	fs.mkdir(path.join(state.fileStructure.blooprints,newName), function(){
-		fs.readdir(path.join(state.fileStructure.blooprints,newName), () => {})
+export function createBlooprint(fileStructure,newName) {
+	const newDir = path.join(fileStructure.blooprints,newName)
+	fs.mkdir(path.join(fileStructure.blooprints,newName), function(){
+		fs.readdir(path.join(fileStructure.blooprints,newName), () => {})
 	})
 	return {
 		type: 'CREATE_BLOOPRINT',

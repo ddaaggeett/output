@@ -37,13 +37,13 @@ class Design extends Component {
         const { blips, addBlip, keyPressed, calibration, design } = this.props
 
         var yy = new Date().getFullYear().toString()
-        var MM = new Date().getMonth().toString()
+        var mm = new Date().getMonth().toString()
         var dd = new Date().getDate().toString()
         var h = new Date().getHours().toString()
         var m = new Date().getMinutes().toString()
         var s = new Date().getSeconds().toString()
-        var mm = new Date().getMilliseconds().toString()
-        var stampTime = yy.concat(MM,dd,h,m,s,mm)
+        var mmm = new Date().getMilliseconds().toString()
+        var stampTime = yy.concat(mm,dd,h,m,s,mmm)
 
         /*
         TODO:
@@ -63,10 +63,8 @@ class Design extends Component {
             */
 
             <div className={styles.design} >
-                <img className={styles.design} src={imagePath} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} />
-
-
                 <EventListener target={document} onKeyDown={(e) => this.handleKey(e,stampTime)} />
+                <img className={styles.design} src={imagePath} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} />
                 { design.blipsVisible ? <Blips blips={blips} /> : null }
                 { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} bloopAction={design.bloopAction} {...this.props} /> : null }
                 { this.state.helpOffered ? <OfferHelp /> : null }
@@ -89,39 +87,39 @@ class Design extends Component {
         //  marker color handling
         if(this.state.pending.includes('escape')) {
             this.props.closeFileWindow()
-            this.props.closeHelp()
+            if(this.props.design.helpVisible) this.props.closeHelp()
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('red')) {
-            this.props.setMarkerColor('red')
+            this.props.setMarkerColor('#FF0000')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('blue')) {
-            this.props.setMarkerColor('blue')
+            this.props.setMarkerColor('#0000FF')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('green')) {
-            this.props.setMarkerColor('green')
+            this.props.setMarkerColor('#008000')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('orange')) {
-            this.props.setMarkerColor('orange')
+            this.props.setMarkerColor('#FFA500')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('purple')) {
-            this.props.setMarkerColor('purple')
+            this.props.setMarkerColor('#800080')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('black')) {
-            this.props.setMarkerColor('black')
+            this.props.setMarkerColor('#000000')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('gray')) {
-            this.props.setMarkerColor('gray')
+            this.props.setMarkerColor('#808080')
             this.setState({pending: ''})
         }
         else if(this.state.pending.includes('brown')) {
-            this.props.setMarkerColor('brown')
+            this.props.setMarkerColor('#A52A2A')
             this.setState({pending: ''})
         }
         //  bloop action handling

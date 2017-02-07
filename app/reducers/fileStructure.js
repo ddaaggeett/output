@@ -3,11 +3,12 @@ var path = require('path')
 const initialState = {
 
     fileWindowVisible: false,
+    sketches: './api/sketches/',
     blooprints: './api/blooprints/',
-    currentBlooprintPath: '',   //  ~/directory/path/
-    currentBlooprint: 'blooprint',   //  ~/directory/path/
+    currentBlooprint: 'open a blooprint',   //  ~/directory/path/
+    currentBlooprintPath: '',   //  path.join(blooprints,currentBlooprint)
     image: '',          //  fileName.jpg
-    imagePath: '',        //  currentBlooprintPath.concat(image)
+    imagePath: '',        //  path.join(currentBlooprintPath,image,'.jpg')
 
 }
 
@@ -29,11 +30,6 @@ export default function fileStructure(state = initialState, action) {
             return {
                 ...state,
                 fileWindowVisible: false
-            }
-        case 'OPEN_BLOOPRINT':
-            return {
-                ...state,
-                imagePath: action.name
             }
         case 'CREATE_BLOOPRINT':
             return {

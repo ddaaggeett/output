@@ -8,17 +8,15 @@ class NewTitle extends Component {
 	}
 
 	render() {
-
 		return(
                 <textarea className={styles.newTitle} ref={(input) => { this.nameInput = input }} placeholder={'ENTER new Blooprint title'} onKeyDown={(e) => this.handleKey(e, e.target.value)} />
-
 		)
 	}
 
     handleKey(e, txt) {
         if(e.key.toLowerCase() === 'enter') {
 			e.preventDefault()
-            this.props.createBlooprint(this.props,txt)
+            this.props.createBlooprint(this.props.fileStructure,txt)
 			this.props.closeFileWindow()
         }
     }
