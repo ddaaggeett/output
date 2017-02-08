@@ -9,7 +9,6 @@ npm-debug.log
 *.JPG
 *.JPEG
 api/calibration/*.json
-*.jar
 sandbox/
 
 # Logs
