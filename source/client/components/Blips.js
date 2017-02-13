@@ -18,10 +18,6 @@ class Blips extends Component {
 			</div>
 		)
 	}
-
-	// handleClick() {
-	// 	console.log('fliiiiiiiii')
-	// }
 }
 
 export default Blips

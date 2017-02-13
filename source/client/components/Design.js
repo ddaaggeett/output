@@ -4,13 +4,10 @@ import EventListener from 'react-event-listener'
 import Help from './Help'
 import TitleBlock from './TitleBlock'
 import Blips from './Blips'
-// import Calibration from './Calibration'
+import Calibration from './Calibration'
 import OfferHelp from './OfferHelp'
-// import OpenFileWindow from './OpenFileWindow'
+import OpenFileWindow from './OpenFileWindow'
 import styles from './Design.css'
-
-import Horizon from '@horizon/client'
-// import { blips_db, images_db } from './db_actions'
 
 class Design extends Component {
 
@@ -19,15 +16,7 @@ class Design extends Component {
 
         this.state = {
             helpOffered: true,
-            helpVisible: false,
-            titleBlockVisible: false,
-            pending: '',
-            currentBlooprint: 'blooprint',
-            bloopAction: 'write',
-            color_set: 'black',
-            fileWindowVisible: false,
-            blips: [],
-            blipsVisible: true,
+            pending: ''
         }
     }
 
@@ -43,70 +32,10 @@ class Design extends Component {
         )
     }
 
-    componentWillMount() {
-        //  rehydrate state from Horizon
-    }
-
     render() {
 
-        /*
-        TODO:
-        image will need to be the compiled output image from the blooprint-api
-        */
-        var imagePath = null
-        // var imagePath = design.imagePath
-        var backimage = {
-            backgroundImage: 'url(' + imagePath + ')',
-            backgroundSize: '100% 100%'
-        }
+        const { blips, addBlip, keyPressed, calibration, design } = this.props
 
-        // TODO
-        // extract <components /> and replace with function that returns the required component
-        return (
-
-            <div className={styles.design} >
-                <EventListener target={document} onKeyDown={(e) => this.handleKey(e)} />
-                <img className={styles.design} src={imagePath} onDoubleClick={(e) => { this.addBlip(e.clientX,e.clientY) }} />
-
-                { this.state.blipsVisible ? <Blips blips={this.state.blips} /> : null }
-                { this.state.helpOffered ? <OfferHelp /> : null }
-                { this.state.helpVisible ? <Help /> : null }
-                { this.state.titleBlockVisible ? <TitleBlock {...this.state} /> : null }
-                { this.state.fileWindowVisible ? <OpenFileWindow {...this.state} /> : null }
-            </div>
-        )
-        // { design.isCalibrating ? <Calibration {...this.props} /> : null }
-    }
-
-    addBlip(x,y) {
-
-        const hz = Horizon()
-
-        const blips = hz('blips')
-
-        console.log('adding blip');
-        var blipID = this.getStampTime()
-        this.setState({
-            blips: [
-                ...this.state.blips, {
-                    id: blipID,
-                    x: x,
-                    y: y,
-                    text: ''
-                }
-            ]
-        })
-
-        blips.store(this.state.blips)
-
-        blips.fetch().subscribe(
-            result => console.log('/n',JSON.stringify(result)),
-            err => console.error(err),
-            () => console.log('Results fetched')
-        );
-    }
-
-    getStampTime() {
         var yy = new Date().getFullYear().toString()
         var mm = new Date().getMonth().toString()
         var dd = new Date().getDate().toString()
@@ -114,10 +43,41 @@ class Design extends Component {
         var m = new Date().getMinutes().toString()
         var s = new Date().getSeconds().toString()
         var mmm = new Date().getMilliseconds().toString()
-        return yy.concat(mm,dd,h,m,s,mmm)
+        var stampTime = yy.concat(mm,dd,h,m,s,mmm)
+
+        /*
+        TODO:
+        image will need to be the compiled output image from the blooprint-api
+        */
+        // var imagePath = null
+        var imagePath = design.imagePath
+        var backimage = {
+            backgroundImage: 'url(' + imagePath + ')',
+            backgroundSize: '100% 100%'
+        }
+
+        return (
+
+            /*
+            trying to re-render on image load
+            */
+
+            <div className={styles.design} >
+                <EventListener target={document} onKeyDown={(e) => this.handleKey(e,stampTime)} />
+                <img className={styles.design} src={imagePath} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} />
+                { design.blipsVisible ? <Blips blips={blips} /> : null }
+                { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} bloopAction={design.bloopAction} {...this.props} /> : null }
+                { this.state.helpOffered ? <OfferHelp /> : null }
+                { design.isCalibrating ? <Calibration {...this.props} /> : null }
+
+                { this.props.fileStructure.fileWindowVisible ? <OpenFileWindow {...this.props} /> : null }
+
+                { design.helpVisible ? <Help /> : null }
+            </div>
+        )
     }
 
-    handleKey(e) {
+    handleKey(e,stampTime) {
 
         const newPending = this.state.pending.concat(e.key).toLowerCase()
         this.setState({
@@ -125,131 +85,70 @@ class Design extends Component {
         })
 
         //  marker color handling
-        //  handle write/erase/calibrate trigger
-        if(this.state.pending.includes('control ')) {
-            console.log('bloop')
-            var bloopID = getStampTime()
-            // this.props.triggerBloop(this.state.bloopAction,bloopID)
-            // this.setState({pending: ''})
-        }
-        else if(this.state.pending.includes('escape')) {
-            // this.props.closeFileWindow()
-            if(this.state.helpVisible) {
-                this.setState({
-                    helpVisible:false,
-                    pending: ''
-                })
-            }
+        if(this.state.pending.includes('escape')) {
+            this.props.closeFileWindow()
+            if(this.props.design.helpVisible) this.props.closeHelp()
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('red')) {
-            // this.props.setMarkerColor('#FF0000')
-            this.setState({
-                color_set: '#FF0000',
-                pending: ''
-            })
+            this.props.setMarkerColor('#FF0000')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('blue')) {
-            // this.props.setMarkerColor('#0000FF')
-            this.setState({
-                color_set: '#0000FF',
-                pending: ''
-            })
+            this.props.setMarkerColor('#0000FF')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('green')) {
-            // this.props.setMarkerColor('#008000')
-            this.setState({
-                color_set: '#008000',
-                pending: ''
-            })
+            this.props.setMarkerColor('#008000')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('orange')) {
-            // this.props.setMarkerColor('#FFA500')
-            this.setState({
-                color_set: '#FFA500',
-                pending: ''
-            })
+            this.props.setMarkerColor('#FFA500')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('purple')) {
-            // this.props.setMarkerColor('#800080')
-            this.setState({
-                color_set: '#800080',
-                pending: ''
-            })
+            this.props.setMarkerColor('#800080')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('black')) {
-            // this.props.setMarkerColor('#000000')
-            this.setState({
-                color_set: '#000000',
-                pending: ''
-            })
+            this.props.setMarkerColor('#000000')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('gray')) {
-            // this.props.setMarkerColor('#808080')
-            this.setState({
-                color_set: '#808080',
-                pending: ''
-            })
+            this.props.setMarkerColor('#808080')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('brown')) {
-            // this.props.setMarkerColor('#A52A2A')
-            this.setState({
-                color_set: '#A52A2A',
-                pending: ''
-            })
+            this.props.setMarkerColor('#A52A2A')
+            this.setState({pending: ''})
         }
         //  bloop action handling
         else if(this.state.pending.includes('1')) {
-            // this.props.setBloopAction('write')
-            this.setState({
-                bloopAction: 'write',
-                pending: ''
-            })
+            this.props.setBloopAction('write')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('2')) {
-            // this.props.setBloopAction('erase')
-            this.setState({
-                bloopAction: 'erase',
-                pending: ''
-            })
+            this.props.setBloopAction('erase')
+            this.setState({pending: ''})
         }
         else if(this.state.pending.includes('3')) {
-            // this.props.setBloopAction('calibrate')
-            this.setState({
-                bloopAction: 'calibrate',
-                pending: ''
-            })
+            this.props.setBloopAction('calibrate')
+            this.setState({pending: ''})
         }
         //  handle toggle help
         else if(this.state.pending.includes('shift?')) {
-            if(this.state.helpVisible) {
-                this.setState({
-                    helpVisible: false,
-                    pending: ''
-                })
-            }
-            else {
-                this.setState({
-                    helpVisible: true,
-                    pending: ''
-                })
-            }
-            // this.props.toggleHelp()
+            this.props.toggleHelp()
+            this.setState({pending: ''})
         }
-        //  handle toggle title block
+        //  handle tiggle title block
         else if(this.state.pending.includes('shift>')) {
-            if(this.state.titleBlockVisible) {
-                this.setState({
-                    titleBlockVisible: false,
-                    pending: ''
-                })
-            }
-            else {
-                this.setState({
-                    titleBlockVisible: true,
-                    pending: ''
-                })
-            }
-            // this.props.toggleTitleBlock()
+            this.props.toggleTitleBlock()
+            this.setState({pending: ''})
+        }
+        //  handle write/erase/calibrate trigger
+        else if(this.state.pending.includes('control ')) {
+            this.props.triggerBloop(this.props.design.bloopAction,stampTime)
+            this.setState({pending: ''})
         }
     }
 }

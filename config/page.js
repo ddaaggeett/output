@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'lovli.js | Hello World',
+  title: 'Blooprint',
   port: process.env.PORT || 3000,
-  token_secret: 'thisislovlijs'
+  token_secret: 'sometoken'
 };

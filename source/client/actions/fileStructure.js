@@ -1,5 +1,5 @@
-var fs = require('fs')
-var path = require('path')
+// var fs = require('fs')
+// var path = require('path')
 
 
 export function selectBlooprint(fileStructure,title) {
@@ -20,13 +20,13 @@ export function closeFileWindow() {
 	}
 }
 export function createBlooprint(fileStructure,newName) {
-	const newDir = path.join(fileStructure.blooprints,newName)
-	fs.mkdir(path.join(fileStructure.blooprints,newName), function(){
-		fs.readdir(path.join(fileStructure.blooprints,newName), () => {})
-	})
+	// const newDir = path.join(fileStructure.blooprints,newName)
+	// fs.mkdir(path.join(fileStructure.blooprints,newName), function(){
+	// 	fs.readdir(path.join(fileStructure.blooprints,newName), () => {})
+	// })
 	return {
 		type: 'CREATE_BLOOPRINT',
-		newName,
-		newDir
+		// newName,
+		// newDir
 	}
 }

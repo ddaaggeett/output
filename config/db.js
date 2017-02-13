@@ -1,5 +1,5 @@
 module.exports = {
-  db: 'lovli',
+  db: 'blooprint',
   servers: [
     {
       host: '127.0.0.1',

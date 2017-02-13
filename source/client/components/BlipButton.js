@@ -17,22 +17,12 @@ class BlipButton extends Component {
             top: ((blip.y)-13)
         }
 
-		return(
-			<div className={styles.blip} style={blipLocation} onClick={this.clickBlip()} />
+		return (
+			<Link to={`/blip/${blip.blipID}`}>
+				<button className={styles.blip} style={blipLocation} />
+            </Link>
 		)
-
-		// //	instead of linking to a dedicated blip page: open up small text area component
-		// return (
-		// 	<Link to={`/blip/${blip.blipID}`}>
-		// 		<button className={styles.blip} style={blipLocation} />
-        //     </Link>
-		// )
 	}
-
-	clickBlip() {
-		console.log('ok then')
-	}
-
 }
 
 export default BlipButton

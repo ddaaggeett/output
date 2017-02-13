@@ -48,8 +48,8 @@ export default function configureStore(initialState: Object | void) {
     TODO:
     run 1x with purge() if redux-persist needs a clearing
     */
-    // persistStore(store, {storage: localForage})
-    persistStore(store, {storage: localForage}).purge()
+    persistStore(store, {storage: localForage})
+    // persistStore(store, {storage: localForage}).purge()
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>

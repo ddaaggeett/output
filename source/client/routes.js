@@ -1,15 +1,17 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { IndexRoute, Route, browserHistory } from 'react-router';
 
-import App from './components/App';
-import Home from './components/Home';
-import Design from './components/Design'
-import Blip from './components/Blip'
+import App from './containers/App';
+import HomePage from './containers/HomePage';
+import DesignPage from './containers/DesignPage';
+import BlipPage from './containers/BlipPage';
+
 
 // Route configuration
 export default (
-  <Router history={browserHistory}>
-    <Route path="/" component={App} />
-    <Route path="/design" component={Design} />
-  </Router>
+  <Route path="/" component={App} >
+    <IndexRoute component={HomePage} />
+    <Route path="/design" component={DesignPage} />
+    <Route path="/blip/:blipID" component={BlipPage} />
+  </Route>
 );

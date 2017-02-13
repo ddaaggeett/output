@@ -11,8 +11,10 @@ class TitleBlock extends Component {
 
     render() {
 
+        const { color_set, bloopAction } = this.props
+
         var markerColor = {
-            background: this.props.color_set
+            background: color_set
         }
 
         var yy = new Date().getFullYear()
@@ -24,11 +26,11 @@ class TitleBlock extends Component {
                 <div className={styles.info}>
                     <div className={styles.user} onClick={() => this.handleUserClick()} >designer</div>
                     <div className={styles.titlesplit}>/</div>
-                    <div className={styles.title} onClick={() => this.handleTitleClick()} >{this.props.currentBlooprint}</div>
+                    <div className={styles.title} onClick={() => this.handleTitleClick()} >{this.props.fileStructure.currentBlooprint}</div>
                 </div>
                 <div className={styles.date}>{mm}/{dd}/{yy}</div>
                 <div className={styles.markerBox} style={markerColor} />
-                <p className={styles.actionPending}>pending BLOOP action = <span className={styles.action}>{ this.props.bloopAction }</span></p>
+                <p className={styles.actionPending}>pending BLOOP action = <span className={styles.action}>{ bloopAction }</span></p>
                 <Link className={styles.linkHome} to='/' ><button>GO HOME</button></Link>
             </div>
         )
@@ -45,9 +47,8 @@ class TitleBlock extends Component {
     render blooprint file system to open different/new blooprint
     */
     handleTitleClick() {
-        // if(this.props.design.helpVisible) this.props.closeHelp()
-        if(this.props.helpVisible) this.setState({helpVisible:false})
-        // this.props.openFileWindow()
+        if(this.props.design.helpVisible) this.props.closeHelp()
+        this.props.openFileWindow()
     }
 }
 

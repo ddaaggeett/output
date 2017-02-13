@@ -19,9 +19,9 @@
   },
   "private": true,
   "scripts": {
-      "start": "babel-node bin/dev.js",
-      "prod": "npm run build && node ./.build/server.bundle.js",
-      "build": "webpack --config=config/webpack/webpack.config.client.prod.js && webpack --config=config/webpack/webpack.config.server.js"
+    "start": "babel-node bin/dev.js",
+    "prod": "npm run build && node ./.build/server.bundle.js",
+    "build": "webpack --config=config/webpack/webpack.config.client.prod.js && webpack --config=config/webpack/webpack.config.server.js"
   },
   "devDependencies": {
     "async": "1.5.2",
@@ -70,6 +70,7 @@
     "horizon-react": "0.5.0",
     "immutable": "3.8.1",
     "later": "^1.2.0",
+    "localforage": "^1.4.3",
     "lodash": "4.11.1",
     "normalize.css": "^4.1.1",
     "postcss-nested": "^1.0.0",
@@ -78,6 +79,10 @@
     "react-event-listener": "^0.4.1",
     "react-redux": "^5.0.1",
     "react-router": "2.7.0",
+    "react-router-redux": "^4.0.8",
+    "redux-logger": "^2.8.1",
+    "redux-persist": "^4.3.1",
+    "redux-thunk": "^2.2.0",
     "rethinkdbdash": "^2.3.4",
     "winston": "^2.2.0"
   },

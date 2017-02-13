@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 import Design from '../components/Design'
+
 import * as DesignActions from '../actions/design'
 import * as BlipActions from '../actions/blips'
 import * as CalibrationActions from '../actions/calibration'
