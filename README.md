@@ -7,7 +7,7 @@
 ###In the project directory, you can run:
 #### `npm i`
 #### in one terminal, run `npm start`, then **[127.0.0.1:3000](http://127.0.0.1:3000)**
-#### in another terminal, run `npm start`, then [127.0.0.1:8080](http://127.0.0.1:8080)
+#### in another terminal, run `rethinkdb`, then [127.0.0.1:8080](http://127.0.0.1:8080)
 
 _________________________________________________
 
