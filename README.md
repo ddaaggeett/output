@@ -4,14 +4,10 @@
 
 ##Please become familiar with our core [Blooprint-API](https://github.com/blooprint/blooprint-api), which we're using as the core engine to this project. Blooprint software is an **[extension to the blooprint-api](https://github.com/blooprint/blooprint-api/blob/master/LICENSE)** software. The API returns images for rendering the DOM. It's kept here: **[./api/blooprint.jar](https://github.com/blooprint/blooprint/tree/master/api)**, from **[here](https://github.com/blooprint/blooprint-api/releases)**.
 
-####In the project directory, you can run:
-
-### `npm i`
-
-### `npm start`
-
-####go to the site: **[127.0.0.1:3000](http://127.0.0.1:3000)**
-####got to database: [127.0.0.1:8080](http://127.0.0.1:8080)
+###In the project directory, you can run:
+#### `npm i`
+#### in one terminal, run `npm start`, then **[127.0.0.1:3000](http://127.0.0.1:3000)**
+#### in another terminal, run `npm start`, then [127.0.0.1:8080](http://127.0.0.1:8080)
 
 _________________________________________________
 
