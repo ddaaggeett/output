@@ -1,0 +1,56 @@
+.main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-color: gray;
+	/*position: absolute;
+	width: 400px;
+	top: 20%;
+	left: 30%;*/
+}
+.header {
+	position: absolute;
+	width: 40%;
+	top: 15%;
+	left: 30%;
+}
+.id {
+
+}
+.text {
+	position: absolute;
+	resize: none;
+	font-size: 14px;
+	border: 3px solid #cccccc;
+	left: 35%;
+	top: 20%;
+	width: 30%;
+	height: 250px;
+}
+.escbutton {
+	position: absolute;
+	border: 3px solid black;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 16px;
+	vertical-align: middle;
+	top: 0;
+	right: 0;
+	width: 60px;
+	height: 30px;
+}
+.delbutton {
+	position: absolute;
+	border: 3px solid black;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 16px;
+	vertical-align: middle;
+	top: 0;
+	right: 60px;
+	width: 60px;
+	height: 30px;
+}

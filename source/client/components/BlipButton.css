@@ -1,0 +1,11 @@
+.blip {
+	position: absolute;
+	background-color: blue;
+	height: 26px;
+	width: 26px;
+	border: 3px solid black;
+	border-radius: 50%;
+}
+.blip:hover {
+	background-color: orange; 
+}

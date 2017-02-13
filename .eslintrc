@@ -1,43 +1,38 @@
 {
-  "parser": "babel-eslint",
   "extends": "airbnb",
-  "env": {
-    "browser": true,
-    "mocha": true,
-    "node": true
+  "globals": {
+    "__DEV__"      : false,
+    "__PROD__"     : false,
+    "__DEBUG__"    : false,
+    "__DEBUG_NW__" : false
   },
   "rules": {
-    "arrow-parens": ["off"],
-    "compat/compat": 2,
-    "consistent-return": "off",
-    "comma-dangle": "off",
-    "generator-star-spacing": "off",
-    "import/no-unresolved": ["error", { "ignore": ["electron"] }],
-    "import/no-extraneous-dependencies": "off",
-    "no-use-before-define": "off",
-    "promise/param-names": 2,
-    "promise/always-return": 2,
-    "promise/catch-or-return": 2,
-    "promise/no-native": 0,
-    "react/jsx-no-bind": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "react/prefer-stateless-function": "off",
-    "flowtype-errors/show-errors": 2
-  },
-  "plugins": [
-    "flowtype",
-    "flowtype-errors",
-    "import",
-    "promise",
-    "compat",
-    "react"
-  ],
-  "settings": {
-    "targets": ["chrome"],
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.eslint.js"
-      }
-    }
+    "strict": 0,
+    "no-irregular-whitespace": 0,
+    "new-cap": [2, {"newIsCap": false, "capIsNew": false}],
+    "comma-dangle": [1, "never"],
+    "key-spacing": [0, {
+      "beforeColon": true,
+      "afterColon": true
+    }],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "no-else-return": 0,
+    "import/no-unresolved": 0,
+    "space-before-function-paren": [0, "always"],
+    "react/jsx-quotes": [0, "single"],
+    "react/prop-types": 0,
+    "react/no-multi-comp": [1, { "ignoreStateless": true }],
+    "react/sort-comp": [1, {
+      "order": [
+        "/^propTypes$/",
+        "/^defaultProps$/",
+        "/^getMeteorData$/",
+        "lifecycle",
+        "/^on.+$/",
+        "render",
+        "/^render.+$/",
+        "everything-else"
+      ]
+    }]
   }
 }

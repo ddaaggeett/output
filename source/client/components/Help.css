@@ -1,0 +1,65 @@
+.help {
+	position: fixed;
+	background-color: white;
+	margin: 0;
+	padding: 10px;
+	padding-top: 0;
+	padding-bottom: 0;
+	top: 10%;
+	left: 30%;
+	border: 3px solid green;
+	border-radius: 10px;
+}
+.key {
+	font-size: 30px;
+	font-weight: 700;
+	vertical-align: -4px;
+	color: red;
+}
+h4 {
+	font-style: italic;
+	font-variant: small-caps;
+}
+.comp {
+	font-variant: small-caps;
+	text-align: center;
+}
+.red {
+	font-weight: bold;
+	color: red;
+}
+.purple {
+	font-weight: bold;
+	color: purple;
+}
+.green {
+	font-weight: bold;
+	color: green;
+}
+.blue {
+	font-weight: bold;
+	color: blue;
+}
+.orange {
+	font-weight: bold;
+	color: orange;
+}
+.gray {
+	font-weight: bold;
+	color: gray;
+}
+.brown {
+	font-weight: bold;
+	color: brown;
+}
+.black {
+	font-weight: bold;
+	color: black;
+}
+.logo {
+	vertical-align: text-bottom;
+	height: 20px;
+	margin: 0;
+	margin-left: -5px;
+	margin-right: -5px;
+}
