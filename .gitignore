@@ -9,6 +9,8 @@ npm-debug.log
 *.JPG
 *.JPEG
 *.json
+rethinkdb_data/
+sandbox/
 
 # Logs
 logs
