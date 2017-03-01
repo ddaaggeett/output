@@ -18,8 +18,7 @@ export default function fileStructure(state = initialState, action) {
             return {
                 ...state,
                 fileWindowVisible: false,
-                currentBlooprint: action.title,
-                currentBlooprintPath: path.join(state.blooprints,action.title),
+                currentBlooprint: action.title
             }
         case 'OPEN_FILE_WINDOW':
             return {
@@ -34,7 +33,6 @@ export default function fileStructure(state = initialState, action) {
         case 'CREATE_BLOOPRINT':
             return {
                 ...state,
-                currentBlooprintPath: action.newDir,
                 currentBlooprint: action.newName
             }
         default:

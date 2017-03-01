@@ -26,7 +26,6 @@ export function createBlooprint(fileStructure,newName) {
 	// })
 	return {
 		type: 'CREATE_BLOOPRINT',
-		// newName,
-		// newDir
+		newName
 	}
 }

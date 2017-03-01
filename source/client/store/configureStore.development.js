@@ -13,6 +13,12 @@ import * as blipActions from '../actions/blips';
 import * as calibrationActions from '../actions/calibration';
 import * as fileActions from '../actions/fileStructure';
 
+import { createEpicMiddleware } from 'redux-observable'
+import rootEpic from '../epics'
+
+import invariant from 'redux-immutable-state-invariant'
+
+
 const actionCreators = {
   ...designActions,
   ...blipActions,
@@ -36,13 +42,24 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
     actionCreators,
   }) :
   compose;
-/* eslint-enable no-underscore-dangle */
-const enhancer = composeEnhancers(
-    applyMiddleware(thunk, router, logger),
-    autoRehydrate()
-);
+
+// const enhancer = composeEnhancers(
+//     applyMiddleware(createEpicMiddleware(rootEpic), thunk, router, logger),
+//     autoRehydrate()
+// );
 
 export default function configureStore(initialState: Object | void) {
+
+    const epicMiddleware = [
+        invariant(),
+        createEpicMiddleware(rootEpic)
+    ]
+
+  const enhancer = composeEnhancers(
+    applyMiddleware(...epicMiddleware, thunk, router, logger),
+    autoRehydrate()
+  )
+
     const store = createStore(rootReducer, initialState, enhancer);
     /*
     TODO:
