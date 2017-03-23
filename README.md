@@ -1,21 +1,21 @@
-#Please FORK this project and submit your PULL REQUESTS!!!
+# Please FORK this project and submit your PULL REQUESTS!!!
 
-##Are you a newcomer? Visit our descriptive [WIKI](https://github.com/blooprint/blooprint.xyz/wiki)
+## Are you a newcomer? Visit our descriptive [WIKI](https://github.com/blooprint/blooprint.xyz/wiki)
 
-##Please become familiar with our core [Blooprint-API](https://github.com/blooprint/blooprint-api), which we're using as the core engine to this project. Blooprint software is an **[extension to the blooprint-api](https://github.com/blooprint/blooprint-api/blob/master/LICENSE)** software. The API returns images for rendering the DOM. It's kept here: **[./api/blooprint.jar](https://github.com/blooprint/blooprint/tree/master/api)**, from **[here](https://github.com/blooprint/blooprint-api/releases)**.
+## Please become familiar with our core [Blooprint-API](https://github.com/blooprint/blooprint-api), which we're using as the core engine to this project. Blooprint software is an **[extension to the blooprint-api](https://github.com/blooprint/blooprint-api/blob/master/LICENSE)** software. The API returns images for rendering the DOM. It's kept here: **[./api/blooprint.jar](https://github.com/blooprint/blooprint/tree/master/api)**, from **[here](https://github.com/blooprint/blooprint-api/releases)**.
 
-###In the project directory, you can run:
+### In the project directory, you can run:
 #### `npm i`
 #### in one terminal, run `npm start`, then **[127.0.0.1:3000](http://127.0.0.1:3000)**
 #### in another terminal, run `rethinkdb`, then [127.0.0.1:8080](http://127.0.0.1:8080)
 
 _________________________________________________
 
-#Development Direction
+# Development Direction
 
 Please refer to any current **[projects](https://github.com/blooprint/blooprint/projects)** for details.
 
-###`Design.js` component - interacts with the blooprint-api: **[see here](https://github.com/blooprint/blooprint/blob/master/api/runAPI.js)**
+### `Design.js` component - interacts with the blooprint-api: **[see here](https://github.com/blooprint/blooprint/blob/master/api/runAPI.js)**
 
 This is a desktop browser application the whiteboard user interacts with.  **The DOM consists of**:
 - The **Blooprint Image**
@@ -24,7 +24,7 @@ This is a desktop browser application the whiteboard user interacts with.  **The
   - the Blooprint-API `WRITE` or `ERASE` bloop action will have to act upon the multiple images that appear instantaneously in the display range of the full-screen browser - will require further [API](https://github.com/blooprint/blooprint-api) development in order to act upon specific slivers of images that appear in the browser at the time of the `BLOOP`/`ERASE` action
 - **BLIP objects** - for search engine optimization. play around with the application - you'll see what they are
 
-####Runtime requirements
+#### Runtime requirements
 ```
 "node": ">=6.x",
 "npm": ">=3.x"
@@ -33,4 +33,4 @@ This is a desktop browser application the whiteboard user interacts with.  **The
 "jdk": ">=1.8"
 ```
 
-####License: **GPL-3.0** - see **[original](https://github.com/blooprint/blooprint-api/blob/master/LICENSE)**
+#### License: **GPL-3.0** - see **[original](https://github.com/blooprint/blooprint-api/blob/master/LICENSE)**
