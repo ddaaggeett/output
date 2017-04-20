@@ -54,6 +54,31 @@ const run = () => {
       token_secret: config.token_secret
     }
   });
+
+    var ioServer = app.listen(process.env.PORT || 1234, listen);
+    var io = require('socket.io')(ioServer);
+
+    function listen() {
+        var host = ioServer.address().address;
+        var port = ioServer.address().port;
+        console.log('socket.io listening at http://' + host + ':' + port);
+    }
+
+    io.sockets.on('connection',
+
+        function (socket) {
+
+            console.log("Camera client connected: " + socket.id);
+
+            socket.on('bloop', function(stuff) {
+                console.log("Received: 'bloop': " + stuff);
+            });
+
+            socket.on('disconnect', function() {
+                console.log("Client has disconnected");
+            });
+        }
+    );
 };
 
 export default {
