@@ -64,21 +64,18 @@ const run = () => {
         console.log('socket.io listening at http://' + host + ':' + port);
     }
 
-    io.sockets.on('connection',
+    io.sockets.on('connection', function (socket) {
 
-        function (socket) {
+        console.log("Camera client connected: " + socket.id);
 
-            console.log("Camera client connected: " + socket.id);
+        socket.on('bloop', function(stuff) {
+            console.log(stuff);
+        });
 
-            socket.on('bloop', function(stuff) {
-                console.log("Received: 'bloop': " + stuff);
-            });
-
-            socket.on('disconnect', function() {
-                console.log("Client has disconnected");
-            });
-        }
-    );
+        socket.on('disconnect', function() {
+            console.log("Client has disconnected");
+        });
+    });
 };
 
 export default {
