@@ -68,8 +68,13 @@ const run = () => {
 
         console.log("Camera client connected: " + socket.id);
 
-        socket.on('bloop', function(stuff) {
-            console.log(stuff);
+        socket.on('bloop', function(data) {
+            console.log("Received: " + data.message);
+            console.log("image binary: " + data.image);
+            /*
+            TODO:
+            feed image through blooprint/whiteSocket.jar
+            */
         });
 
         socket.on('disconnect', function() {
