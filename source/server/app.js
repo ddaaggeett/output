@@ -4,6 +4,7 @@ import horizon from '@horizon/server';
 import devProps from '../../config/webpack/devProps';
 import config from '../../config/page';
 import dbConfig from '../../config/db';
+var fs = require('fs');
 
 // import './jobs';
 
@@ -69,12 +70,11 @@ const run = () => {
         console.log("Camera client connected: " + socket.id);
 
         socket.on('bloop', function(data) {
-            console.log("Received: " + data.message);
-            console.log("image binary: " + data.image);
             /*
             TODO:
             feed image through blooprint/whiteSocket.jar
             */
+            base64toBMP(data.image, './whiteSocket/input/BLOOOOOOOOOOP.bmp');
         });
 
         socket.on('disconnect', function() {
@@ -82,6 +82,13 @@ const run = () => {
         });
     });
 };
+
+function base64toBMP(img, file) {
+    var buff = new Buffer(img, 'base64');
+    fs.writeFileSync(file, buff);
+}
+
+
 
 export default {
   run

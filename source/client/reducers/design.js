@@ -37,6 +37,13 @@ export default function design(state = initialState, action) {
 
 				case 'write':
 
+				/*
+				TODO:
+				this will be where the user prepares the projection to go BLACK
+				blooprint/output then awaits the blooprint/input client to capture and send image
+				upon retrieval projector image will return to normal display with updated/pending image (possibly a progress bar?)
+				*/
+
 					// var sizeBefore = execSync('du ./api/sketches/').toString().trim()
 					// console.log('sizeBefore = ',sizeBefore)
 					//
