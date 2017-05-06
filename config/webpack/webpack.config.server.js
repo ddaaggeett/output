@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const WebpackAnybarPlugin = require('webpack-anybar-plugin').default;
 
-const basePath = path.join(__dirname, '../../source');
+const basePath = path.join(__dirname, '../../src');
 const buildPath = path.join(__dirname, '../../.build');
 
 module.exports = {

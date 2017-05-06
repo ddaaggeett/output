@@ -6,6 +6,6 @@
   ],
   "plugins": ["react-hot-loader/babel"],
   "only": [
-    "source/**/*.js"
+    "src/**/*.js"
   ]
 }
