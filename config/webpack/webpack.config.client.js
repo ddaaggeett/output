@@ -7,6 +7,7 @@ const WebpackAnybarPlugin = require('webpack-anybar-plugin').default;
 const basePath = path.join(__dirname, '../../src');
 const buildPath = path.join(__dirname, '../../.build');
 const staticPath = path.join(__dirname, '../../static');
+const bloopOutPath = path.join(__dirname, '../../whiteSocket/output')
 
 module.exports = {
   target: 'web',
@@ -35,9 +36,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(jpe?g|png|gif|mp3|ogg|wav|ogv|mov|mp4|svg|ttf|eot|woff)/,
+        test: /\.(jpe?g|bmp|png|gif|mp3|ogg|wav|ogv|mov|mp4|svg|ttf|eot|woff)/,
         loader: 'file?limit=2000',
-        include: staticPath
+        include: [
+            staticPath,
+            bloopOutPath
+        ]
       },
       {
         test: /\.jsx?$/,

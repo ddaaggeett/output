@@ -2,6 +2,8 @@
 // import runAPI from '../../api/runAPI'
 // import { execSync } from 'child_process'
 
+var path = require('path')
+
 const initialState = {
 	color_set: '#000000',
     helpVisible: false,
@@ -9,13 +11,19 @@ const initialState = {
     bloopAction: 'write',
 	isCalibrating: false,
 	blipsVisible: true,
-	image: 'blank',
-	imagePath: '../api/blooprints/blank.jpg',
+	image: 'white',
 	currentBlooprint: 'blooprint'
 }
 
 export default function design(state = initialState, action) {
 	switch (action.type) {
+
+		case 'AWAIT_INPUT_IMAGE':
+
+			return {
+				...state,
+				image: 'black'
+			}
 
 		case 'TRIGGER_BLOOP':
 

@@ -56,3 +56,8 @@ export function toggleTitleBlock() {
 		type: 'TOGGLE_TITLE_BLOCK'
 	}
 }
+export function awaitInputImage() {
+    return {
+        type: 'AWAIT_INPUT_IMAGE'
+    }
+}

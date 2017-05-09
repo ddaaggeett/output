@@ -46,32 +46,21 @@ class Design extends Component {
         var stampTime = yy.concat(mm,dd,h,m,s,mmm)
 
         /*
-        TODO:
-        image will need to be the compiled output image from the blooprint-api
+        dynamic module (image) loading
+        https://webpack.github.io/docs/context.html#context-module-api
         */
-        // var imagePath = null
-        var imagePath = design.imagePath
-        var backimage = {
-            backgroundImage: 'url(' + imagePath + ')',
-            backgroundSize: '100% 100%'
-        }
+        var req = require.context('../../../whiteSocket/output', false, /^.*\.bmp$/)
 
         return (
 
-            /*
-            trying to re-render on image load
-            */
-
             <div className={styles.design} >
                 <EventListener target={document} onKeyDown={(e) => this.handleKey(e,stampTime)} />
-                <img className={styles.design} src={imagePath} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} />
+                <img className={styles.design} src={req('./'+design.image+'.bmp')} onDoubleClick={(e) => { addBlip(stampTime,e.clientX,e.clientY) }} />
                 { design.blipsVisible ? <Blips blips={blips} /> : null }
                 { design.titleBlockVisible ? <TitleBlock color_set={design.color_set} bloopAction={design.bloopAction} {...this.props} /> : null }
                 { this.state.helpOffered ? <OfferHelp /> : null }
                 { design.isCalibrating ? <Calibration {...this.props} /> : null }
-
                 { this.props.fileStructure.fileWindowVisible ? <OpenFileWindow {...this.props} /> : null }
-
                 { design.helpVisible ? <Help /> : null }
             </div>
         )
@@ -147,7 +136,8 @@ class Design extends Component {
         }
         //  handle write/erase/calibrate trigger
         else if(this.state.pending.includes('control ')) {
-            this.props.triggerBloop(this.props.design.bloopAction,stampTime)
+            // this.props.triggerBloop(this.props.design.bloopAction,stampTime)
+            this.props.awaitInputImage()
             this.setState({pending: ''})
         }
     }

@@ -21,3 +21,5 @@ npm-debug.log
 *.JPEG
 api/calibration/*.json
 sandbox/
+*.bmp
+*.BMP

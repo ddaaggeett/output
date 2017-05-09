@@ -74,6 +74,7 @@ const run = () => {
             TODO:
             feed image through blooprint/whiteSocket.jar
             */
+            console.log('retrieving image from blooprint/input')
             base64toBMP(data.image, './whiteSocket/input/BLOOOOOOOOOOP.bmp');
         });
 
