@@ -137,7 +137,7 @@ class Design extends Component {
         //  handle write/erase/calibrate trigger
         else if(this.state.pending.includes('control ')) {
             // this.props.triggerBloop(this.props.design.bloopAction,stampTime)
-            this.props.awaitInputImage()
+            this.props.prepForInputImage()
             this.setState({pending: ''})
         }
     }

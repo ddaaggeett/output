@@ -6,7 +6,9 @@ import config from '../../config/page';
 import dbConfig from '../../config/db';
 var fs = require('fs');
 
-// import './jobs';
+import whiteSocket from '../../whiteSocket/whiteSocket'
+import { socketIO_setup, awaitInput } from './sockets'
+// import { awaitOutput } from '../client/actions/design'
 
 const app = express();
 
@@ -34,63 +36,33 @@ app.use('/', (req, res) => {
 });
 
 const run = () => {
-  const port = process.env.PORT || config.port;
+    const port = process.env.PORT || config.port;
 
-  const httpServer = app.listen(port, (err) => {
-    if (err) {
-      throw err;
-    }
+    const httpServer = app.listen(port, (err) => {
+        if (err) {
+            throw err;
+        }
 
-    console.info(`Express listening at http://localhost:${port}`); // eslint-disable-line
-  });
-
-  horizon(httpServer, {
-    auto_create_collection: true,
-    auto_create_index: true,
-    project_name: dbConfig.db,
-    permissions: false, // waiting for additions to permission system atm
-    auth: {
-      allow_anonymous: true,
-      allow_unauthenticated: true,
-      token_secret: config.token_secret
-    }
-  });
-
-    var ioServer = app.listen(process.env.PORT || 1234, listen);
-    var io = require('socket.io')(ioServer);
-
-    function listen() {
-        var host = ioServer.address().address;
-        var port = ioServer.address().port;
-        console.log('socket.io listening at http://' + host + ':' + port);
-    }
-
-    io.sockets.on('connection', function (socket) {
-
-        console.log("Camera client connected: " + socket.id);
-
-        socket.on('bloop', function(data) {
-            /*
-            TODO:
-            feed image through blooprint/whiteSocket.jar
-            */
-            console.log('retrieving image from blooprint/input')
-            base64toBMP(data.image, './whiteSocket/input/BLOOOOOOOOOOP.bmp');
-        });
-
-        socket.on('disconnect', function() {
-            console.log("Client has disconnected");
-        });
+        console.info(`Express listening at http://localhost:${port}`);
+        // eslint-disable-line
     });
+
+    horizon(httpServer, {
+        auto_create_collection: true,
+        auto_create_index: true,
+        project_name: dbConfig.db,
+        permissions: false, // waiting for additions to permission system atm
+        auth: {
+            allow_anonymous: true,
+            allow_unauthenticated: true,
+            token_secret: config.token_secret
+        }
+    });
+
+    socketIO_setup(app)
+
 };
 
-function base64toBMP(img, file) {
-    var buff = new Buffer(img, 'base64');
-    fs.writeFileSync(file, buff);
-}
-
-
-
 export default {
-  run
+    run
 };

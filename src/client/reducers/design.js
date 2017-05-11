@@ -18,30 +18,19 @@ const initialState = {
 export default function design(state = initialState, action) {
 	switch (action.type) {
 
-		case 'AWAIT_INPUT_IMAGE':
+		case 'PREP_FOR_INPUT_IMAGE':
 
 			return {
 				...state,
-				image: 'black'
+				image: 'black',
+				helpVisible: false,
+			    titleBlockVisible: false,
+			    blipsVisible: false
 			}
 
 		case 'TRIGGER_BLOOP':
 
 			switch(action.bloopAction) {
-				case 'calibrate':
-
-					// capture(action.stampTime)
-					//
-					// return {
-					// 	...state,
-					// 	isCalibrating: true,
-					// 	blipsVisible: false,
-					// 	titleBlockVisible: false,
-					// 	helpVisible: false,
-					// 	bloopAction: 'write',
-					// 	image: action.stampTime,
-					// 	imagePath: '../api/sketches/' + action.stampTime + '.jpg'
-					// }
 
 				case 'write':
 
@@ -52,39 +41,6 @@ export default function design(state = initialState, action) {
 				upon retrieval projector image will return to normal display with updated/pending image (possibly a progress bar?)
 				*/
 
-					// var sizeBefore = execSync('du ./api/sketches/').toString().trim()
-					// console.log('sizeBefore = ',sizeBefore)
-					//
-					// console.log('triggering camera @ ',action.stampTime)
-					// capture(action.stampTime)
-					//
-					// var sizeAfter = ''
-					// var flag = true
-					// while ( flag ) {
-					// 	sizeAfter = execSync('du ./api/sketches/').toString().trim()
-					// 	console.log('checking again')
-					// 	if ( sizeBefore !== sizeAfter ) {
-					// 		console.log('sizeAfter = ',sizeAfter)
-					// 		flag = false
-					// 	}
-					// }
-					//
-					// sizeBefore = execSync('du ./api/blooprints/').toString().trim()
-					// console.log('sizeBefore = ',sizeBefore)
-					//
-					// runAPI(action.stampTime,state.image,'write',state.color_set.substring(1))
-					//
-					// sizeAfter = ''
-					// var flag = true
-					// while ( flag ) {
-					// 	sizeAfter = execSync('du ./api/blooprints/').toString().trim()
-					// 	console.log('checking again')
-					// 	if ( sizeBefore !== sizeAfter ) {
-					// 		console.log('sizeAfter = ',sizeAfter)
-					// 		flag = false
-					// 	}
-					// }
-					//
 					// return {
 					// 	...state,
 					// 	bloopAction: 'write',
@@ -94,39 +50,6 @@ export default function design(state = initialState, action) {
 
 				case 'erase':
 
-					// var sizeBefore = execSync('du ./api/sketches/').toString().trim()
-					// console.log('sizeBefore = ',sizeBefore)
-					//
-					// console.log('triggering camera @ ',action.stampTime)
-					// capture(action.stampTime)
-					//
-					// var sizeAfter = ''
-					// var flag = true
-					// while ( flag ) {
-					// 	sizeAfter = execSync('du ./api/sketches/').toString().trim()
-					// 	console.log('checking again')
-					// 	if ( sizeBefore !== sizeAfter ) {
-					// 		console.log('sizeAfter = ',sizeAfter)
-					// 		flag = false
-					// 	}
-					// }
-					//
-					// sizeBefore = execSync('du ./api/blooprints/').toString().trim()
-					// console.log('sizeBefore = ',sizeBefore)
-					//
-					// runAPI(action.stampTime,state.image,'erase','null')
-					//
-					// sizeAfter = ''
-					// var flag = true
-					// while ( flag ) {
-					// 	sizeAfter = execSync('du ./api/blooprints/').toString().trim()
-					// 	console.log('checking again')
-					// 	if ( sizeBefore !== sizeAfter ) {
-					// 		console.log('sizeAfter = ',sizeAfter)
-					// 		flag = false
-					// 	}
-					// }
-					//
 					// return {
 					// 	...state,
 					// 	bloopAction: 'write',
