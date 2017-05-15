@@ -1,4 +1,6 @@
 var fs = require('fs');
+import whiteSocket from '../../whiteSocket/whiteSocket'
+
 
 export const socketIO_setup = (app) => {
     console.log('\nsetting up socket with blooprint/input\n')
@@ -38,15 +40,16 @@ export const socketIO_setup = (app) => {
             var inputSavePath = './whiteSocket/input/'+timestamp+'.bmp'
             var outputSavePath = './whiteSocket/output/'+timestamp+'.bmp'
 
-            base64toBMP(data.image, inputSavePath);
+            // base64toBMP(data.image, inputSavePath);
+            base64toBMP(data.image, outputSavePath);
 
             var flag = true
-            while(flag) {
-                if(fs.existsSync(inputSavePath)) {
-                    console.log('ok, got it!')
-                    flag = false
-                }
-            }
+            // while(flag) {
+            //     if(fs.existsSync(inputSavePath)) {
+            //         console.log('ok, got it!')
+            //         flag = false
+            //     }
+            // }
 
             // whiteSocket(timestamp,'white','write','000000',true)
             //
@@ -57,13 +60,18 @@ export const socketIO_setup = (app) => {
             // TODO:
             // server-side rendering (redux)
             // */
-            // flag = true
-            // while(flag) {
-            //     if(fs.existsSync(outputSavePath)) {
-            //         console.log('whiteSocket output saved')
-            //         flag = false
-            //     }
-            // }
+            flag = true
+            while(flag) {
+                if(fs.existsSync(outputSavePath)) {
+                    console.log('whiteSocket output saved')
+                    flag = false
+                }
+            }
+
+            socket.emit('bloop_out', {
+                timestamp: timestamp
+            })
+
         });
 
     });

@@ -6,13 +6,15 @@ import config from '../../config/page';
 import dbConfig from '../../config/db';
 var fs = require('fs');
 
-import whiteSocket from '../../whiteSocket/whiteSocket'
-import { socketIO_setup, awaitInput } from './sockets'
-// import { awaitOutput } from '../client/actions/design'
+import { socketIO_setup } from './sockets'
 
 const app = express();
 
+var cors = require('cors')
+
+app.use(cors())
 app.use('/static', express.static(path.join(process.cwd(), '.build')));
+
 
 /**
  * @TODO move the html out of the server dir
