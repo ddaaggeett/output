@@ -18,24 +18,30 @@ module.exports = {
     publicPath: '/assets/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    root: basePath,
+      extensions: ['.js', '.jsx'],
+    // extensions: ['', '.js', '.jsx'],
+
+    // root: basePath,
+    modules: [
+        basePath,
+        "node_modules"
+    ],
+
     alias: {
       utils: path.join(basePath, '/utils')
     }
   },
   module: {
-    loaders: [
+
+    // loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: basePath
-      },
-      {
-        test : /\.json$/,
-        loader : 'json'
       }
     ]
+
   },
   plugins: [
     new ProgressBarPlugin({
@@ -50,9 +56,15 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       BUILD_TIME: JSON.stringify((new Date()).getTime())
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new WebpackAnybarPlugin({
       port: 1738
+    }),
+    new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        options: {
+            context: __dirname
+        },
+        debug: true
     })
   ],
   externals: [

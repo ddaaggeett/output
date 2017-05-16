@@ -3,6 +3,7 @@ const defaultConfig = require('./webpack.config.client');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const _ = require('lodash');
 const devProps = require('./devProps');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const devConfig = _.assign(_.clone(defaultConfig), {
   devtool: 'source-map',
@@ -22,12 +23,29 @@ const devConfig = _.assign(_.clone(defaultConfig), {
     crossOriginLoading: 'anonymous'
   }),
   plugins: (defaultConfig.plugins || []).concat([
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin({
+        filename: "styles.css",
+        disable: false,
+        allChunks: true
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    })
+        'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    new UglifyJsPlugin({
+        sourceMap: true,
+        compress: {
+            warnings: true
+        }
+    }),
+    new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        options: {
+            context: __dirname
+        },
+        debug: true
+    }),
   ]),
   devServer: {
     publicPath: `${devProps.baseUrl}/static`,
@@ -44,14 +62,18 @@ const devConfig = _.assign(_.clone(defaultConfig), {
   }
 });
 
-const localCssConfig = devConfig.module.loaders.find(
+const localCssConfig = devConfig.module.rules.find(
   l => l.name && l.name === 'local-css-config'
 );
 
+/*
+TODO:
+still in WebPack 1 format
+*/
 delete localCssConfig.name;
-localCssConfig.loader = ExtractTextPlugin.extract(
-  'style',
-  'css?sourceMap&modules&importLoaders=1&localIdentName=lovli_[local]_[hash:base64:5]!postcss'
-);
+localCssConfig.loader = ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=lovli_[local]_[hash:base64:5]'
+})
 
 module.exports = devConfig;

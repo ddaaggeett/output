@@ -9,11 +9,18 @@ module.exports = _.assign(_.clone(config), {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
+      compress: {
+          warnings: true
+      }
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(true)
+    new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        options: {
+            context: __dirname
+        },
+        debug: true
+    })
   ])
 });
