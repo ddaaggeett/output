@@ -58,6 +58,9 @@ const devConfig = _.assign(_.clone(defaultConfig), {
       colors: true,
       chunkModules: false,
       modules: false
+    },
+    headers: {
+        'Access-Control-Allow-Origin': '*'
     }
   }
 });
