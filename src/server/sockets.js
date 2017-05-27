@@ -38,11 +38,12 @@ export const socketIO_setup = (app) => {
             var inputSavePath = './whiteSocket/input/'+timestamp+'.bmp'
             var outputSavePath = './whiteSocket/output/'+timestamp+'.bmp'
 
-            base64toBMP(data.image, inputSavePath);
+            // base64toBMP(data.image, inputSavePath);
+            base64toBMP(data.image, outputSavePath); // for testing
 
             var flag = true
             while(flag) {
-                if(fs.existsSync(inputSavePath)) {
+                if(fs.existsSync(outputSavePath)) {
                     console.log('ok, got it!')
                     flag = false
                 }
@@ -64,6 +65,11 @@ export const socketIO_setup = (app) => {
             //         flag = false
             //     }
             // }
+
+            socket.emit('bloop_out', {
+                timestamp: timestamp
+            })
+            
         });
 
     });

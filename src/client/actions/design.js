@@ -61,3 +61,9 @@ export function prepForInputImage() {
         type: 'PREP_FOR_INPUT_IMAGE'
     }
 }
+export function setImage(img_id) {
+    return {
+        type: 'SET_IMAGE',
+        img_id
+    }
+}

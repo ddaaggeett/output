@@ -51,11 +51,12 @@ export default function configureStore(initialState: Object | void) {
     // persistStore(store, {storage: localForage})
     persistStore(store, {storage: localForage}).purge()
 
-  if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers')) // eslint-disable-line global-require
-    );
-  }
+    if (module.hot) {
+        module.hot.accept('../reducers', () => {
+            const nextRootReducer = require('../reducers').default();
+            store.replaceReducer(nextRootReducer);
+        });
+    }
 
   return store;
 }

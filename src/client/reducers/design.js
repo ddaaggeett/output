@@ -18,7 +18,14 @@ const initialState = {
 export default function design(state = initialState, action) {
 	switch (action.type) {
 
-		case 'PREP_FOR_INPUT_IMAGE':
+		case 'SET_IMAGE':
+			return {
+				...state,
+				image: action.img_id,
+				blipsVisible: true
+			}
+
+ 		case 'PREP_FOR_INPUT_IMAGE':
 
 			return {
 				...state,
