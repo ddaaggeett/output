@@ -4,6 +4,16 @@ import { AppContainer } from 'react-hot-loader';
 
 import Root from './containers/Root';
 
+import { Connector } from 'horizon-react';
+import { Provider } from 'react-redux';
+import horizon from './db';
+import { hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+import configureStore from './store/configureStore';
+const store = configureStore();
+const history = syncHistoryWithStore(hashHistory, store);
+
 // Define the target container for our application
 const rootElement = document.getElementById('root');
 
@@ -14,8 +24,14 @@ if (module.hot) {
 
 // Render application to target container
 ReactDOM.render(
-  <AppContainer><Root /></AppContainer>,
-  rootElement
+    <AppContainer>
+        <Connector horizon={horizon}>
+            <Provider store={store}>
+                <Root {...history} />
+            </Provider>
+        </Connector>
+    </AppContainer>,
+    rootElement
 );
 
 // react-hot-loader 3 specific - rerender AppContainer
@@ -25,7 +41,13 @@ if (module.hot) {
   module.hot.accept('./containers/Root', () => {
     const RootEle = require('./containers/Root').default; // eslint-disable-line
     ReactDOM.render(
-      <AppContainer><RootEle /></AppContainer>,
+      <AppContainer>
+          <Connector horizon={horizon}>
+              <Provider store={store}>
+                  <RootEle {...history} />
+              </Provider>
+          </Connector>
+      </AppContainer>,
       rootElement
     );
   });
