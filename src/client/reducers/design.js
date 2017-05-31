@@ -25,14 +25,22 @@ export default function design(state = initialState, action) {
 				blipsVisible: true
 			}
 
- 		case 'PREP_FOR_INPUT_IMAGE':
-
-			return {
-				...state,
-				image: 'black',
-				helpVisible: false,
-			    titleBlockVisible: false,
-			    blipsVisible: false
+ 		case 'PREP_BACKGROUND':
+			if(state.image === 'black') {
+				return {
+					...state,
+					image: 'white', // TODO: shouldn't be white - should be current image
+					blipsVisible: true
+				}
+			}
+			else {
+				return {
+					...state,
+					image: 'black',
+					helpVisible: false,
+					titleBlockVisible: false,
+					blipsVisible: false
+				}
 			}
 
 		case 'TRIGGER_BLOOP':

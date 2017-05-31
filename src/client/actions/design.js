@@ -56,9 +56,9 @@ export function toggleTitleBlock() {
 		type: 'TOGGLE_TITLE_BLOCK'
 	}
 }
-export function prepForInputImage() {
+export function prepBackground() {
     return {
-        type: 'PREP_FOR_INPUT_IMAGE'
+        type: 'PREP_BACKGROUND'
     }
 }
 export function setImage(img_id) {

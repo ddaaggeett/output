@@ -27,7 +27,7 @@ ReactDOM.render(
     <AppContainer>
         <Connector horizon={horizon}>
             <Provider store={store}>
-                <Root {...history} />
+                <Root history={history} />
             </Provider>
         </Connector>
     </AppContainer>,
@@ -39,12 +39,12 @@ ReactDOM.render(
 // https://github.com/gaearon/react-hot-loader/issues/249
 if (module.hot) {
   module.hot.accept('./containers/Root', () => {
-    const RootEle = require('./containers/Root').default; // eslint-disable-line
+    const RootEle = require('./containers/Root').default(); // eslint-disable-line
     ReactDOM.render(
       <AppContainer>
           <Connector horizon={horizon}>
               <Provider store={store}>
-                  <RootEle {...history} />
+                  <RootEle history={history} />
               </Provider>
           </Connector>
       </AppContainer>,

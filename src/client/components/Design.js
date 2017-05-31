@@ -9,6 +9,7 @@ import OfferHelp from './OfferHelp'
 import OpenFileWindow from './OpenFileWindow'
 import styles from './Design.css'
 var client = require('socket.io-client')
+var socket = client.connect('http://localhost:1234')
 
 class Design extends Component {
 
@@ -19,11 +20,13 @@ class Design extends Component {
             helpOffered: true,
             pending: ''
         }
-
-        this.socket = client.connect('http://localhost:1234')
     }
 
     componentDidMount(){
+
+        socket.on('bloop_out', (data) => {
+            this.props.setImage(data.timestamp)
+        })
 
         setTimeout(
             () => {
@@ -137,22 +140,11 @@ class Design extends Component {
             this.props.toggleTitleBlock()
             this.setState({pending: ''})
         }
-        //  handle write/erase/calibrate trigger
+        //  prepare anti glare whiteboard surface
         else if(this.state.pending.includes('control ')) {
-            // this.props.triggerBloop(this.props.design.bloopAction,stampTime)
-            this.props.prepForInputImage()
-
-            this.waitForBloopOutput()
-
+            this.props.prepBackground()
             this.setState({pending: ''})
         }
-    }
-
-    waitForBloopOutput() {
-        this.socket.on('bloop_out', function(data) {
-            this.props.setImage(data.timestamp)
-            console.log('output image SHOULD be displayed')
-        })
     }
 }
 

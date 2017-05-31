@@ -5,7 +5,7 @@
   "twitter": "https://twitter.com/blooprint_xyz",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blooprint/blooprint.git"
+    "url": "git+https://github.com/blooprint/output.git"
   },
   "author": {
     "name": "Dave Daggett",
@@ -15,7 +15,7 @@
   },
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/blooprint/blooprint/issues"
+    "url": "https://github.com/blooprint/output/issues"
   },
   "private": true,
   "scripts": {

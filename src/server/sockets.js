@@ -66,10 +66,10 @@ export const socketIO_setup = (app) => {
             //     }
             // }
 
-            socket.emit('bloop_out', {
+            io.sockets.emit('bloop_out', {
                 timestamp: timestamp
             })
-            
+
         });
 
     });
