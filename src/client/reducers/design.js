@@ -12,6 +12,8 @@ const initialState = {
 	isCalibrating: false,
 	blipsVisible: true,
 	image: 'white',
+	imgReserve: 'white',
+	prepImage: 'black',
 	currentBlooprint: 'blooprint'
 }
 
@@ -22,6 +24,7 @@ export default function design(state = initialState, action) {
 			return {
 				...state,
 				image: action.img_id,
+				imgReserve: action.img_id,
 				blipsVisible: true
 			}
 
@@ -29,7 +32,7 @@ export default function design(state = initialState, action) {
 			if(state.image === 'black') {
 				return {
 					...state,
-					image: 'white', // TODO: shouldn't be white - should be current image
+					image: state.imgReserve,
 					blipsVisible: true
 				}
 			}
