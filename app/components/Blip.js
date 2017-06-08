@@ -17,8 +17,6 @@ class Blip extends Component {
 
 		const { params, deleteBlip, editBlip, blips } = this.props
 
-		console.log('indide blip props = \n',this.props)
-
 		var index = 0
 		for(var i = 0; i < blips.length; i++) {
 	        if(blips[i].blipID === params.blipID) {

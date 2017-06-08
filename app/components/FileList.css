@@ -1,0 +1,21 @@
+.files {
+    position: absolute;
+    width: 100%;
+    top: 35px;
+    bottom: 30px;
+    /*border: 1px solid black;*/
+    overflow: scroll;
+}
+.single {
+    display: block;
+    font-size: 20px;
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    border-top: 1px solid gray;
+}
+.single:hover {
+    background-color: #ADD8E6;
+    color: blue;
+    cursor: default;
+}

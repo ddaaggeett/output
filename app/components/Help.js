@@ -24,6 +24,7 @@ class Help extends Component {
 				<span className={styles.black}>black</span></p>
 				<h4>set pending ACTION by PRESSING:</h4>
 				<p><span className={styles.key}>1</span>-WRITE <span className={styles.key}>2</span>-ERASE <span className={styles.key}>3</span>-CALIBRATE</p>
+				<h4>click blooprint TITLE to CHANGE blooprint</h4>
 				<h4>trigger BLOOP action: <span className={styles.key}>CTRL-SPACE</span></h4>
 			</div>
 		)

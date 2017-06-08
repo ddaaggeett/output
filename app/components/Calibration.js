@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import styles from './Calibration.css';
-import saveUnitClicks from '../../api/saveUnitClicks'
+// import saveUnitClicks from '../../api/saveUnitClicks'
 
 class Calibration extends Component {
 
@@ -27,7 +27,7 @@ class Calibration extends Component {
 	}
 
 	handleLeave() {
-		saveUnitClicks(this.props.calibration)
+		// saveUnitClicks(this.props.calibration)
 		this.props.finishCalibration()
 	}
 }
