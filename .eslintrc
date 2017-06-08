@@ -36,7 +36,7 @@
     "targets": ["chrome"],
     "import/resolver": {
       "webpack": {
-        "config": "webpack.config.eslint.js"
+        "config": "webpack/webpack.config.eslint.js"
       }
     }
   }
