@@ -9,6 +9,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import { spawn } from 'child_process';
+import { socketIO_setup } from './sockets'
 
 import config from './webpack/webpack.config.development';
 
@@ -41,6 +42,8 @@ const server = app.listen(PORT, 'localhost', serverError => {
   }
 
   console.log(`Listening at http://localhost:${PORT}`);
+
+  socketIO_setup(app)
 });
 
 process.on('SIGTERM', () => {

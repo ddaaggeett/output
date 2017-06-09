@@ -12,9 +12,12 @@ const initialState = {
 	isCalibrating: false,
 	blipsVisible: true,
 	image: 'white',
-	imgReserve: 'white',
+	imgReserve: '../whiteSocket/output/white.bmp',
 	prepImage: 'black',
-	currentBlooprint: 'blooprint'
+	currentBlooprint: 'blooprint',
+	imagePath: '../whiteSocket/output/white.bmp',
+	prepImagePath: '../whiteSocket/output/black.bmp'
+
 }
 
 export default function design(state = initialState, action) {
@@ -23,23 +26,24 @@ export default function design(state = initialState, action) {
 		case 'SET_IMAGE':
 			return {
 				...state,
-				image: action.img_id,
+				// image: action.img_id,
 				imgReserve: action.img_id,
-				blipsVisible: true
+				blipsVisible: true,
+				imagePath: '../whiteSocket/output/' + action.img_id + '.bmp'
 			}
 
  		case 'PREP_BACKGROUND':
-			if(state.image === 'black') {
+			if(state.imagePath === '../whiteSocket/output/black.bmp') {
 				return {
 					...state,
-					image: state.imgReserve,
+					imagePath: state.imgReserve,
 					blipsVisible: true
 				}
 			}
 			else {
 				return {
 					...state,
-					image: 'black',
+					imagePath: '../whiteSocket/output/black.bmp',
 					helpVisible: false,
 					titleBlockVisible: false,
 					blipsVisible: false
