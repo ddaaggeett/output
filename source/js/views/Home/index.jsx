@@ -15,13 +15,15 @@ class Home extends Component {
                     <p className="intro">i make my life for my children</p>
                     <p className="intro">my core interests lie within developing minimum viable products for proper market testing</p>
                     <p className="intro" id="projects">ongoing projects:
-                        <a href="https://github.com/blooprint" id="blooprint">blooprint</a>,
-                        <span id="ned">ned</span>,
-                        <span id="ned">zzapp</span>,
-                        <a href="https://www.facebook.com/northchilifamilyrestaurant/" id="blooprint">NCFR</a>,
-                        <a href="http://www.nltk.org/book/">nlp</a>, <a href="https://github.com/off99555/machine-learning-curriculum">ml</a>,
-                        <a href="http://www.uppermonroeavenue.org/" id="umna">UMNA</a>, <span className="blinking-cursor">|</span>,
-                        <a href="http://www.xyzline.xyz" id="xyzline">assembly line</a></p>
+                        <a href="https://github.com/blooprint" id="blooprint"> blooprint</a>,
+                        <span id="ned"> ned</span>,
+                        <span id="ned"> zzapp</span>,
+                        <a href="https://www.facebook.com/northchilifamilyrestaurant/" id="blooprint"> NCFR</a>,
+                        <a href="http://www.nltk.org/book/"> nlp</a>,
+                        <a href="https://github.com/off99555/machine-learning-curriculum"> ml</a>,
+                        <a href="http://www.uppermonroeavenue.org/" id="umna"> UMNA</a>,
+                        <span className="blinking-cursor"> |</span>,
+                        <a href="http://www.xyzline.xyz" id="xyzline"> assembly line</a></p>
                 </div>
                 <div id="right_column">
                     <img className="media_item" id="profile_pic" src={profileImage} alt="profile image" />
