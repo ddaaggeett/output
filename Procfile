@@ -1,1 +1,1 @@
-web: npm run client:build
+web: npm run universal:build
