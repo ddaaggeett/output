@@ -4,3 +4,4 @@ node_modules
 *.log*
 _nogit
 todo.md
+build
