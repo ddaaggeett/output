@@ -30,7 +30,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-      "autoprefixer": "^7.1.2",      
+      "autoprefixer": "^7.1.2"      
   },
   "dependencies": {
     "babel-core": "^6.7.2",
