@@ -9,7 +9,7 @@ const ServerHtml = ({ appHtml, dehydratedState }) => (
       <meta charSet='utf-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' />
 
-      <title>Marvin &bull; React/Redux Boilerplate</title>
+      <title>&bull;&bull; ddaaggeett &bull;&bull;</title>
 
       <link rel='stylesheet' href={ `/${ outputFiles.css }` } />
     </head>
