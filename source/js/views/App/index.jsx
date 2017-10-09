@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Routes from 'config/routes';
 
 import Menu from 'components/Global/Menu';
 

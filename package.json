@@ -29,8 +29,7 @@
     "hook-remove": "prepush remove",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.7.2",
@@ -72,6 +71,7 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-svg-loader": "^1.1.1",
+    "recharts": "^1.0.0-apha.5",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",

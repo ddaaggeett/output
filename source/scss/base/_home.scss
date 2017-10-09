@@ -1,15 +1,38 @@
+body{
+	margin: 0;
+	font-family: Courier;
+	font-size: 20px;
+}
+#projects {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+}
 #center_content {
 	position: absolute;
-	top: 50%;
-	/*border: 1px solid black;*/
+	top: 70%;
 	max-width: 100%;
 	margin-bottom: 5%;
+	// border: 1px solid black;
+}
+.header {
+	position: absolute;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 .center_item {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 3%;
+	margin-top: 5%;
+	// margin-bottom: 60px;
+	border: 1px solid black;
+}
+.center_topic {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .icon {
 	margin-bottom: 50px;
@@ -28,38 +51,38 @@
 #left_column {
 	position: absolute;
 	max-width: 50%;
-	right: 55%;
+	right: 50%;
+	height:5000px;
 	left: 0;
 	margin: 0;
-	margin-left: 5%;
+	// border:10px solid orange;
+	background-color: #E0E0E0;
 }
 .left_item {
-	/*display: inline-block;*/
 	max-width: 100%;
 	width: 100%;
-	/*margin: 5%;*/
-	margin-left: 10%;
-	margin-right: 100px;
 }
 #right_column {
 	position: absolute;
 	max-width: 50%;
-	min-height: 100%;
+	max-height: 70%;
 	left: 50%;
 	right: 0;
 	bottom: 0;
 	top: 0;
 	margin: 0;
-	background-color: #E0E0E0;
+	// border:10px solid green;
 }
 #profile_pic {
 	max-width: 100%;
 	width: 50%;
 	margin-left: 25%;
+	margin-top: 5%;
 }
 #video {
 	border: 11px solid #ccffcc;
 	border-radius: 5px;
+	width: 50%;
 }
 #video:hover {
 	border: 11px solid #00ff00;
@@ -89,16 +112,6 @@
 	margin-left: 20%;
 	margin-right: 18%;
 }
-#unavailable {
-	position: absolute;
-	bottom:40px;
-	left: 8px;
-}
-body{
-	margin: 0;
-	font-family: Courier;
-	font-size: 20px;
-}
 #xyzline {
 	color: #000000;
 	font-weight: normal;
@@ -120,16 +133,12 @@ a:hover {
 	color: #0000ff;
 }
 #greet{
+	// text-align: center;
 	font-size: 40px;
-	margin-left: 15px;
-	margin:10px;
-}
-button {
-	background-color: white;
-	border: 2px solid green;
-	border-radius: 5px;
-	padding: 4px;
-	margin: 0;
+	// border: 1px solid black;
+	margin-left: 3%;
+	// margin-left: 15px;
+	// margin:10px;
 }
 p {
 	/*margin-left: 20px;*/
@@ -190,4 +199,51 @@ p {
   50% {
     color: black;
   }
+}
+
+#button {
+	position: absolute;
+	text-align: center;
+	height: 90px;
+	width: 300px;
+	background-color: white;
+	border: 6px solid green;
+	border-radius: 25px;
+	margin: 0;
+	margin-left: 5%;
+	background-color: #b0e2ff;
+	bottom: 0;
+}
+#button:hover {
+	background-color: #00ccff;
+	border: 6px solid orange;
+	color: white;
+}
+#button p {
+	position:relative;
+	vertical-align: middle;
+	margin:auto;
+	top: 32px;
+}
+.intro {
+	// position: absolute;
+	display: block;
+	max-width: 200px;
+	margin-left: 5%;
+	margin-bottom: 30px;
+	width: 30%;
+	// border: 1px solid black;
+	font-size: 16px;
+}
+#chart {
+	position: absolute;
+	// border: 1px solid blue;
+	right: 0;
+	top:25px;
+	height: 400px;
+	width: 200px;
+}
+#warning {
+	color: red;
+	font-size: 35px;
 }
