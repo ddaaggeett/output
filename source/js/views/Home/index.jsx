@@ -2,18 +2,29 @@ import React, { Component } from 'react'
 
 import { PieChart, Pie, Tooltip } from 'recharts'
 import { occupation } from './data'
-console.log("tseting : ", occupation)
+
+var AudioPlayer = require('react-responsive-audio-player')
+
 
 var profileImage = require('../../../assets/img/profile.jpg')
 var twitterIcon = require('../../../assets/img/twitter_a.png')
 var emailIcon = require('../../../assets/img/email_c.png')
 var softwareIcon = require('../../../assets/img/github_b.png')
+var audioStyle = require('./audioplayer.scss')
+
+const playlist = [
+    {
+        url: '../../../assets/audio/20171010135430.wav',
+        displayText: 'just practice'
+    }
+]
 
 class Home extends Component {
 
     showOccupation() {
         console.log("hello")
     }
+
 
     render() {
 
@@ -50,6 +61,7 @@ class Home extends Component {
                 </div>
 
                 <div id="center_content">
+                    <AudioPlayer id="audio" playlist={playlist} autoplay={true} style={audioStyle} />
                     <h4 className="topic"><span id="warning">to my fellow :</span></h4>
                     <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/XbOeO_frzvg" frameborder={0} allowfullscreen />
                     <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/Cf2nqmQIfxc" frameborder={0} allowfullscreen />
