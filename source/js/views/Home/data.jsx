@@ -2,12 +2,8 @@
 
 const occupation = [
     {
-        name: 'fatherA',
-        value: 1
-    },
-    {
-        name: 'fatherB',
-        value: 1
+        name: 'father',
+        value: 2
     },
     {
         name: 'engineer',

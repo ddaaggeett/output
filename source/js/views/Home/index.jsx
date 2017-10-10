@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 
 import { PieChart, Pie, Tooltip } from 'recharts'
 import { occupation } from './data'
+console.log("tseting : ", occupation)
 
 var profileImage = require('../../../assets/img/profile.jpg')
 var twitterIcon = require('../../../assets/img/twitter_a.png')
 var emailIcon = require('../../../assets/img/email_c.png')
 var softwareIcon = require('../../../assets/img/github_b.png')
 
-
 class Home extends Component {
 
+    showOccupation() {
+        console.log("hello")
+    }
 
     render() {
 
@@ -19,10 +22,13 @@ class Home extends Component {
                 <div id="right_column">
                     <h1 className="left_item" id="greet">hi, i'm <span id="name">Dave</span></h1>
 
-                    <div className="left_item" id="chart">
-                        <PieChart width={800} height={400}>
-                            <Pie startAngle={270} endAngle={90} data={occupation} cx={196} cy={200} fill="#00f900" innerRadius={80} outerRadius={150} label/>
-                        </PieChart>
+                    <div id="occupation" className="left_item" >
+                        <div id="occ"><p className="occupation_detail">i'm two parts father,</p><p className="occupation_detail">one part engineer</p></div>
+                        <div id="chart">
+                            <PieChart width={800} height={400} onMouseEnter={() => this.showOccupation()}>
+                                <Pie startAngle={90} endAngle={270} data={occupation} cx={396} cy={200} fill="#ffd700" innerRadius={80} outerRadius={150} />
+                            </PieChart>
+                        </div>
                     </div>
 
                     <p className="intro">i make my life for my children</p>
@@ -44,9 +50,8 @@ class Home extends Component {
                 </div>
 
                 <div id="center_content">
-                    <h3 className="center_topic" className="center_item"><span id="warning">WARNING:</span> scroll at your own risk</h3>
                     <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/Cf2nqmQIfxc" frameborder={0} allowfullscreen />
-                    <h4 className="center_topic" className="center_item">to my friends,</h4>
+                    <h4 className="topic">to my friends,</h4>
                     <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/XbOeO_frzvg" frameborder={0} allowfullscreen />
                     <div className="center_item" id="quotes">
                         <p className="quote">"people think about creativity as if it's all sweetness and light. no. if you're gonna be creative it's because you're tormented by a problem" - <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiW4ubb1K3WAhWE8YMKHY4VDzEQtwIIKDAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D6G59zsjM2UI&usg=AFQjCNGEf9V3FtTZRRvhjUayxLJuIOeiXg">jbp</a></p>
