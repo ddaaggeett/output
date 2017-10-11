@@ -37,7 +37,7 @@ class Home extends Component {
                 <WelcomeMat />
 
                 <div id="center_content">
-                    <AudioPlayer id="audio" playlist={playlist} autoplay={false} style={audioStyle} />
+                    <AudioPlayer id="audio" playlist={playlist} autoplay={true} style={audioStyle} />
                     <h4 className="topic"><span id="warning">to my fellow :</span></h4>
                     <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/XbOeO_frzvg" frameborder={0} allowfullscreen />
                     <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/Cf2nqmQIfxc" frameborder={0} allowfullscreen />

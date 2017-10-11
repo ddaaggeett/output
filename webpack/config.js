@@ -103,7 +103,7 @@ const rules = [
     include: paths.svg,
   },
   {
-    test: /\.(png|gif|jpg|svg)$/,
+    test: /\.(wav|png|gif|jpg|svg)$/,
     include: paths.images,
     use: [
       {
