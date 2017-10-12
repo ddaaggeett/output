@@ -8,6 +8,7 @@ const paths = {
   source: path.join(__dirname, '../source'),
   javascript: path.join(__dirname, '../source/js'),
   images: path.join(__dirname, '../source/assets/img'),
+  audio: path.join(__dirname, '../source/assets/audio'),
   svg: path.join(__dirname, '../source/assets/svg'),
   build: path.join(__dirname, '../build'),
 };
@@ -103,8 +104,11 @@ const rules = [
     include: paths.svg,
   },
   {
-    test: /\.(wav|png|gif|jpg|svg)$/,
-    include: paths.images,
+    test: /\.(png|gif|jpg|svg|wav|mp3)$/, // TODO: not loading audio file in build
+    include: [
+        paths.images,
+        paths.audio
+    ],
     use: [
       {
         loader: 'file-loader',
