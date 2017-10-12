@@ -41,7 +41,10 @@ class WelcomeMat extends Component {
                     <p className="intro">i make my life for my children</p>
                     <p className="intro">my core interests lie within developing minimum viable products for proper market testing</p>
 
-                    <Link to={'/projects'}><div id="button"><p>i make things</p></div></Link>
+                    <div id="buttons">
+                        <Link to={'/'}><div className="button"><p>home</p></div></Link>
+                        <Link to={'/projects'}><div className="button"><p>i make things</p></div></Link>
+                    </div>
 
                 </div>
 

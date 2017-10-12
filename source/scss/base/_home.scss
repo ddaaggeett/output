@@ -185,30 +185,46 @@ p {
     color: black;
   }
 }
-
-#button {
+#buttons {
 	position: absolute;
-	text-align: center;
-	height: 90px;
-	width: 300px;
-	background-color: white;
-	border: 6px solid green;
-	border-radius: 25px;
-	margin: 0;
-	margin-left: 5%;
-	background-color: #00e2ff;
+	width: 100%;
 	bottom: 0;
+	z-index: 2;
+	// border: 1px solid black;
 }
-#button:hover {
-	background-color: #00ccff;
-	border: 6px solid orange;
+.project_button {
+	display: block;
+	text-align: center;
+	height: 60px;
+	width: 30%;
+	border: 3px solid black;
+	border-radius: 8px;
+	margin: 10px;
+	margin-left: -3px;
+	background-color: white;
+	bottom: 0;
+	color: #f00
+}
+.button {
+	display: inline-block;
+	text-align: center;
+	height: 60px;
+	width: 30%;
+	border: 3px solid green;
+	border-radius: 8px;
+	margin: 0;
+	margin-left: -3px;
+	background-color: #0f0;
+	bottom: 0;
+	color: #f00
+}
+.button:hover {
+	background-color: #f00;
+	border: 3px solid orange;
 	color: white;
 }
-#button p {
-	position:relative;
+.button p {
 	vertical-align: middle;
-	margin:auto;
-	top: 32px;
 }
 .intro {
 	display: block;

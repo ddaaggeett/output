@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link} from 'react-router-dom'
 
 import WelcomeMat from '../WelcomeMat'
 
@@ -18,19 +19,21 @@ class Projects extends Component {
 
                         <h2>ongoing projects</h2>
 
-                        <a href="https://github.com/blooprint" id="blooprint"> blooprint</a>,
-                        <span id="ned"> vext</span>,
-                        <span id="ned"> ned</span>,
-                        <span id="ned"> zzapp</span>,
-                        <span id="ned"> music</span>,
-                        <a href="https://www.facebook.com/northchilifamilyrestaurant/" id="blooprint"> NCFR</a>,
-                        <a href="http://www.nltk.org/book/"> nlp</a>,
-                        <a href="https://github.com/off99555/machine-learning-curriculum"> ml</a>,
-                        <a href="http://www.uppermonroeavenue.org/" id="umna"> UMNA</a>,
-                        <span className="blinking-cursor"> |</span>,
-                        <a href="http://www.xyzline.xyz" id="xyzline"> assembly line</a></div>
 
                     </div>
+
+
+
+                    <div id="projects">
+                        <a href="https://github.com/blooprint" className='project_button'><p>Blooprint</p></a>
+                        <Link to={'/music'}><div className="project_button"><p>music</p></div></Link>
+                        <a href="https://www.facebook.com/northchilifamilyrestaurant/" className='project_button'><p>NCFR</p></a>
+                        <a href="http://www.uppermonroeavenue.org/" className='project_button'><p>UMNA</p></a>
+                        <Link to={'/study'}><div className="project_button"><p>self study</p></div></Link>
+                        <span className="blinking-cursor">...</span>
+                    </div>
+
+                </div>
 
             </div>
         );
