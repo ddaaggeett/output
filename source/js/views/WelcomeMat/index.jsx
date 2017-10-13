@@ -44,6 +44,7 @@ class WelcomeMat extends Component {
                     <div id="buttons">
                         <Link to={'/'}><div className="button"><p>home</p></div></Link>
                         <Link to={'/projects'}><div className="button"><p>i make things</p></div></Link>
+                        <Link to={'/contact'}><div className="button"><p>contact me</p></div></Link>
                     </div>
 
                 </div>
