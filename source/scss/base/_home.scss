@@ -32,13 +32,14 @@ body{
 }
 .icon {
 	margin-bottom: 50px;
-	margin-top: 50px;
+	margin-top: 75px;
 	display: block;
 	height: 40px;
 	width: 40px;
 
 }
 #contact_me {
+	// top: 10%;
 	float: right;
 	max-height: 30%;
 	height: 300px;
@@ -74,9 +75,8 @@ body{
 	margin-top: 10%;
 }
 #video {
-	border: 11px solid #ccffcc;
+	border: 11px solid #00f;
 	border-radius: 5px;
-	// width: 50%;
 }
 #video:hover {
 	border: 11px solid #00ff00;
@@ -215,7 +215,7 @@ p {
 	margin-left: -3px;
 	background-color: #0f0;
 	bottom: 0;
-	color: #f00
+	color: #000;
 }
 .button:hover {
 	background-color: #f00;
@@ -297,4 +297,7 @@ p {
     border-radius: 4px;
     cursor: pointer;
 	font-size: 18px;
+}
+#message {
+	height: 150px;
 }

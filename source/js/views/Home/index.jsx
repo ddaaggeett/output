@@ -42,10 +42,7 @@ class Home extends Component {
                         <p className="quote">why has 'talent' somehow become an actual replacement for 'obsession and practice'
                             <a href="https://twitter.com/ddaaggeett/status/909594140048072704">?</a></p>
                     </div>
-                    <h4 className="topic"><span id="warning">phonetics of a jibber jabber ...</span></h4>
-
                 </div>
-
             </div>
         );
     }

@@ -10,7 +10,7 @@ var AudioPlayer = require('react-responsive-audio-player')
 var profileImage = require('../../../assets/img/profile.jpg')
 var twitterIcon = require('../../../assets/img/twitter_a.png')
 var emailIcon = require('../../../assets/img/email_c.png')
-var softwareIcon = require('../../../assets/img/github_b.png')
+var softwareIcon = require('../../../assets/img/github_c.png')
 var audioStyle = require('../Home/audioplayer.scss')
 
 const playlist = [
@@ -33,7 +33,15 @@ class WelcomeMat extends Component {
                         <div id="occ"><p className="occupation_detail">i'm two parts father,</p><p className="occupation_detail">one part engineer</p></div>
                         <div id="chart">
                             <PieChart width={800} height={400} onMouseEnter={() => this.showOccupation()}>
-                                <Pie startAngle={90} endAngle={270} data={occupation} cx={396} cy={200} fill="#ffd700" innerRadius={80} outerRadius={150} />
+                                <Pie
+                                    startAngle={90}
+                                    endAngle={270}
+                                    data={occupation}
+                                    cx={396} cy={200}
+                                    fill="#ffd700"
+                                    innerRadius={80}
+                                    outerRadius={150}
+                                    dataKey="value" />
                             </PieChart>
                         </div>
                     </div>
@@ -52,8 +60,6 @@ class WelcomeMat extends Component {
                 <div id="left_column">
                     <img className="media_item" id="profile_pic" src={profileImage} alt="profile image" />
                     <div className="media_item" id="contact_me">
-                        <a className="icon" href="https://david.g.daggett@gmail.com">
-                            <img src={emailIcon} alt="email" style={{width: 40, height: 31}} /></a>
                         <a className="icon" href="https://github.com/ddaaggeett">
                             <img src={softwareIcon} alt="software" style={{width: 40, height: 36}} /></a>
                         <a className="icon" href="https://twitter.com/ddaaggeett"> <img src={twitterIcon} alt="social" style={{width: 40, height: 40}} /></a>

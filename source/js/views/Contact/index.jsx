@@ -1,49 +1,57 @@
 import React, { Component } from 'react';
 import WelcomeMat from '../WelcomeMat'
 
-const Form = () => {
-    return (
-        <form
-            id="form"
-            className="center_item"
-            action=""
-            method="post"
-            role="form">
-            <input
-                type="hidden"
-                name="_next"
-                defaultValue="/" />
-            <div className="row">
-                <div>
-                    <input
-                        className="form_item"
-                        id="email"
-                        name="cf_email"
-                        placeholder="your email address"
-                        type="email"
-                        required />
-                </div>
-                <div>
-                    <textarea
-                        className="form_item"
-                        id="message"
-                        name="cf_message"
-                        placeholder="tell me something"
-                        rows={5} />
-                </div>
-                <div className="">
-                    <button
-                        className="button"
-                        id="form_submit"
-                        type="submit"
-                        value="Send">Send</button>
-                </div>
+var io = require('socket.io-client')
+
+class Form extends Component {
+
+    constructor(props) {
+        super(props)
+        this.socket = io.connect('http://localhost:1234')
+    }
+
+    handleSubmitClick = () => {
+
+        this.socket.emit('submitEmail', {
+            email: this.email.value,
+            message: this.message.value
+        })
+
+        this.email.value = ''
+        this.message.value = ''
+    }
+
+    render() {
+
+        return (
+            <div id="form" className="center_item">
+                <input
+                    className="form_item"
+                    placeholder="your email address"
+                    id="email"
+                    type="text"
+                    ref={(input) => this.email = input} />
+                <textarea
+                    className="form_item"
+                    placeholder="hello, stranger"
+                    id="message"
+                    type="text"
+                    ref={(input) => this.message = input} />
+                <button
+                    className="button"
+                    id="form_submit"
+                    onClick={() => {
+                        this.handleSubmitClick()
+                        console.log('email submit')
+                    }}>
+                    Send</button>
             </div>
-        </form>
-    )
+        )
+    }
 }
 
 class Contact extends Component {
+
     render() {
         return(
             <div className='body'>
