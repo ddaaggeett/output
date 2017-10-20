@@ -8,3 +8,7 @@ build
 example_aws
 audio
 *emailConfigs*
+*awsConfigs*
+Music
+Video
+SmallHeader

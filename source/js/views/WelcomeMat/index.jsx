@@ -61,7 +61,7 @@ class WelcomeMat extends Component {
                     <img className="media_item" id="profile_pic" src={profileImage} alt="profile image" />
                     <div className="media_item" id="contact_me">
                         <a className="icon" href="https://github.com/ddaaggeett">
-                            <img src={softwareIcon} alt="software" style={{width: 40, height: 36}} /></a>
+                            <img src={softwareIcon} alt="software" style={{width: 45, height: 45}} /></a>
                         <a className="icon" href="https://twitter.com/ddaaggeett"> <img src={twitterIcon} alt="social" style={{width: 40, height: 40}} /></a>
                     </div>
                 </div>

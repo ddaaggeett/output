@@ -16,7 +16,10 @@ export const socketIO_setup = (app) => {
     io.sockets.on('connection', function (socket) {
 
         socket.on('submitEmail', function(data) {
-            sendEmail(data)
+            console.log('\nabout to send an email')
+            console.log('from: ', data.email)
+            console.log('message: ', data.message, '\n')
+            awsSendEmail(data)
         })
 
         socket.on('disconnect', function() {
@@ -25,49 +28,31 @@ export const socketIO_setup = (app) => {
     });
 }
 
-const sendEmail = (email) => {
-    var mailOpts, transporter;
-    //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
-    try {
-        transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                type: 'OAuth2',
-                user: emailConfigs.user,
-                clientId: emailConfigs.clientId,
-                clientSecret: emailConfigs.clientSecret,
-                refreshToken: emailConfigs.refreshToken
-            }
-        })
-    }
-    catch (err) {
-        // set up your own credentials
-        console.log('\nyou need your own email credentials. SEE: source/js/views/Contact/emailSocket.js\n')
-        var transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                type: 'OAuth2',
-                user: emailConfigs.user,
-                clientId: emailConfigs.clientId,
-                clientSecret: emailConfigs.clientSecret,
-                refreshToken: emailConfigs.refreshToken
-            }
-        });
-    }
+const awsSendEmail = (email) => {
 
-    //Mail options
-    mailOpts = {
-        from: email.email,
+    // let nodemailer = require('nodemailer')
+    let aws = require('aws-sdk')
+
+    // configure AWS SDK
+    aws.config.loadFromPath('./source/js/views/Contact/awsConfigs.json')
+
+    // create Nodemailer SES transporter
+    let transporter = nodemailer.createTransport({
+        SES: new aws.SES({
+            apiVersion: '2010-12-01'
+        })
+    })
+
+    const message = 'from: '.concat(email.email, '\n', email.message)
+
+    // send some mail
+    transporter.sendMail({
+        from: emailConfigs.user,
         to: emailConfigs.user,
-        subject: '** DEFAULT ddaaggeett.xyz CONTACT **',
-        text: 'from: '+ email.email + '\n\n' + email.message
-    };
-    transporter.sendMail(mailOpts, function (error, response) {
-        //Email not sent
-        if (error) {
-            console.log('\nEMAIL ERROR:\n',error)
-        }
-        //Yay!! Email sent
-        else {}
-    });
+        subject: emailConfigs.subject,
+        text: message
+
+    }, (err, info) => {
+        console.log("email error: ",err);
+    })
 }
