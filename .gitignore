@@ -7,3 +7,10 @@ todo.md
 build
 example_aws
 audio
+*.zip
+*awsConfig*
+*emailConfig*
+
+Music
+SmallHeader
+Video
