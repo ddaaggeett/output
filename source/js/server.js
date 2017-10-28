@@ -9,7 +9,7 @@ import 'babel-polyfill';
 
 import configureStore from 'config/store';
 import getServerHtml from 'config/server-html';
-import Server from 'views/Server';
+import App from 'views/App';
 
 import { socketIO_setup } from './views/Contact/emailSocket'
 
@@ -34,7 +34,7 @@ app.use((req, res) => {
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={ store }>
         <StaticRouter location={ req.url } context={ context }>
-            <Server />
+            <App />
         </StaticRouter>
     </Provider>
   );
