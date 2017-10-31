@@ -13,3 +13,5 @@ Music
 Video
 SmallHeader
 *.zip
+.ebextensions
+.elasticbeanstalk
