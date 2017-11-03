@@ -7,7 +7,7 @@ class Form extends Component {
 
     constructor(props) {
         super(props)
-        this.socket = io.connect('http://localhost:1234')
+        this.socket = io.connect('http://'+require('ip').address()+':1234')
     }
 
     handleSubmitClick = () => {

@@ -60,6 +60,7 @@
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.24.1",
     "immutable": "^3.8.1",
+    "ip": "^1.1.5",
     "isomorphic-fetch": "^2.2.1",
     "node-sass": "^4.5.3",
     "nodemailer": "^4.2.0",
