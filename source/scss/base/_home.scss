@@ -32,13 +32,14 @@ body{
 }
 .icon {
 	margin-bottom: 50px;
-	margin-top: 50px;
+	margin-top: 75px;
 	display: block;
 	height: 40px;
 	width: 40px;
 
 }
 #contact_me {
+	// top: 10%;
 	float: right;
 	max-height: 30%;
 	height: 300px;
@@ -74,9 +75,8 @@ body{
 	margin-top: 10%;
 }
 #video {
-	border: 11px solid #ccffcc;
+	border: 11px solid #00f;
 	border-radius: 5px;
-	// width: 50%;
 }
 #video:hover {
 	border: 11px solid #00ff00;
@@ -190,7 +190,6 @@ p {
 	width: 100%;
 	bottom: 0;
 	z-index: 2;
-	// border: 1px solid black;
 }
 .project_button {
 	display: block;
@@ -216,7 +215,7 @@ p {
 	margin-left: -3px;
 	background-color: #0f0;
 	bottom: 0;
-	color: #f00
+	color: #000;
 }
 .button:hover {
 	background-color: #f00;
@@ -274,5 +273,31 @@ p {
 	margin-left: auto;
 	margin-right: auto;
 	width: 600px;
-	// border: 1px solid black;
+}
+.form_item {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	font-size: 18px;
+}
+#form {
+	width: 500px;
+}
+#form_submit {
+	width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-size: 18px;
+}
+#message {
+	height: 150px;
 }

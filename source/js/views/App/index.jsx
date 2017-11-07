@@ -5,6 +5,7 @@ import Menu from 'components/Global/Menu';
 
 import Home from '../Home'
 import Projects from '../Projects'
+import Contact from '../Contact'
 
 export default class App extends Component {
   render() {
@@ -12,6 +13,7 @@ export default class App extends Component {
         <div className='App'>
             <Route exact path="/" component={Home}/>
             <Route path="/projects" component={Projects}/>
+            <Route path="/contact" component={Contact}/>
         </div>
     );
   }
