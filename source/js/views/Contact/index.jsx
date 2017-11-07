@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WelcomeMat from '../WelcomeMat'
+import { emailConfigs } from './emailConfigs'
 
 var io = require('socket.io-client')
 
@@ -7,7 +8,15 @@ class Form extends Component {
 
     constructor(props) {
         super(props)
-        this.socket = io.connect('http://'+require('ip').address()+':1234')
+
+        if (process.env.NODE_ENV == "production") {
+            console.log('socket.io host server is PRODUCTION mode')
+            this.socket = io.connect('http://' + emailConfigs.ipv4_address + ':1234')
+        }
+        else {
+            console.log('socket.io host server is DEV mode')
+            this.socket = io.connect('http://localhost:1234')
+        }
     }
 
     handleSubmitClick = () => {
