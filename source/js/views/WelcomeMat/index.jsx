@@ -30,7 +30,7 @@ class WelcomeMat extends Component {
                     <h1 className="left_item" id="greet">hi, i'm <span id="name">Dave</span></h1>
 
                     <div id="occupation" className="left_item" >
-                        <div id="occ"><p className="occupation_detail">i'm two parts father,</p><p className="occupation_detail">one part engineer</p></div>
+                        <div id="occ"><p className="occupation_detail">two parts father,</p><p className="occupation_detail">one part engineer</p></div>
                         <div id="chart">
                             <PieChart width={800} height={400} onMouseEnter={() => this.showOccupation()}>
                                 <Pie
@@ -46,8 +46,10 @@ class WelcomeMat extends Component {
                         </div>
                     </div>
 
-                    <p className="intro">i make my life for my children</p>
-                    <p className="intro">my core interests lie within developing minimum viable products for proper market testing</p>
+                    <div id="iam">
+                        <h4 className="intro">i make my life for my children</h4>
+                        <h4 className="intro">i am a shade tree mechanic</h4>
+                    </div>
 
                     <div id="buttons">
                         <Link to={'/'}><div className="button"><p>home</p></div></Link>
@@ -60,9 +62,25 @@ class WelcomeMat extends Component {
                 <div id="left_column">
                     <img className="media_item" id="profile_pic" src={profileImage} alt="profile image" />
                     <div className="media_item" id="contact_me">
-                        <a className="icon" href="https://github.com/ddaaggeett">
-                            <img src={softwareIcon} alt="software" style={{width: 45, height: 45}} /></a>
-                        <a className="icon" href="https://twitter.com/ddaaggeett"> <img src={twitterIcon} alt="social" style={{width: 40, height: 40}} /></a>
+
+                        <a
+                            className="icon"
+                            href="https://github.com/ddaaggeett"
+                            target="_blank" >
+                            <img
+                                src={softwareIcon}
+                                alt="software"
+                                style={{width: 45, height: 45, marginLeft: -2}} /></a>
+
+                        <a
+                            className="icon"
+                            href="https://twitter.com/ddaaggeett"
+                            target="_blank" >
+                            <img
+                                src={twitterIcon}
+                                alt="social"
+                                style={{width: 40, height: 40}} /></a>
+
                     </div>
                 </div>
 

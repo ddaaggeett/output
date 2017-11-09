@@ -31,15 +31,12 @@ body{
 	left: 100px;
 }
 .icon {
-	margin-bottom: 50px;
-	margin-top: 75px;
+	margin-top: 20px;
 	display: block;
-	height: 40px;
-	width: 40px;
 
 }
 #contact_me {
-	// top: 10%;
+	margin-top: 135px;
 	float: right;
 	max-height: 30%;
 	height: 300px;
@@ -188,7 +185,8 @@ p {
 #buttons {
 	position: absolute;
 	width: 100%;
-	bottom: 0;
+	bottom: -50px;
+	left: -15%;
 	z-index: 2;
 }
 .project_button {
@@ -207,32 +205,39 @@ p {
 .button {
 	display: inline-block;
 	text-align: center;
-	height: 60px;
+	height: 45px;
 	width: 30%;
-	border: 3px solid green;
-	border-radius: 8px;
+	border: 2px solid green;
+	border-radius: 4px;
 	margin: 0;
-	margin-left: -3px;
+	margin-left: 0;
 	background-color: #0f0;
 	bottom: 0;
 	color: #000;
 }
+.button p {
+	margin-top: 12px;
+}
 .button:hover {
 	background-color: #f00;
-	border: 3px solid orange;
+	border: 2px solid black;
 	color: white;
 }
 .button p {
 	vertical-align: middle;
 }
+#iam {
+	position: absolute;
+	width: 50%;
+}
 .intro {
 	display: block;
 	margin-top:40px;
 	max-width: 200px;
-	margin-left: 8%;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 30px;
-	width: 30%;
-	font-size: 16px;
+	text-align: center;
 }
 #chart {
 	right: 0;
@@ -256,18 +261,17 @@ p {
 	top: 0;
 }
 .occupation_detail {
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	padding: 0;
 	font-size: 16px;
-	// padding-left: auto;
 	padding-right: 5%;
 }
 #occ {
 	position: relative;
 	margin-left:auto;
 	max-width: 400px;
-	margin-right:0;
-	top: 10px;
+	margin-right: -30px;
+	top: 30px;
 }
 #projects {
 	margin-left: auto;
