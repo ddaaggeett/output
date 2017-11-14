@@ -1,5 +1,5 @@
 import React from 'react';
-import App from 'views/App';
+import App from 'containers/App';
 
 export default () => (
     <App />

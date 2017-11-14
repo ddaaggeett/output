@@ -9,9 +9,9 @@ import 'babel-polyfill';
 
 import configureStore from 'config/store';
 import getServerHtml from 'config/server-html';
-import App from 'views/App';
+import App from 'containers/App';
 
-import { socketIO_setup } from './views/Contact/emailSocket'
+import { socketIO_setup } from './containers/Contact/emailSocket'
 
 // Load SCSS
 import '../scss/app.scss';

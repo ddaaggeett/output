@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import App from 'views/App';
+import App from 'containers/App';
 
 const Server = () => (
     <App />

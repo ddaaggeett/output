@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import 'babel-polyfill';
 
 import configureStore from 'config/store';
-import App from 'views/App';
+import App from 'containers/App';
 
 import es6Promise from 'es6-promise';
 import 'isomorphic-fetch';
@@ -35,8 +35,8 @@ const render = Component => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./views/App/', () => {
-    const NewClient = require('./views/App/index').default; // eslint-disable-line global-require
+  module.hot.accept('./containers/App/', () => {
+    const NewClient = require('./containers/App/index').default; // eslint-disable-line global-require
 
     render(NewClient);
   });

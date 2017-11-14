@@ -34,7 +34,7 @@ const awsSendEmail = (email) => {
     let aws = require('aws-sdk')
 
     // configure AWS SDK
-    aws.config.loadFromPath('./source/js/views/Contact/awsConfigs.json')
+    aws.config.loadFromPath('./source/js/containers/Contact/awsConfigs.json')
 
     // create Nodemailer SES transporter
     let transporter = nodemailer.createTransport({
