@@ -9,7 +9,6 @@ const paths = {
   javascript: path.join(__dirname, '../source/js'),
   images: path.join(__dirname, '../source/assets/img'),
   audio: path.join(__dirname, '../source/assets/audio'),
-  svg: path.join(__dirname, '../source/assets/svg'),
   build: path.join(__dirname, '../build'),
 };
 
@@ -82,29 +81,7 @@ const rules = [
     use: ['babel-loader'],
   },
   {
-    test: /\.svg$/,
-    use: [
-      {
-        loader: 'babel-loader',
-      },
-      {
-        loader: 'react-svg-loader',
-        options: {
-          svgo: {
-            plugins: [
-              {
-                removeTitle: true,
-              },
-            ],
-            floatPrecision: 2,
-          },
-        },
-      },
-    ],
-    include: paths.svg,
-  },
-  {
-    test: /\.(png|gif|jpg|svg|wav|mp3)$/, // TODO: not loading audio file in build
+    test: /\.(png|gif|jpg|wav|mp3)$/, // TODO: not loading audio file in build
     include: [
         paths.images,
         paths.audio
