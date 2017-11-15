@@ -27,7 +27,7 @@ class Projects extends Component {
                     <div id="projects">
                         <a href="https://github.com/blooprint" className='project_button'><p>Blooprint</p></a>
                         <Link to={'/music'}><div className="project_button"><p>music</p></div></Link>
-                        <a href="https://www.facebook.com/northchilifamilyrestaurant/" className='project_button'><p>NCFR</p></a>
+                        <Link to={'/ncfr'}><div className="project_button"><p>NCFR</p></div></Link>
                         <a href="http://www.uppermonroeavenue.org/" className='project_button'><p>UMNA</p></a>
                         <Link to={'/study'}><div className="project_button"><p>self study</p></div></Link>
                         <span className="blinking-cursor">...</span>

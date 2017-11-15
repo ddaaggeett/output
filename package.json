@@ -58,6 +58,7 @@
     "express": "^4.15.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "google-spreadsheet-to-json": "^1.0.0",
     "html-webpack-plugin": "^2.24.1",
     "immutable": "^3.8.1",
     "ip": "^1.1.5",
