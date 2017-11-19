@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { emailConfigs } from '../Contact/emailConfigs'
 
-import MenuHeader from '../../components/MenuHeader'
-import ItemBlock from '../../components/ItemBlock'
+import MenuHeader from '../../components/ncfr/MenuHeader'
+import MenuSection from '../../components/ncfr/MenuSection'
 
 class NCFR extends Component {
 
@@ -44,9 +44,9 @@ class NCFR extends Component {
         console.log('rendered state:\n',this.state)
 
         return (
-            <div>
+            <div id="ncfr">
                 <MenuHeader className="menu_block" />
-                <ItemBlock className="menu_block" menu={this.state.menu} />
+                <MenuSection className="menu_block" menu={this.state.menu} />
             </div>
         )
     }

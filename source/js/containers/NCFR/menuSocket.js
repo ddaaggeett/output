@@ -21,6 +21,7 @@ export const menuSocket = (app) => {
 
             gsjson({
                 spreadsheetId: menuInfo.menuID,
+                worksheet: 'breakfast specials'
             })
             .then(function(data) {
                 socket.emit('mountMenuData', data)

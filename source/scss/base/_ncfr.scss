@@ -1,12 +1,69 @@
-.menu_block {
-    display: block;
-}
 #menu_header {
     width: 100%;
     margin-top: 40px;
     padding: 10px 0 15px 0;
     background-color: red;
-}
-#restaurant {
     text-align: center;
+}
+#ncfr {
+    background-color: black;
+    color: white;
+    height: 100%;
+}
+#menu_item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+.menu_block {
+    display: block;
+}
+#menu_item {
+    font-size: 18px;
+    font-family: Arial;
+}
+.item_detail {
+    margin: 5px;
+}
+#menu_section {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+#item_item {
+    font-size: 20px;
+    font-weight: bold;
+}
+#item_side {
+    margin-left: 20px;
+}
+#item_price {
+    font-size: 28px;
+    float: right;
+    margin-top: 10px;
+}
+.item_lr {
+    max-width: 80%;
+    display: inline-block;
+}
+#menu_buttons {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu_button {
+    display: inline-block;
+	text-align: center;
+	height: 45px;
+	width: 200px;
+	border: 2px solid green;
+	border-radius: 4px;
+    margin-left: 10px;
+	margin-right: 10px;
+	background-color: #000;
+	color: #0f0;
+}
+.menu_button p {
+	margin-top: 10px;
 }
