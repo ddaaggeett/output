@@ -4,7 +4,7 @@ const MenuHeader = () => {
 
     return (
         <div id="menu_header">
-            <h2 id="restaurant">North Chili Family Restaurant</h2>
+            <h1 id="restaurant">North Chili Family Restaurant</h1>
         </div>
     )
 }

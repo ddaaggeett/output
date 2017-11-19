@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { emailConfigs } from '../Contact/emailConfigs'
 
 import MenuHeader from '../../components/MenuHeader'
+import ItemBlock from '../../components/ItemBlock'
 
 class NCFR extends Component {
 
     constructor(props) {
         super(props)
 
-        this.menu = null
+        this.state = {
+            menu: []
+        }
 
         var io = require('socket.io-client')
         if (process.env.NODE_ENV == "production") {
@@ -19,6 +22,8 @@ class NCFR extends Component {
             console.log('socket.io host server is DEV mode')
             this.socket = io.connect('http://localhost:1235')
         }
+
+
     }
 
     componentWillMount() {
@@ -27,18 +32,21 @@ class NCFR extends Component {
 
     componentDidMount() {
         this.socket.on('mountMenuData', function(data) {
-            this.menu = data
-            console.log('menu = ',this.menu)
-        })
-
+            this.setState({
+                menu: data
+            }, function() {
+                console.log('mounted state:\n',this.state)
+            })
+        }.bind(this))
     }
 
     render () {
-
+        console.log('rendered state:\n',this.state)
 
         return (
             <div>
-                <MenuHeader />
+                <MenuHeader className="menu_block" />
+                <ItemBlock className="menu_block" menu={this.state.menu} />
             </div>
         )
     }
