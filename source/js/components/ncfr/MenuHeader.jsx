@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MenuHeader = () => {
+const MenuHeader = (props) => {
+
+    console.log('restaurantInfo\n',props.restaurantHome)
 
     return (
         <div>

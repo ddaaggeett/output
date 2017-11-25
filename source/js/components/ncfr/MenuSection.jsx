@@ -5,7 +5,7 @@ import MenuItem from './MenuItem'
 const MenuSection = (props) => {
     return (
         <ul id="menu_section">
-            {props.menu.map((item) => {
+            {props.breakfastSpecials.map((item) => {
                 return (
                     <MenuItem item={item} key={item.id} />
                 )

@@ -1,27 +1,41 @@
 import React, { Component } from 'react'
 import { emailConfigs } from '../Contact/emailConfigs'
 
-import MenuHeader from '../../components/ncfr/MenuHeader'
-import MenuSection from '../../components/ncfr/MenuSection'
+import RestaurantHome from '../../components/ncfr/RestaurantHome'
 
-const menuSections = {
-    restaurantHome: 1,
-    breakfastSpecials: 0,
-    breakfastItems: 3,
-    lunchSpecials: 4,
-    lunchItems: 5,
-    dinnerSpecials: 6,
-    dinnerItems: 7,
-    dessert: 8,
+const menuSections = {      // make sure to use index order in ./menuSocket
+    restaurantHome: 0,
+    breakfastSpecials: 1,
+    breakfastItems: 2,
+    lunchSpecials: 3,
+    lunchItems: 4,
+    dinnerSpecials: 5,
+    dinnerItems: 6,
+    dessert: 7,
 }
 
 class NCFR extends Component {
+
+    render () {
+        return (
+            <div id="ncfr">
+                <RestaurantHome restaurantHome={this.state.restaurantHome} breakfastSpecials={this.state.breakfastSpecials} />
+            </div>
+        )
+    }
 
     constructor(props) {
         super(props)
 
         this.state = {
-            menu: []
+            restaurantHome: [],
+            breakfastSpecials: [],
+            breakfastItems: [],
+            lunchSpecials: [],
+            lunchItems: [],
+            dinnerSpecials: [],
+            dinnerItems: [],
+            dessert: []
         }
 
         var io = require('socket.io-client')
@@ -45,7 +59,8 @@ class NCFR extends Component {
 
         this.socket.on('mountMenuData', function(data) {
             this.setState({
-                menu: data[menuSections.breakfastSpecials]
+                restaurantHome: data[menuSections.restaurantHome],
+                breakfastSpecials: data[menuSections.breakfastSpecials]
             }, function() {
                 console.log('mounted state:\n',this.state)
             })
@@ -61,16 +76,6 @@ class NCFR extends Component {
         document.getElementsByTagName('head')[0].appendChild(link);
     }
 
-    render () {
-        console.log('rendered state:\n',this.state)
-
-        return (
-            <div id="ncfr">
-                <MenuHeader className="menu_block" />
-                <MenuSection className="menu_block" menu={this.state.menu} />
-            </div>
-        )
-    }
 }
 
 export default NCFR
