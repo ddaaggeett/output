@@ -1,4 +1,15 @@
 import menuInfo from './menuInfo'
+import restaurantKeys from '../../../assets/keys/restaurantKeys'
+
+const menuSections = [
+    'breakfast specials',
+    'breakfast items',
+    'lunch specials',
+    'lunch items',
+    'dinner specials',
+    'dinner items',
+    'dessert'
+]
 
 export const menuSocket = (app) => {
 
@@ -20,8 +31,8 @@ export const menuSocket = (app) => {
             var gsjson = require('google-spreadsheet-to-json');
 
             gsjson({
-                spreadsheetId: menuInfo.menuID,
-                worksheet: 'breakfast specials'
+                spreadsheetId: restaurantKeys.ncfr,
+                worksheet: menuSections
             })
             .then(function(data) {
                 socket.emit('mountMenuData', data)

@@ -4,6 +4,17 @@ import { emailConfigs } from '../Contact/emailConfigs'
 import MenuHeader from '../../components/ncfr/MenuHeader'
 import MenuSection from '../../components/ncfr/MenuSection'
 
+const menuSections = {
+    restaurantHome: 1,
+    breakfastSpecials: 0,
+    breakfastItems: 3,
+    lunchSpecials: 4,
+    lunchItems: 5,
+    dinnerSpecials: 6,
+    dinnerItems: 7,
+    dessert: 8,
+}
+
 class NCFR extends Component {
 
     constructor(props) {
@@ -22,8 +33,6 @@ class NCFR extends Component {
             console.log('socket.io host server is DEV mode')
             this.socket = io.connect('http://localhost:1235')
         }
-
-
     }
 
     componentWillMount() {
@@ -31,13 +40,25 @@ class NCFR extends Component {
     }
 
     componentDidMount() {
+
+        this.handleBrowserTitleChange('NCFR')
+
         this.socket.on('mountMenuData', function(data) {
             this.setState({
-                menu: data
+                menu: data[menuSections.breakfastSpecials]
             }, function() {
                 console.log('mounted state:\n',this.state)
             })
         }.bind(this))
+    }
+
+    handleBrowserTitleChange = function(title) {
+        document.title = title
+        var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+        link.href = '../../../assets/img/food.ico';
+        document.getElementsByTagName('head')[0].appendChild(link);
     }
 
     render () {
