@@ -5,6 +5,7 @@ import Home from '../Home'
 import Projects from '../Projects'
 import Contact from '../Contact'
 import NCFR from '../NCFR'
+import Music from '../Music'
 
 export default class App extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class App extends Component {
             <Route path="/projects" component={Projects}/>
             <Route path="/contact" component={Contact}/>
             <Route path="/ncfr" component={NCFR}/>
+            <Route path="/music" component={Music}/>
         </div>
     );
   }

@@ -6,19 +6,6 @@ import { occupation } from './data'
 
 import WelcomeMat from '../WelcomeMat'
 
-var AudioPlayer = require('react-responsive-audio-player')
-
-var audioStyle = require('./audioplayer.scss')
-
-const playlist = [
-    {
-        url: '../../../assets/audio/20171010135430.wav',
-        displayText: 'just practice'
-    }
-]
-// reserved for <div id="center_content">
-// <AudioPlayer id="audio" playlist={playlist} autoplay={false} style={audioStyle} />
-
 class Home extends Component {
 
     showOccupation() {
