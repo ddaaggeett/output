@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
 import WelcomeMat from '../WelcomeMat'
 
-var audioStyle = require('./audioplayer.scss')
 var AudioPlayer = require('react-responsive-audio-player')
+var audioStyle = require('./audioplayer.scss')
 
 const playlist = [
     {
-        url: '../../../assets/audio/dude_you_need_to_tune.wav',
-        displayText: 'dude, you need to tune'
-    }
+        url: './source/assets/audio/tune.wav',
+        displayText: 'dude, you need to tune',
+    },
 ]
 
 class Music extends Component {
-
-    showOccupation() {
-        console.log("hello")
-    }
-
 
     render() {
 
@@ -28,7 +22,8 @@ class Music extends Component {
                 <WelcomeMat />
 
                 <div id="center_content">
-                    <AudioPlayer id="audio" playlist={playlist} autoplay={false} style={audioStyle} />
+                    <h2 className="topic">just practice</h2>
+                    <iframe className="center_item" id="video" width={560} height={315} src="https://www.youtube.com/embed/c-WBWQrpjmU" frameborder={0} allowfullscreen />
                 </div>
             </div>
         )
