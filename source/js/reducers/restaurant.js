@@ -1,5 +1,8 @@
 const initialState = {
-	atHome: true,
+	viewHome: true,
+	viewBreakfast: false,
+	viewLunchDinner: false,
+	viewDessert: false,
 	restaurantInfo: [],
 	restaurantHours: [],
 	breakfastSpecials: [],
@@ -28,6 +31,43 @@ export default function restaurant(state = initialState, action) {
                 dinnerItems: action.dinnerItems,
                 dessert: action.dessert
             }
+
+		case 'VIEW_BREAKFAST':
+			return {
+		        ...state,
+		        viewBreakfast: true,
+		        viewHome: false,
+		        viewLunchDinner: false,
+		        viewDessert: false
+		    }
+
+		case 'VIEW_LUNCH_DINNER':
+			return {
+		        ...state,
+		        viewBreakfast: false,
+		        viewHome: false,
+		        viewLunchDinner: true,
+		        viewDessert: false
+		    }
+
+		case 'VIEW_DESSERT':
+			return {
+		        ...state,
+		        viewBreakfast: false,
+		        viewHome: false,
+		        viewLunchDinner: false,
+		        viewDessert: true
+		    }
+
+		case 'VIEW_HOME':
+			return {
+		        ...state,
+		        viewBreakfast: false,
+		        viewHome: true,
+		        viewLunchDinner: false,
+		        viewDessert: false
+		    }
+
 
 		default:
 			return state

@@ -12,3 +12,8 @@ export function setSpreadsheetData(restaurantInfo, restaurantHours, breakfastSpe
         dessert
     }
 }
+export function viewBreakfast() {
+    return {
+        type: 'VIEW_BREAKFAST'
+    }
+}

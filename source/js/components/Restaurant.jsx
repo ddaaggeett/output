@@ -36,8 +36,6 @@ class Restaurant extends Component {
         this.socket.emit('getMenuData')
         this.socket.on('mountMenuData', function(data) {
 
-            console.log('fuck nerd\n',data[menuSections.restaurantInfo])
-
             this.props.setSpreadsheetData(
                 data[menuSections.restaurantInfo],
                 data[menuSections.restaurantHours],
@@ -75,7 +73,16 @@ class Restaurant extends Component {
         return (
             <div id="restaurant">
                 {
-                    restaurant.atHome ? <RestaurantHome restaurantInfo={restaurant.restaurantInfo} /> : <MenuHome breakfastSpecials={restaurant.breakfastSpecials} />
+                    restaurant.viewHome ? <RestaurantHome restaurantInfo={restaurant.restaurantInfo} /> : null
+                }
+                {
+                    restaurant.viewBreakfast ? <MenuHome breakfastSpecials={restaurant.breakfastSpecials} /> : null
+                }
+                {
+                    restaurant.viewLunchDinner ? <MenuHome dinnerSpecials={restaurant.dinnerSpecials} /> : null
+                }
+                {
+                    restaurant.viewDessert ? <MenuHome dessert={restaurant.dessert} /> : null
                 }
             </div>
         )
