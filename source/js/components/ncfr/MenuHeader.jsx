@@ -17,16 +17,15 @@ const MenuHeader = (props) => {
             <div id="menu_buttons">
                 <div className="menu_button" onClick={() => {
                         console.log('breakfast clicked')
-                        console.log(this.props)
-                        this.props.viewBreakfast()
+                        this.props.viewBreakfastMenu()
                     }}><p>breakfast</p></div>
                 <div className="menu_button" onClick={() => {
                         console.log('lunch/dinner clicked')
-                        this.props.viewLunchDinner()
+                        this.props.viewLunchDinnerMenu()
                     }}><p>lunch  | dinner</p></div>
                 <div className="menu_button" onClick={() => {
                         console.log('dessert clicked')
-                        this.props.viewDessert()
+                        this.props.viewDessertMenu()
                     }}><p>dessert</p></div>
             </div>
         </div>
