@@ -68,7 +68,7 @@
     display: inline-block;
 }
 #menu_buttons {
-    width: 450px;
+    width: 680px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -86,4 +86,7 @@
 }
 .menu_button p {
 	margin-top: 10px;
+}
+.menu_button:hover {
+    cursor: pointer;
 }

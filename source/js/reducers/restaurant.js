@@ -1,6 +1,6 @@
 const initialState = {
-	viewHome: true,
-	viewBreakfast: false,
+	viewHome: false,
+	viewBreakfast: true,
 	viewLunchDinner: false,
 	viewDessert: false,
 	restaurantInfo: [],
@@ -33,6 +33,7 @@ export default function restaurant(state = initialState, action) {
             }
 
 		case 'VIEW_BREAKFAST':
+			console.log('reducer working')
 			return {
 		        ...state,
 		        viewBreakfast: true,

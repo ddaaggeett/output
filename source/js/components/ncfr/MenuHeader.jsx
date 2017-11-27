@@ -3,14 +3,31 @@ import { Link } from 'react-router-dom'
 
 const MenuHeader = (props) => {
 
-    console.log('restaurantInfo\n',props.restaurantInfo)
-
     return (
         <div>
-            <h1 id="menu_header">North Chili Family Restaurant</h1>
+            <h1 id="menu_header">{props.restaurantInfo.map((tableline) => {
+                if( tableline.item == 'name' ) {
+                    return (
+                        <div>
+                            {tableline.value}
+                        </div>
+                    )
+                }
+            })}</h1>
             <div id="menu_buttons">
-                <Link to={'/ncfr/breakfast'}><div className="menu_button"><p>breakfast</p></div></Link>
-                <Link to={'/ncfr/dinner'}><div className="menu_button"><p>dinner</p></div></Link>
+                <div className="menu_button" onClick={() => {
+                        console.log('breakfast clicked')
+                        console.log(this.props)
+                        this.props.viewBreakfast()
+                    }}><p>breakfast</p></div>
+                <div className="menu_button" onClick={() => {
+                        console.log('lunch/dinner clicked')
+                        this.props.viewLunchDinner()
+                    }}><p>lunch  | dinner</p></div>
+                <div className="menu_button" onClick={() => {
+                        console.log('dessert clicked')
+                        this.props.viewDessert()
+                    }}><p>dessert</p></div>
             </div>
         </div>
     )
