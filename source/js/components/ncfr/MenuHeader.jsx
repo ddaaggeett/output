@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const MenuHeader = (props) => {
 
-    console.log('restaurantInfo\n',props.restaurantHome)
+    console.log('restaurantInfo\n',props.restaurantInfo)
 
     return (
         <div>

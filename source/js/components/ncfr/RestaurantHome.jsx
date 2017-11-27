@@ -10,7 +10,7 @@ const RestaurantHome = (props) => {
     return (
         <div id="restaurant_home">
             <h1 className="restaurant_home_item">WELCOME TO</h1>
-            <h1 className="restaurant_home_item" id="restaurant_name">{props.restaurantHome.map((tableline) => {
+            <h1 className="restaurant_home_item" id="restaurant_name">{props.restaurantInfo.map((tableline) => {
                 if( tableline.item == 'name' ) {
                     return (
                         <div>

@@ -34,29 +34,29 @@ class Restaurant extends Component {
 
     componentWillMount() {
         this.socket.emit('getMenuData')
+        this.socket.on('mountMenuData', function(data) {
+
+            console.log('fuck nerd\n',data[menuSections.restaurantInfo])
+
+            this.props.setSpreadsheetData(
+                data[menuSections.restaurantInfo],
+                data[menuSections.restaurantHours],
+                data[menuSections.breakfastSpecials],
+                data[menuSections.breakfastItems],
+                data[menuSections.lunchSpecials],
+                data[menuSections.lunchItems],
+                data[menuSections.dinnerSpecials],
+                data[menuSections.dinnerItems],
+                data[menuSections.dessert],
+            )
+
+        }.bind(this))
     }
 
     componentDidMount() {
 
         this.handleBrowserTitleChange('NCFR')
 
-        this.socket.on('mountMenuData', function(data) {
-
-            console.log(data[menuSections.restaurantInfo])
-
-            // setSpreadsheetData(
-            //     data[menuSections.restaurantInfo],
-            //     data[menuSections.restaurantHours],
-            //     data[menuSections.breakfastSpecials],
-            //     data[menuSections.breakfastItems],
-            //     data[menuSections.lunchSpecials],
-            //     data[menuSections.lunchItems],
-            //     data[menuSections.dinnerSpecials],
-            //     data[menuSections.dinnerItems],
-            //     data[menuSections.dessert],
-            // )
-
-        }.bind(this))
     }
 
     handleBrowserTitleChange = function(title) {
@@ -70,12 +70,12 @@ class Restaurant extends Component {
 
     render () {
 
-        const { restaurant, setSpreadsheetData } = this.props
+        const { restaurant } = this.props
 
         return (
             <div id="restaurant">
                 {
-                    restaurant.atHome ? <RestaurantHome restaurantHome={restaurant.restaurantHome} /> : <MenuHome breakfastSpecials={restaurant.breakfastSpecials} />
+                    restaurant.atHome ? <RestaurantHome restaurantInfo={restaurant.restaurantInfo} /> : <MenuHome breakfastSpecials={restaurant.breakfastSpecials} />
                 }
             </div>
         )

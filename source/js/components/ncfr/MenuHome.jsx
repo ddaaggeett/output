@@ -11,7 +11,7 @@ const MenuHome = (props) => {
         <div>
             <MenuHeader
                 className="menu_block"
-                restaurantHome={props.restaurantHome} />
+                restaurantInfo={props.restaurantInfo} />
             <MenuSection
                 className="menu_block"
                 breakfastSpecials={props.breakfastSpecials} />
