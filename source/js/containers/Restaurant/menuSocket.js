@@ -1,8 +1,8 @@
-import menuInfo from './menuInfo'
 import restaurantKeys from '../../../assets/keys/restaurantKeys'
 
 const menuSections = [      //  as read from google document
     'restaurant home',
+    'hours',
     'breakfast specials',
     'breakfast items',
     'lunch specials',
@@ -48,6 +48,4 @@ export const menuSocket = (app) => {
             console.log("Client has disconnected");
         });
     });
-
-
 }

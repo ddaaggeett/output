@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { emailConfigs } from '../Contact/emailConfigs'
+import { emailConfigs } from '../containers/Contact/emailConfigs'
 
-import RestaurantHome from '../../components/ncfr/RestaurantHome'
-import MenuHome from '../../components/ncfr/MenuHome'
+import RestaurantHome from './ncfr/RestaurantHome'
+import MenuHome from './ncfr/MenuHome'
 
 const menuSections = {      // make sure to use index order in ./menuSocket
     restaurantInfo: 0,
@@ -18,30 +18,8 @@ const menuSections = {      // make sure to use index order in ./menuSocket
 
 class Restaurant extends Component {
 
-    render () {
-        return (
-            <div id="restaurant">
-                {
-                    this.state.atHome ? <RestaurantHome restaurantHome={this.state.restaurantHome} /> : <MenuHome breakfastSpecials={this.state.breakfastSpecials} />
-                }
-            </div>
-        )
-    }
-
     constructor(props) {
         super(props)
-
-        this.state = {
-            atHome: false,
-            restaurantInfo: [],
-            breakfastSpecials: [],
-            breakfastItems: [],
-            lunchSpecials: [],
-            lunchItems: [],
-            dinnerSpecials: [],
-            dinnerItems: [],
-            dessert: []
-        }
 
         var io = require('socket.io-client')
         if (process.env.NODE_ENV == "production") {
@@ -64,7 +42,9 @@ class Restaurant extends Component {
 
         this.socket.on('mountMenuData', function(data) {
 
-            // this.props.setSpreadsheetData(
+            console.log(data[menuSections.restaurantInfo])
+
+            // setSpreadsheetData(
             //     data[menuSections.restaurantInfo],
             //     data[menuSections.restaurantHours],
             //     data[menuSections.breakfastSpecials],
@@ -76,12 +56,6 @@ class Restaurant extends Component {
             //     data[menuSections.dessert],
             // )
 
-            this.setState({
-                restaurantHome: data[menuSections.restaurantHome],
-                breakfastSpecials: data[menuSections.breakfastSpecials]
-            }, function() {
-                console.log('mounted state:\n',this.state)
-            })
         }.bind(this))
     }
 
@@ -94,6 +68,18 @@ class Restaurant extends Component {
         document.getElementsByTagName('head')[0].appendChild(link);
     }
 
+    render () {
+
+        const { restaurant, setSpreadsheetData } = this.props
+
+        return (
+            <div id="restaurant">
+                {
+                    restaurant.atHome ? <RestaurantHome restaurantHome={restaurant.restaurantHome} /> : <MenuHome breakfastSpecials={restaurant.breakfastSpecials} />
+                }
+            </div>
+        )
+    }
 }
 
 export default Restaurant
