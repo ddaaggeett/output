@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { emailConfigs } from '../Contact/emailConfigs'
 
 import RestaurantHome from '../../components/ncfr/RestaurantHome'
+import MenuHome from '../../components/ncfr/MenuHome'
 
 const menuSections = {      // make sure to use index order in ./menuSocket
     restaurantHome: 0,
@@ -14,12 +15,14 @@ const menuSections = {      // make sure to use index order in ./menuSocket
     dessert: 7,
 }
 
-class NCFR extends Component {
+class Restaurant extends Component {
 
     render () {
         return (
-            <div id="ncfr">
-                <RestaurantHome restaurantHome={this.state.restaurantHome} breakfastSpecials={this.state.breakfastSpecials} />
+            <div id="restaurant">
+                {
+                    this.state.atHome ? <RestaurantHome restaurantHome={this.state.restaurantHome} /> : <MenuHome breakfastSpecials={this.state.breakfastSpecials} />
+                }
             </div>
         )
     }
@@ -28,6 +31,7 @@ class NCFR extends Component {
         super(props)
 
         this.state = {
+            atHome: true,
             restaurantHome: [],
             breakfastSpecials: [],
             breakfastItems: [],
@@ -55,7 +59,7 @@ class NCFR extends Component {
 
     componentDidMount() {
 
-        this.handleBrowserTitleChange('NCFR')
+        this.handleBrowserTitleChange('Restaurant')
 
         this.socket.on('mountMenuData', function(data) {
             this.setState({
@@ -78,4 +82,4 @@ class NCFR extends Component {
 
 }
 
-export default NCFR
+export default Restaurant
