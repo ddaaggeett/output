@@ -1,7 +1,10 @@
 import React from 'react'
+// import { ViewHome } from './ViewHome'
 import { Link } from 'react-router-dom'
 
 const MenuHeader = (props) => {
+
+    console.log('actions\n',props)
     return (
         <div>
             <h1 id="menu_header">{props.restaurantInfo.map((tableline) => {
@@ -14,9 +17,9 @@ const MenuHeader = (props) => {
                 }
             })}</h1>
             <div id="menu_buttons">
-                <div className="menu_button" onClick={() => {props.actions.viewBreakfastMenu()}}><p>breakfast</p></div>
-                <div className="menu_button" onClick={() => {props.actions.viewLunchDinnerMenu()}}><p>lunch | dinner</p></div>
-                <div className="menu_button" onClick={() => {props.actions.viewDessertMenu()}}><p>dessert</p></div>
+                <div className="menu_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>breakfast</p></div>
+                <div className="menu_button" onClick={() => {props.actions.action_viewLunchDinner()}}><p>lunch | dinner</p></div>
+                <div className="menu_button" onClick={() => {props.actions.action_viewDessert()}}><p>dessert</p></div>
             </div>
         </div>
     )

@@ -7,7 +7,7 @@ const MenuSection = (props) => {
     // console.log('MenuSection props\n',props)
     return (
         <ul id="menu_section">
-            {props.section.map((item) => {
+            {props.list.map((item) => {
                 return (
                     <MenuItem item={item} key={item.id} />
                 )

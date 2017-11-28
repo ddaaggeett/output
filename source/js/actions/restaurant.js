@@ -12,22 +12,22 @@ export function setSpreadsheetData(restaurantInfo, restaurantHours, breakfastSpe
         dessert
     }
 }
-export function viewBreakfastMenu() {
+export function action_viewBreakfast() {
     return {
         type: 'VIEW_BREAKFAST'
     }
 }
-export function viewLunchDinnerMenu() {
+export function action_viewLunchDinner() {
     return {
         type: 'VIEW_LUNCH_DINNER'
     }
 }
-export function viewDessertMenu() {
+export function action_viewDessert() {
     return {
         type: 'VIEW_DESSERT'
     }
 }
-export function viewHomeMenu() {
+export function action_viewHome() {
     return {
         type: 'VIEW_HOME'
     }

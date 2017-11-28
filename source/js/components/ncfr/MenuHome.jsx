@@ -1,10 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import ViewSoretedMenuList from './ViewSoretedMenuList'
+// import ViewLunchDinner from './ViewLunchDinner'
+// import ViewDessert from './ViewDessert'
 import MenuHeader from './MenuHeader'
 import MenuSection from './MenuSection'
 
 const MenuHome = (props) => {
+
+    console.log('about to split up sections\n',props)
+
     return (
         <div>
             <MenuHeader
@@ -12,9 +16,9 @@ const MenuHome = (props) => {
                 actions={props.actions}
                 restaurant={props.restaurant}
                 restaurantInfo={props.restaurantInfo} />
-            <MenuSection
-                className="menu_block"
-                section={props.section} />
+
+            <ViewSoretedMenuList restaurant={props.restaurant} />
+
         </div>
     )
 }
