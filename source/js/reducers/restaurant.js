@@ -1,6 +1,6 @@
 const initialState = {
-	viewHome: false,
-	viewBreakfast: true,
+	viewHome: true,
+	viewBreakfast: false,
 	viewLunchDinner: false,
 	viewDessert: false,
 	restaurantInfo: [],

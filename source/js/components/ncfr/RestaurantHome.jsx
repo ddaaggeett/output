@@ -20,6 +20,7 @@ const RestaurantHome = (props) => {
                 }
             })}</h1>
 
+        <div className="nav_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>view menu</p></div>
 
         <div id="hours_of_operation">
                 <h4>hours of operation</h4>

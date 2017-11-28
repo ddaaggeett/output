@@ -72,10 +72,7 @@ class Restaurant extends Component {
 
         return (
             <div id="restaurant">
-                { restaurant.viewHome ? <RestaurantHome actions={this.props} restaurantInfo={restaurant.restaurantInfo} /> : null }
-                { restaurant.viewBreakfast ? <MenuHome actions={this.props} restaurant={restaurant} restaurantInfo={restaurant.restaurantInfo} /> : null }
-                { restaurant.viewLunchDinner ? <MenuHome actions={this.props} restaurant={restaurant} restaurantInfo={restaurant.restaurantInfo} /> : null }
-                { restaurant.viewDessert ? <MenuHome actions={this.props} restaurant={restaurant} restaurantInfo={restaurant.restaurantInfo} /> : null }
+                { restaurant.viewHome ? <RestaurantHome actions={this.props} restaurantInfo={restaurant.restaurantInfo} /> : <MenuHome actions={this.props} restaurant={restaurant} restaurantInfo={restaurant.restaurantInfo} /> }
             </div>
         )
     }

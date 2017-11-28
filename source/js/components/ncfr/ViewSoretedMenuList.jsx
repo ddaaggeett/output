@@ -2,11 +2,10 @@ import React from 'react'
 import MenuSection from './MenuSection'
 
 const ViewSoretedMenuList = (props) => {
-    // console.log('ViewBreakfast props\n',props)
 
     if(props.restaurant.viewDessert) {
         return (
-            <div>
+            <div id="sortedMenuList">
                 <MenuSection
                     className="menu_block"
                     list={props.restaurant.dessert} />
@@ -15,7 +14,7 @@ const ViewSoretedMenuList = (props) => {
     }
     else if(props.restaurant.viewBreakfast) {
         return (
-            <div>
+            <div id="sortedMenuList">
                 <MenuSection
                     className="menu_block"
                     list={props.restaurant.breakfastSpecials} />
@@ -27,7 +26,7 @@ const ViewSoretedMenuList = (props) => {
     }
     else if(props.restaurant.viewLunchDinner) {
         return (
-            <div>
+            <div id="sortedMenuList">
                 <MenuSection
                     className="menu_block"
                     list={props.restaurant.dinnerSpecials} />

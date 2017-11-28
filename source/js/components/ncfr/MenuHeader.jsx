@@ -1,5 +1,4 @@
 import React from 'react'
-// import { ViewHome } from './ViewHome'
 import { Link } from 'react-router-dom'
 
 const MenuHeader = (props) => {
@@ -16,10 +15,13 @@ const MenuHeader = (props) => {
                     )
                 }
             })}</h1>
+
+        <div id="nav_viewHome" className="nav_button" onClick={() => {props.actions.action_viewHome()}}><p>back</p></div>
+
             <div id="menu_buttons">
-                <div className="menu_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>breakfast</p></div>
-                <div className="menu_button" onClick={() => {props.actions.action_viewLunchDinner()}}><p>lunch | dinner</p></div>
-                <div className="menu_button" onClick={() => {props.actions.action_viewDessert()}}><p>dessert</p></div>
+                <div id="button_breakfast" className="menu_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>breakfast</p></div>
+                <div id="button_lunch_dinner" className="menu_button" onClick={() => {props.actions.action_viewLunchDinner()}}><p>lunch | dinner</p></div>
+                <div id="button_dessert" className="menu_button" onClick={() => {props.actions.action_viewDessert()}}><p>dessert</p></div>
             </div>
         </div>
     )

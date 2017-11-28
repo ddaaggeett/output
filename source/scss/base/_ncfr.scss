@@ -26,9 +26,11 @@
     text-align: center;
 }
 #restaurant {
+    background-size: cover;
     background-color: black;
     color: white;
     height: 100%;
+    padding-bottom: 1000px;
 }
 #menu_item {
     margin-bottom: 30px;
@@ -44,6 +46,9 @@
 }
 .item_detail {
     margin: 5px;
+}
+#sortedMenuList {
+    margin-top: 50px;
 }
 #menu_section {
     list-style-type: none;
@@ -82,11 +87,49 @@
     margin-left: 10px;
 	margin-right: 10px;
 	background-color: #000;
-	color: #0f0;
 }
 .menu_button p {
 	margin-top: 10px;
 }
+.nav_button p {
+	margin-top: 10px;
+}
 .menu_button:hover {
+    background-color: #282828;
+    cursor: pointer;
+}
+#button_breakfast {
+    color: orange;
+}
+#button_lunch_dinner {
+    color: red;
+}
+#button_dessert {
+    color: yellow;
+}
+.nav_button {
+    display: inline-block;
+	text-align: center;
+	height: 45px;
+	width: 200px;
+	border: 2px solid green;
+	border-radius: 4px;
+    margin-left: 10px;
+	margin-right: 10px;
+	background-color: black;
+}
+#nav_viewHome {
+    position: fixed;
+    left: 30px;
+    top: 200px;
+    height: 45px;
+	width: 100px;
+	border: 2px solid green;
+	border-radius: 4px;
+    margin-left: 10px;
+	margin-right: 10px;
+}
+.nav_button:hover {
+    background-color: #282828;
     cursor: pointer;
 }
