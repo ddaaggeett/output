@@ -7,9 +7,9 @@ import transit from 'transit-immutable-js';
 
 import 'babel-polyfill';
 
-import configureStore from 'config/store';
-import getServerHtml from 'config/server-html';
-import App from 'containers/App';
+import configureStore from './config/store';
+import getServerHtml from './config/server-html';
+import App from './containers/App';
 
 import { socketIO_setup } from './containers/Contact/emailSocket'
 import { menuSocket } from './containers/Restaurant/menuSocket'
@@ -31,6 +31,8 @@ app.use((req, res) => {
 
   // Context is passed to the StaticRouter and it will attach data to it directly
   const context = {};
+
+  console.log('stooore\n',store)
 
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={ store }>

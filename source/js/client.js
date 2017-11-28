@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'babel-polyfill';
 
-import configureStore from 'config/store';
-import App from 'containers/App';
+import configureStore from './config/store';
+import App from './containers/App';
 
 import es6Promise from 'es6-promise';
 import 'isomorphic-fetch';
@@ -19,6 +19,7 @@ es6Promise.polyfill();
 const store = configureStore();
 
 const render = Component => {
+
     ReactDOM.render(
         <AppContainer>
             <Provider store={ store }>

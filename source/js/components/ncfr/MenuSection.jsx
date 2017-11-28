@@ -4,7 +4,7 @@ import MenuItem from './MenuItem'
 
 const MenuSection = (props) => {
 
-    console.log('loading section\n',props.section)
+    // console.log('MenuSection props\n',props)
     return (
         <ul id="menu_section">
             {props.section.map((item) => {
