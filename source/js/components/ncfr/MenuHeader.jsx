@@ -16,7 +16,7 @@ const MenuHeader = (props) => {
                 }
             })}</h1>
 
-        <div id="nav_viewHome" className="nav_button" onClick={() => {props.actions.action_viewHome()}}><p>back</p></div>
+        <div id="nav_viewHome" className="nav_button" onClick={() => {props.actions.action_viewHome()}}><p>home</p></div>
 
             <div id="menu_buttons">
                 <div id="button_breakfast" className="menu_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>breakfast</p></div>

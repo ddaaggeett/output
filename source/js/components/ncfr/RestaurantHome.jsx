@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 
 import MenuHeader from './MenuHeader'
 import MenuSection from './MenuSection'
+import Schedule from './Schedule'
 
 
 const RestaurantHome = (props) => {
+
+    console.log('hours\n',props)
 
     return (
         <div id="restaurant_home">
@@ -20,11 +23,19 @@ const RestaurantHome = (props) => {
                 }
             })}</h1>
 
-        <div className="nav_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>view menu</p></div>
+            <div className="nav_button" onClick={() => {props.actions.action_viewBreakfast()}}><p>view menu</p></div>
 
-        <div id="hours_of_operation">
-                <h4>hours of operation</h4>
-
+            <div>
+                <h4 id="schedule_header" className="schedule_container_item">{props.restaurantInfo.map((tableline) => {
+                    if( tableline.item == 'slogan' ) {
+                        return (
+                            <div>
+                                {tableline.value}
+                            </div>
+                        )
+                    }
+                })}</h4>
+                <Schedule className="schedule_container_item" restaurant={props.restaurant} />
             </div>
 
         </div>

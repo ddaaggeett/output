@@ -32,8 +32,6 @@ app.use((req, res) => {
   // Context is passed to the StaticRouter and it will attach data to it directly
   const context = {};
 
-  console.log('stooore\n',store)
-
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={ store }>
         <StaticRouter location={ req.url } context={ context }>

@@ -1,16 +1,11 @@
 #restaurant_name {
     color: orange;
 }
-#hours_of_operation {
-    position: absolute;
-    bottom: 50%;
-    left: 20%;
-}
 .restaurant_home_item {
     display: block;
 }
 #restaurant_home {
-    position: absolute;
+    // position: absolute;
     width: 100%;
     height: 100%;
     margin-top: 0;
@@ -26,6 +21,9 @@
     text-align: center;
 }
 #restaurant {
+    box-sizing: border-box;
+    border: 25px solid red;
+    border-top: 35px solid red;
     background-size: cover;
     background-color: black;
     color: white;
