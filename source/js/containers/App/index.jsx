@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom'
 import Home from '../Home'
 import Projects from '../Projects'
 import Contact from '../Contact'
-import NCFR from '../NCFR'
 import Music from '../Music'
+import RestaurantPage from '../RestaurantPage'
 
 export default class App extends Component {
   render() {
@@ -14,8 +14,8 @@ export default class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/projects" component={Projects}/>
             <Route path="/contact" component={Contact}/>
-            <Route path="/ncfr" component={NCFR}/>
             <Route path="/music" component={Music}/>
+            <Route path="/ncfr" component={RestaurantPage}/>
         </div>
     );
   }

@@ -12,7 +12,7 @@ import logger from 'dev/logger';
 import transit from 'transit-immutable-js';
 
 
-import rootReducer from 'reducers';
+import rootReducer from '../reducers';
 
 const isProduction = process.env.NODE_ENV === 'production';
 

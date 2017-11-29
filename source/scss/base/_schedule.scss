@@ -1,0 +1,44 @@
+#schedule_container {
+    position: absolute;
+    width: 500px;
+    top: 35%;
+    left: 20%;
+    padding: 0;
+    font-weight: bold;
+}
+.schedule_container_item {
+    display: block;
+}
+#schedule {
+    list-style-type: none;
+    font-size: 16px;
+}
+#schedule_header {
+    padding-bottom: 18px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 3px solid white;
+}
+.schedule_item {
+    display: block;
+    height: 30px;
+}
+.schedule_line_item {
+    position: absolute;
+    display: inline-block;
+    margin: 0;
+    margin-left: 0;
+}
+#day {
+    right: 50%;
+    // float: left;
+    text-align: right;
+    color:black;
+}
+#time {
+    color: white;
+    left: 50%;
+    margin-left: 25px;
+    text-align: left;
+}

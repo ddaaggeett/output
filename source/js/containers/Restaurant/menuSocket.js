@@ -1,4 +1,16 @@
-import menuInfo from './menuInfo'
+import restaurantKeys from '../../../assets/keys/restaurantKeys'
+
+const menuSections = [      //  as read from google document
+    'restaurant home',
+    'hours',
+    'breakfast specials',
+    'breakfast items',
+    'lunch specials',
+    'lunch items',
+    'dinner specials',
+    'dinner items',
+    'dessert'
+]
 
 export const menuSocket = (app) => {
 
@@ -20,8 +32,8 @@ export const menuSocket = (app) => {
             var gsjson = require('google-spreadsheet-to-json');
 
             gsjson({
-                spreadsheetId: menuInfo.menuID,
-                worksheet: 'breakfast specials'
+                spreadsheetId: restaurantKeys.menuID,
+                worksheet: menuSections
             })
             .then(function(data) {
                 socket.emit('mountMenuData', data)
@@ -36,6 +48,4 @@ export const menuSocket = (app) => {
             console.log("Client has disconnected");
         });
     });
-
-
 }

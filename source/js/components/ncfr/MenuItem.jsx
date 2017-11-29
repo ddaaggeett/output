@@ -4,6 +4,8 @@ import Side from './Side'
 import Price from './Price'
 
 const MenuItem = (props) => {
+
+    // console.log('MenuItem props\n',props)
     return (
         <li id="menu_item">
             <div className="item_lr">
