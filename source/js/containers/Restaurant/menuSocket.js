@@ -32,7 +32,7 @@ export const menuSocket = (app) => {
             var gsjson = require('google-spreadsheet-to-json');
 
             gsjson({
-                spreadsheetId: restaurantKeys.menuID,
+                spreadsheetId: restaurantKeys.client_00000,
                 worksheet: menuSections
             })
             .then(function(data) {

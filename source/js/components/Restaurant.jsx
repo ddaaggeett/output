@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { emailConfigs } from '../containers/Contact/emailConfigs'
 
-import RestaurantHome from './ncfr/RestaurantHome'
-import MenuHome from './ncfr/MenuHome'
+import RestaurantHome from './components_dumb/RestaurantHome'
+import MenuHome from './components_dumb/MenuHome'
 
 const menuSections = {      // make sure to use index order in ./menuSocket
     restaurantInfo: 0,
